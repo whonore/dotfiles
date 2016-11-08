@@ -33,9 +33,10 @@ set textwidth=80
 set mouse=a
 set history=1000
 set backspace=2
+
 set nrformats=hex
 if v:version > 703
-    nrformats+=bin
+    set nrformats+=bin
 endif
 
 set clipboard=unnamedplus,autoselect
