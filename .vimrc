@@ -37,6 +37,8 @@ set nrformats=bin,hex
 
 set clipboard=unnamedplus,autoselect
 
+map Y y$
+
 nnoremap <leader>ss :setlocal spell!<CR>
 
 nnoremap <Up> <Nop>
@@ -47,6 +49,13 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 autocmd BufWritePre * :mark t
 autocmd BufWritePre * :%s/\s\+$//ge
