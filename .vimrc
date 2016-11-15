@@ -21,6 +21,7 @@ set lazyredraw
 set showmatch
 set showcmd
 set wildmode=longest,list
+set visualbell
 
 set incsearch
 set hlsearch
