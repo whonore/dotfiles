@@ -35,7 +35,7 @@ set history=1000
 set backspace=2
 
 set nrformats=hex
-if v:version > 703
+if v:version > 704 || v:version == 704 && has("patch1027")
     set nrformats+=bin
 endif
 
