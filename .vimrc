@@ -55,6 +55,11 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
+nnoremap <C-Left> :previous<CR>
+nnoremap <C-Right> :next<CR>
+nnoremap <C-Up> :first<CR>
+nnoremap <C-Down> :last<CR>
+
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
