@@ -61,7 +61,7 @@ hi MatchParen   ctermfg=NONE ctermbg=68   cterm=NONE
 "hi TabLineSel
 
 "Spelling
-"hi SpellBad
+hi SpellBad     ctermfg=9    ctermbg=11   cterm=underline
 "hi SpellCap
 "hi SpellLocal
 "hi SpellRare
@@ -87,8 +87,8 @@ hi Number       ctermfg=197  ctermbg=NONE cterm=NONE
 hi Operator     ctermfg=214  ctermbg=NONE cterm=NONE
 "hi PreConduit
 "hi Repeat
-"hi Special      ctermfg=222  ctermbg=NONE cterm=NONE
-hi SpecialChar   ctermfg=222
+"hi Special     ctermfg=222  ctermbg=NONE cterm=NONE
+hi SpecialChar  ctermfg=222  ctermbg=NONE cterm=NONE
 "hi SpecialComment
 "hi StorageClass
 hi String       ctermfg=76   ctermbg=NONE cterm=NONE
