@@ -63,7 +63,7 @@ hi MatchParen   ctermfg=NONE ctermbg=68   cterm=NONE
 "Spelling
 hi SpellBad     ctermfg=9    ctermbg=11   cterm=underline
 "hi SpellCap
-"hi SpellLocal
+hi SpellLocal   ctermfg=14   ctermbg=11   cterm=underline
 "hi SpellRare
 
 "Links
