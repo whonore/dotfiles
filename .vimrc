@@ -35,8 +35,19 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Uses autocmd to override plugins that might try to set textwidth
 set nowrap
 autocmd FileType * setlocal textwidth=0
-hi OverLong ctermfg=NONE ctermbg=208
+
+let over=0
+hi OverLong ctermfg=NONE ctermbg=NONE
+function ToggleOver()
+    let g:over = !g:over
+    if g:over
+        hi OverLong ctermfg=NONE ctermbg=208
+    else
+        hi clear OverLong
+    endif
+endfunction
 match OverLong /\%80v.\+/
+nnoremap <leader>oo :call ToggleOver()<CR>
 
 " Other Misc Settings
 set mouse=a
