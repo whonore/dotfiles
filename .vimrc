@@ -86,6 +86,8 @@ nnoremap <C-Up> :first<CR>
 nnoremap <C-Down> :last<CR>
 
 " Remove trailing whitespace on save
-autocmd BufWritePre * :@norm mt
+augroup trimws
+autocmd BufWritePre * :norm mt
 autocmd BufWritePre * :%s/\s\+$//ge
-autocmd BufWritePost * :@norm `t
+autocmd BufWritePost * :norm `t
+augroup END
