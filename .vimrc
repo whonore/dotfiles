@@ -85,6 +85,12 @@ nnoremap <C-Right> :next<CR>
 nnoremap <C-Up> :first<CR>
 nnoremap <C-Down> :last<CR>
 
+" Make ctrl-arrows work in screen
+nnoremap <ESC>[1;5D :previous<CR>
+nnoremap <ESC>[1;5C :next<CR>
+nnoremap <ESC>[1;5A :first<CR>
+nnoremap <ESC>[1;5B :last<CR>
+
 " Remove trailing whitespace on save
 augroup trimws
 autocmd BufWritePre * :norm mt
