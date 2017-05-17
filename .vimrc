@@ -1,4 +1,17 @@
 set nocompatible
+
+" Check python version (N.B. Must come before pathogen#infect)
+if has('python')
+    let g:pyv = 2
+    command! -nargs=1 Py py <args>
+elseif has('python3')
+    let g:pyv = 3
+    command! -nargs=1 Py py3 <args>
+else
+    let g:pyv = 0
+    echo "Vim not compiled with python. Some plugins may be unavailable."
+endif
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -37,11 +50,11 @@ nnoremap <leader><space> :nohlsearch<CR>
 set nowrap
 autocmd FileType * setlocal textwidth=0
 
-let over=0
+let s:over=0
 hi OverLong ctermfg=NONE ctermbg=NONE
 function ToggleOver()
-    let g:over = !g:over
-    if g:over
+    let s:over = !s:over
+    if s:over
         hi OverLong ctermfg=NONE ctermbg=208
     else
         hi clear OverLong
@@ -100,4 +113,7 @@ autocmd BufWritePost * :norm g`t
 augroup END
 
 " Coquille mapping
-call coquille#LeaderMapping()
+try
+    call coquille#LeaderMapping()
+catch
+endtry
