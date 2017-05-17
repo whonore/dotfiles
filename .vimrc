@@ -1,4 +1,5 @@
 set nocompatible
+execute pathogen#infect()
 syntax on
 filetype plugin indent on
 colorscheme cobalt
@@ -95,5 +96,5 @@ nnoremap <ESC>[1;5B :last<CR>
 augroup trimws
 autocmd BufWritePre * :norm mt
 autocmd BufWritePre * :%s/\s\+$//ge
-autocmd BufWritePost * :norm `t
+autocmd BufWritePost * :norm g`t
 augroup END
