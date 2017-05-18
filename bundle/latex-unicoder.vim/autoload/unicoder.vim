@@ -967,6 +967,8 @@ let s:symbols = {
   \  "\\whitesquaretickright"     : "⟥",
   \  "\\llbracket"                : "⟦",
   \  "\\rrbracket"                : "⟧",
+  \  "\\llbrack"                  : "〚",
+  \  "\\rrbrack"                  : "〛",
   \  "\\langle"                   : "⟨",
   \  "\\rangle"                   : "⟩",
   \  "\\lang"                     : "⟪",
