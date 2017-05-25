@@ -2536,7 +2536,7 @@ function! unicoder#start(insert)
   execute 'normal! ' . how . s
 
   if a:insert > 0
-    startinsert!
+    startinsert
     normal! l
   endif
 endfunction
