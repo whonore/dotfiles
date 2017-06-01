@@ -98,3 +98,6 @@ autocmd BufWritePre * :norm mt
 autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufWritePost * :norm g`t
 augroup END
+
+" Commentary comment strings
+autocmd FileType coq setlocal commentstring=(*%s*)
