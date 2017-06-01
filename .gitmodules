@@ -6,4 +6,4 @@
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "bundle/latex-unicoder.vim"]
 	path = bundle/latex-unicoder.vim
-	url = https://github.com/joom/latex-unicoder.vim.git
+    url = https://github.com/whonore/latex-unicoder.vim.git
