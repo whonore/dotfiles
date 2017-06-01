@@ -117,3 +117,6 @@ try
     call coquille#LeaderMapping()
 catch
 endtry
+
+" Commentary comment strings
+autocmd FileType coq setlocal commentstring=(*%s*)

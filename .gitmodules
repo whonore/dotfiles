@@ -1,3 +1,9 @@
 [submodule "bundle/coquille"]
 	path = bundle/coquille
 	url = https://github.com/whonore/coquille.git
+[submodule "bundle/vim-commentary"]
+	path = bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "bundle/latex-unicoder.vim"]
+	path = bundle/latex-unicoder.vim
+	url = https://github.com/joom/latex-unicoder.vim.git
