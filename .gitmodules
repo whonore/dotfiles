@@ -7,3 +7,9 @@
 [submodule "bundle/latex-unicoder.vim"]
 	path = bundle/latex-unicoder.vim
     url = https://github.com/whonore/latex-unicoder.vim.git
+[submodule "bundle/coqtail"]
+	path = bundle/coqtail
+	url = https://github.com/whonore/Coqtail.git
+[submodule "bundle/vimbufsync"]
+	path = bundle/vimbufsync
+	url = https://github.com/let-def/vimbufsync.git

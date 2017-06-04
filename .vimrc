@@ -1,17 +1,4 @@
 set nocompatible
-
-" Check python version (N.B. Must come before pathogen#infect)
-if has('python')
-    let g:pyv = 2
-    command! -nargs=1 Py py <args>
-elseif has('python3')
-    let g:pyv = 3
-    command! -nargs=1 Py py3 <args>
-else
-    let g:pyv = 0
-    echo "Vim not compiled with python. Some plugins may be unavailable."
-endif
-
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -112,9 +99,9 @@ autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufWritePost * :norm g`t
 augroup END
 
-" Coquille mapping
+" Coqtail mapping
 try
-    call coquille#LeaderMapping()
+    call coqtail#Mapping()
 catch
 endtry
 
