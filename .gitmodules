@@ -1,6 +1,3 @@
-[submodule "bundle/coquille"]
-	path = bundle/coquille
-	url = https://github.com/whonore/coquille.git
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
