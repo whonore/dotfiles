@@ -43,8 +43,10 @@ function ToggleOver()
     let s:over = !s:over
     if s:over
         hi OverLong ctermfg=NONE ctermbg=208
+        echom "Check over on"
     else
         hi clear OverLong
+        echom "Check over off"
     endif
 endfunction
 match OverLong /\%80v.\+/
@@ -93,11 +95,27 @@ nnoremap <ESC>[1;5A :first<CR>
 nnoremap <ESC>[1;5B :last<CR>
 
 " Remove trailing whitespace on save
-augroup trimws
-autocmd BufWritePre * :norm mt
-autocmd BufWritePre * :%s/\s\+$//ge
-autocmd BufWritePost * :norm g`t
-augroup END
+let s:trimws = 0
+function TrimWS(first)
+    let s:trimws = !s:trimws
+    if s:trimws
+        augroup trimws
+            autocmd!
+            autocmd BufWritePre * :norm mt
+            autocmd BufWritePre * :%s/\s\+$//ge
+            autocmd BufWritePost * :norm g`t
+        augroup END
+        if !a:first
+            echom "Trim WS on"
+        endif
+    else
+        autocmd! trimws
+        augroup! trimws
+        echom "Trim WS off"
+    end
+endfunction
+call TrimWS(1)
+nnoremap <leader>tw :call TrimWS(0)<CR>
 
 " Coqtail mapping
 try
