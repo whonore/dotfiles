@@ -4,3 +4,6 @@
 [submodule "bundle/latex-unicoder.vim"]
 	path = bundle/latex-unicoder.vim
     url = https://github.com/whonore/latex-unicoder.vim.git
+[submodule "bundle/vim-nix"]
+	path = bundle/vim-nix
+	url = https://github.com/LnL7/vim-nix.git
