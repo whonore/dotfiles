@@ -10,3 +10,6 @@
 [submodule "bundle/vimbufsync"]
 	path = bundle/vimbufsync
 	url = https://github.com/let-def/vimbufsync.git
+[submodule "bundle/vim-nix"]
+	path = bundle/vim-nix
+	url = https://github.com/LnL7/vim-nix.git
