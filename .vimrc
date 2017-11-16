@@ -118,11 +118,5 @@ endfunction
 call TrimWS(1)
 nnoremap <leader>tw :call TrimWS(0)<CR>
 
-" Coqtail mapping
-try
-    call coqtail#Mapping()
-catch
-endtry
-
 " Commentary comment strings
 autocmd FileType coq setlocal commentstring=(*%s*)
