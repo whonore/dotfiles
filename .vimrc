@@ -1,5 +1,6 @@
 set nocompatible
 execute pathogen#infect()
+execute pathogen#helptags()
 syntax on
 filetype plugin indent on
 colorscheme cobalt
@@ -37,11 +38,11 @@ nnoremap <leader><space> :nohlsearch<CR>
 set nowrap
 autocmd FileType * setlocal textwidth=0
 
-let over=0
+let s:over=0
 hi OverLong ctermfg=NONE ctermbg=NONE
 function ToggleOver()
-    let g:over = !g:over
-    if g:over
+    let s:over = !s:over
+    if s:over
         hi OverLong ctermfg=NONE ctermbg=208
         echom "Check over on"
     else
