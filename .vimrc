@@ -5,10 +5,10 @@ syntax on
 filetype plugin indent on
 colorscheme cobalt
 
-let mapleader=","
+let mapleader = ","
 
 " Indentation Settings
-set tabstop=4
+set tabstop=8
 set softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -31,6 +31,7 @@ set visualbell
 set incsearch
 set hlsearch
 set smartcase
+set wrapscan
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Line Length Settings
@@ -38,7 +39,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 set nowrap
 autocmd FileType * setlocal textwidth=0
 
-let s:over=0
+let s:over = 0
+let s:over_pattern = '\%80v.\+'
 hi OverLong ctermfg=NONE ctermbg=NONE
 function ToggleOver()
     let s:over = !s:over
@@ -50,8 +52,9 @@ function ToggleOver()
         echom "Check over off"
     endif
 endfunction
-match OverLong /\%80v.\+/
+execute 'match OverLong /' . s:over_pattern . '/'
 nnoremap <leader>oo :call ToggleOver()<CR>
+execute "nnoremap <leader>fo :call search('" . s:over_pattern . "')<CR>"
 
 " Other Misc Settings
 set mouse=a
