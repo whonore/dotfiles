@@ -3,7 +3,10 @@
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "bundle/latex-unicoder.vim"]
 	path = bundle/latex-unicoder.vim
-    url = https://github.com/whonore/latex-unicoder.vim.git
+	url = https://github.com/whonore/latex-unicoder.vim.git
 [submodule "bundle/vim-nix"]
 	path = bundle/vim-nix
 	url = https://github.com/LnL7/vim-nix.git
+[submodule "bundle/vader.vim"]
+	path = bundle/vader.vim
+	url = git@github.com:junegunn/vader.vim.git
