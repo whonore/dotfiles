@@ -73,7 +73,6 @@ hi! link EndOfBuffer	LineNr
 hi Normal	ctermfg=15	ctermbg=233	cterm=NONE
 hi Boolean	ctermfg=197	ctermbg=NONE	cterm=NONE
 hi Comment	ctermfg=33	ctermbg=NONE	cterm=NONE
-"hi Constant
 "hi Debug
 hi Define	ctermfg=121	ctermbg=NONE	cterm=bold
 "hi Exception
@@ -86,8 +85,7 @@ hi Keyword	ctermfg=214	ctermbg=NONE	cterm=bold
 hi Number	ctermfg=197	ctermbg=NONE	cterm=NONE
 hi Operator	ctermfg=214	ctermbg=NONE	cterm=NONE
 "hi PreConduit
-"hi Repeat
-" hi Special	ctermfg=222	ctermbg=NONE	cterm=NONE
+"hi Special	ctermfg=222	ctermbg=NONE	cterm=NONE
 hi SpecialChar	ctermfg=222	ctermbg=NONE	cterm=NONE
 "hi SpecialComment
 "hi StorageClass
@@ -102,8 +100,10 @@ hi Type		ctermfg=121	ctermbg=NONE	cterm=NONE
 "Links
 hi! link Character	String
 hi! link Conditional	Statement
+hi! link Constant	Define
 hi! link Delimiter	Operator
 hi! link Float		Number
 hi! link Function	Identifier
 hi! link PreProc	Define
+hi! link Repeat		Statement
 hi! link Statement	Keyword
