@@ -16,3 +16,6 @@
 [submodule "bundle/vader.vim"]
 	path = bundle/vader.vim
 	url = git@github.com:junegunn/vader.vim.git
+[submodule "bundle/deepsea.vim"]
+	path = bundle/deepsea.vim
+	url = git@github.com:whonore/deepsea.vim.git
