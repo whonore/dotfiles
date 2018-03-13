@@ -63,7 +63,7 @@ set backspace=2
 
 " Allow hex and binary (if available) formats
 set nrformats=hex
-if v:version > 704 || v:version == 704 && has("patch1027")
+if v:version > 704 || v:version == 704 && has('patch1027')
     set nrformats+=bin
 endif
 
@@ -97,29 +97,6 @@ nnoremap <ESC>[1;5D :previous<CR>
 nnoremap <ESC>[1;5C :next<CR>
 nnoremap <ESC>[1;5A :first<CR>
 nnoremap <ESC>[1;5B :last<CR>
-
-" Remove trailing whitespace on save
-let s:trimws = 0
-function TrimWS(first)
-    let s:trimws = !s:trimws
-    if s:trimws
-        augroup trimws
-            autocmd!
-            autocmd BufWritePre * :norm mt
-            autocmd BufWritePre * :%s/\s\+$//ge
-            autocmd BufWritePost * :norm g`t
-        augroup END
-        if !a:first
-            echom "Trim WS on"
-        endif
-    else
-        autocmd! trimws
-        augroup! trimws
-        echom "Trim WS off"
-    end
-endfunction
-call TrimWS(1)
-nnoremap <leader>tw :call TrimWS(0)<CR>
 
 " Commentary comment strings
 autocmd FileType coq setlocal commentstring=(*%s*)
