@@ -3,21 +3,21 @@ if exists('g:loaded_trim_ws')
 endif
 let g:loaded_trim_ws = 1
 
+function! DoTrim()
+    norm mt
+    %s/\s\+$//ge
+    norm g`t
+endfunction
+
 " Remove trailing whitespace on save
 function! SetTrim(trim, print)
     let b:trim_ws = a:trim
 
     if a:trim
-        augroup trimws
-            autocmd!
-            autocmd BufWritePre * :norm mt
-            autocmd BufWritePre * :%s/\s\+$//ge
-            autocmd BufWritePost * :norm g`t
-        augroup END
+        autocmd BufWritePre <buffer> call DoTrim()
     else
         try
-            autocmd! trimws
-            augroup! trimws
+            autocmd! BufWritePre <buffer>
         catch
         endtry
     end
