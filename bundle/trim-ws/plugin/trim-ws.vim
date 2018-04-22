@@ -7,21 +7,25 @@ let g:loaded_trim_ws = 1
 function! SetTrim(trim, print)
     let b:trim_ws = a:trim
 
-    if a:print && a:trim
-        echom 'Trim WS on'
-    elseif a:print && !a:trim
-        echom 'Trim WS off'
+    if a:print
+        if a:trim == 0
+            echom 'Trim WS off, Git Trim off'
+        elseif a:trim == 1
+            echom 'Trim WS on'
+        elseif a:trim == 2
+            echom 'Trim WS off, Git Trim on'
+        endif
     endif
 endfunction
 
-" Toggle trim_ws between true and false
+" Cycle through trim_ws modes
 function! ToggleTrim()
-    if exists('b:trim_ws')
-        call SetTrim(!b:trim_ws, 1)
-    else
-        " Turn it off if it hasn't been set yet
-        call SetTrim(0, 1)
+    if !exists('b:trim_ws')
+        " Default to 1 so resulting mode will be 2
+        let b:trim_ws = 1
     endif
+
+    call SetTrim((b:trim_ws + 1) % 3, 1)
 endfunction
 
 " Check if file already has trailing whitespace
@@ -33,9 +37,13 @@ function! InitTrimWS()
 
     " Ask if want to keep whitespace
     if search('\s\+$', 'n')
-        return input('File has trailing whitespace. Keep it? (y/n): ',
-                    \'',
-                    \'custom,YesNo') =~? '^n'
+        if input('File has trailing whitespace. Keep it? (y/n): ',
+                \'',
+                \'custom,YesNo') =~? '^n'
+            return 1
+        else
+            return 2
+        endif
     endif
 
     return 1
@@ -47,14 +55,37 @@ function! DoTrim()
         let b:trim_ws = InitTrimWS()
     endif
 
-    if b:trim_ws
-        norm mt
+    if b:trim_ws == 1
+        let l:win = winsaveview()
         %s/\s\+$//ge
-        norm g`t
+        call winrestview(l:win)
+    endif
+endfunction
+
+" Use git diff --check to look for newly introduced whitespace errors
+function! GitTrim()
+    if b:trim_ws == 2
+        let l:changed = 0
+        let l:win = winsaveview()
+
+        for l:line in split(system('git diff --check ' . expand('%:p')), '\n')
+            if l:line =~ '[^:]*:\d\+: trailing whitespace.'
+                let l:num = split(l:line, ':')[1]
+                execute l:num . 's/\s\+$//ge'
+                let l:changed = 1
+            endif
+        endfor
+
+        call winrestview(l:win)
+
+        if l:changed
+            write
+        endif
     endif
 endfunction
 
 nnoremap <leader>tw :call ToggleTrim()<CR>
 
 autocmd BufWritePre * call DoTrim()
+autocmd BufWritePost * call GitTrim()
 autocmd BufNewFile * call SetTrim(1, 0)
