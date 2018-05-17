@@ -4,7 +4,11 @@ with pkgs;
 let pyv = if py == "3" then "3" else "";
     pyv_not = if py == "3" then "" else "3";
 in stdenv.mkDerivation {
-  name = "vim";
+  name = "vim-py" + py;
+
+  meta = {
+    priority = 10 - py;
+  };
 
   src = fetchurl {
     url = https://github.com/vim/vim/archive/v8.0.1146.tar.gz;
