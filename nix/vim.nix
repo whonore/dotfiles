@@ -7,7 +7,7 @@ in stdenv.mkDerivation {
   name = "vim-py" + py;
 
   meta = {
-    priority = 10 - py;
+    priority = 10 - builtins.fromJSON py;
   };
 
   src = fetchurl {
