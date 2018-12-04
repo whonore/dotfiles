@@ -9,4 +9,7 @@
 	url = https://github.com/LnL7/vim-nix.git
 [submodule "bundle/vader.vim"]
 	path = bundle/vader.vim
-	url = git@github.com:junegunn/vader.vim.git
+	url = https://github.com/junegunn/vader.vim.git
+[submodule "bundle/typescript-vim"]
+	path = bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
