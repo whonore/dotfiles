@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case "$1" in
+    2) other=3;;
+    3) other=2;;
+    *)
+        echo "Usage: $0 (2|3)"
+        exit 1
+esac
+
+nix-env --set-flag priority $other vim-py$other
+nix-env --set-flag priority 0 vim-py$1
