@@ -19,3 +19,6 @@
 [submodule "bundle/deepsea.vim"]
 	path = bundle/deepsea.vim
 	url = https://github.com/whonore/deepsea.vim.git
+[submodule "bundle/typescript-vim"]
+	path = bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git

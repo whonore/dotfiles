@@ -1,4 +1,0 @@
-#!/bin/sh
-
-nix-env --set-flag priority 3 vim-py3
-nix-env --set-flag priority 0 vim-py2
