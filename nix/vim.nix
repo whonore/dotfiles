@@ -16,7 +16,7 @@ in stdenv.mkDerivation {
   };
 
   buildInputs = [ncurses xorg.libX11 xorg.libXt]
-                ++ (if py == "3" then [python3] else [python]);
+                ++ (if py == "3" then [python36] else [python]);
 
   configureFlags = [
     "--with-features=huge"
@@ -24,7 +24,7 @@ in stdenv.mkDerivation {
     "--enable-multibyte=yes"
 
     "--enable-python${pyv}interp=yes"
-    "--with-python${pyv}-config-dir=python${pyv}/lib"
+    "--with-python${pyv}-config-dir=${if py == "3" then python36 else python}/lib"
     "--disable-python${pyv_not}interp"
 
     "--with-x"
