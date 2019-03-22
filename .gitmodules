@@ -1,6 +1,9 @@
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/latex-unicoder.vim"]
 	path = bundle/latex-unicoder.vim
 	url = https://github.com/whonore/latex-unicoder.vim.git
@@ -22,3 +25,6 @@
 [submodule "bundle/typescript-vim"]
 	path = bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "bundle/vim-trim-ws"]
+	path = bundle/vim-trim-ws
+	url = https://github.com/whonore/vim-trim-ws.git
