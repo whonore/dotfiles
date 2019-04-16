@@ -21,4 +21,4 @@
 	url = https://github.com/whonore/vim-trim-ws.git
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
+	url = https://github.com/whonore/vim-airline.git
