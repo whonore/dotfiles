@@ -98,6 +98,3 @@ nnoremap <ESC>[1;5D :previous<CR>
 nnoremap <ESC>[1;5C :next<CR>
 nnoremap <ESC>[1;5A :first<CR>
 nnoremap <ESC>[1;5B :last<CR>
-
-" Commentary comment strings
-autocmd FileType coq setlocal commentstring=(*%s*)
