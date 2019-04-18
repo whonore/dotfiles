@@ -43,18 +43,18 @@ autocmd FileType * setlocal textwidth=0
 let s:over = 0
 let s:over_pattern = '\%80v.\+'
 hi OverLong ctermfg=NONE ctermbg=NONE
-function ToggleOver()
-    let s:over = !s:over
-    if s:over
-        hi OverLong ctermfg=NONE ctermbg=208
-        echom "Check over on"
-    else
-        hi clear OverLong
-        echom "Check over off"
-    endif
+function s:toggleOver()
+  let s:over = !s:over
+  if s:over
+    hi OverLong ctermfg=NONE ctermbg=208
+    echom "Check over on"
+  else
+    hi clear OverLong
+    echom "Check over off"
+  endif
 endfunction
 execute 'match OverLong /' . s:over_pattern . '/'
-nnoremap <leader>oo :call ToggleOver()<CR>
+nnoremap <leader>oo :call s:toggleOver()<CR>
 execute "nnoremap <leader>fo :call search('" . s:over_pattern . "')<CR>"
 
 " Other Misc Settings
@@ -65,7 +65,7 @@ set backspace=2
 " Allow hex and binary (if available) formats
 set nrformats=hex
 if v:version > 704 || v:version == 704 && has('patch1027')
-    set nrformats+=bin
+  set nrformats+=bin
 endif
 
 " Add system clipboard
@@ -98,6 +98,3 @@ nnoremap <ESC>[1;5D :previous<CR>
 nnoremap <ESC>[1;5C :next<CR>
 nnoremap <ESC>[1;5A :first<CR>
 nnoremap <ESC>[1;5B :last<CR>
-
-" Commentary comment strings
-autocmd FileType coq setlocal commentstring=(*%s*)
