@@ -34,3 +34,6 @@
 [submodule "bundle/vim-debate"]
 	path = bundle/vim-debate
 	url = https://github.com/whonore/vim-debate.git
+[submodule "bundle/vim-fish"]
+	path = bundle/vim-fish
+	url = https://github.com/dag/vim-fish.git
