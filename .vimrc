@@ -43,7 +43,7 @@ autocmd FileType * setlocal textwidth=0
 let s:over = 0
 let s:over_pattern = '\%80v.\+'
 hi OverLong ctermfg=NONE ctermbg=NONE
-function s:toggleOver()
+function! s:toggleOver()
   let s:over = !s:over
   if s:over
     hi OverLong ctermfg=NONE ctermbg=208
@@ -54,7 +54,7 @@ function s:toggleOver()
   endif
 endfunction
 execute 'match OverLong /' . s:over_pattern . '/'
-nnoremap <leader>oo :call s:toggleOver()<CR>
+nnoremap <leader>oo :call <SID>toggleOver()<CR>
 execute "nnoremap <leader>fo :call search('" . s:over_pattern . "')<CR>"
 
 " Other Misc Settings
@@ -98,3 +98,6 @@ nnoremap <ESC>[1;5D :previous<CR>
 nnoremap <ESC>[1;5C :next<CR>
 nnoremap <ESC>[1;5A :first<CR>
 nnoremap <ESC>[1;5B :last<CR>
+
+" Assume .tex files are LaTex
+let g:tex_flavor = "latex"
