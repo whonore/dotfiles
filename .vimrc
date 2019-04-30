@@ -87,17 +87,5 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-" Make ctrl-arrows switch between args
-nnoremap <C-Left> :previous<CR>
-nnoremap <C-Right> :next<CR>
-nnoremap <C-Up> :first<CR>
-nnoremap <C-Down> :last<CR>
-
-" Make ctrl-arrows work in screen
-nnoremap <ESC>[1;5D :previous<CR>
-nnoremap <ESC>[1;5C :next<CR>
-nnoremap <ESC>[1;5A :first<CR>
-nnoremap <ESC>[1;5B :last<CR>
-
 " Assume .tex files are LaTex
 let g:tex_flavor = "latex"
