@@ -89,3 +89,8 @@ inoremap <Right> <Nop>
 
 " Assume .tex files are LaTex
 let g:tex_flavor = "latex"
+
+" Make :grep use 'git grep'
+set grepprg=git\ --no-pager\ grep\ -n\ --column\ --no-color
+set grepformat=%f:%l:%c:%m
+nnoremap gr :grep <cword><CR>
