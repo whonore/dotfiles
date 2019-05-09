@@ -35,6 +35,20 @@ set smartcase
 set wrapscan
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Make * and # work on visual selection
+function! s:getSelected()
+  let l:reg = getreg('"')
+  let l:type = getregtype('"')
+  normal gvy
+  let l:ret = getreg('"')
+  call setreg('"', l:reg, l:type)
+  execute "normal \<ESC>"
+  return substitute(l:ret, '\_s\+', '\\_s\\+', 'g')
+endfunction
+
+vnoremap <silent> * :call setreg("/", <SID>getSelected())<CR>n
+vnoremap <silent> # :call setreg("/", <SID>getSelected())<BAR>let v:searchforward = 0<CR>n
+
 " Line Length Settings
 " Uses autocmd to override plugins that might try to set textwidth
 set nowrap
