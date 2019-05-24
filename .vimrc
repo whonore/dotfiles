@@ -108,3 +108,6 @@ let g:tex_flavor = "latex"
 set grepprg=git\ --no-pager\ grep\ -n\ --column\ --no-color
 set grepformat=%f:%l:%c:%m
 nnoremap gr :grep <cword><CR>
+
+" File Searching
+cabbrev <expr> %% fnameescape(expand('%:p:h'))
