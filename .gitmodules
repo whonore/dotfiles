@@ -43,3 +43,6 @@
 [submodule "bundle/LeaderF"]
 	path = bundle/LeaderF
 	url = https://github.com/Yggdroot/LeaderF.git
+[submodule "bundle/vim-kami"]
+	path = bundle/vim-kami
+	url = https://github.com/whonore/vim-kami.git
