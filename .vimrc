@@ -105,8 +105,18 @@ inoremap <Right> <Nop>
 let g:tex_flavor = "latex"
 
 " Make :grep use 'git grep'
-set grepprg=git\ --no-pager\ grep\ -n\ --column\ --no-color
-set grepformat=%f:%l:%c:%m
+let s:gitv = split(system('git --version'))
+if s:gitv != []
+  let s:gitv = split(s:gitv[-1], '\.')
+  " If >=2.19 add --column
+  if 2 < s:gitv[0] || (2 <= s:gitv[0] && 19 <= s:gitv[1])
+    set grepprg=git\ --no-pager\ grep\ -n\ --no-color\ --column
+    set grepformat=%f:%l:%c:%m
+  else
+    set grepprg=git\ --no-pager\ grep\ -n\ --no-color
+    set grepformat=%f:%l:%m
+  endif
+endif
 nnoremap gr :grep <cword><CR>
 
 " File Searching
