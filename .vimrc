@@ -107,7 +107,7 @@ let g:tex_flavor = "latex"
 " Make :grep use 'git grep'
 let s:gitv = split(system('git --version'))
 if s:gitv != []
-  let s:gitv = split(s:gitv[-1], '\.')
+  let s:gitv = split(s:gitv[2], '\.')
   " If >=2.19 add --column
   if 2 < s:gitv[0] || (2 <= s:gitv[0] && 19 <= s:gitv[1])
     set grepprg=git\ --no-pager\ grep\ -n\ --no-color\ --column
