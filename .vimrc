@@ -1,11 +1,10 @@
-set nocompatible
 execute pathogen#infect()
 execute pathogen#helptags()
 syntax on
 filetype plugin indent on
 colorscheme cobalt
 
-let mapleader = ","
+let g:mapleader = ','
 
 " Indentation Settings
 set tabstop=8
@@ -39,7 +38,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 function! s:getSelected()
   let l:reg = getreg('"')
   let l:type = getregtype('"')
-  normal gvy
+  normal! gvy
   let l:ret = getreg('"')
   call setreg('"', l:reg, l:type)
   execute "normal \<ESC>"
@@ -61,10 +60,10 @@ function! s:toggleOver()
   let s:over = !s:over
   if s:over
     hi OverLong ctermfg=NONE ctermbg=208
-    echom "Check over on"
+    echom 'Check over on'
   else
     hi clear OverLong
-    echom "Check over off"
+    echom 'Check over off'
   endif
 endfunction
 execute 'match OverLong /' . s:over_pattern . '/'
@@ -102,7 +101,7 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
 " Assume .tex files are LaTex
-let g:tex_flavor = "latex"
+let g:tex_flavor = 'latex'
 
 " Make :grep use 'git grep'
 let s:gitv = split(system('git --version'))
