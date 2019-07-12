@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {}, py ? "3", vim ? "8.0" }:
+{ pkgs ? import <nixpkgs> {}, py ? "3", vim ? "8.1" }:
 with pkgs;
 
 let
@@ -32,7 +32,8 @@ in stdenv.mkDerivation {
     inherit sha256;
   };
 
-  buildInputs = [ncurses xorg.libX11 xorg.libXt pyVars.py];
+  buildInputs = [ncurses xorg.libX11 xorg.libXt pyVars.py]
+                ++ lib.optionals stdenv.isDarwin [darwin.apple_sdk.frameworks.Cocoa];
 
   configureFlags = [
     "--with-features=huge"
@@ -43,12 +44,13 @@ in stdenv.mkDerivation {
     "--with-python${pyVars.ver}-config-dir=${pyVars.py}/lib"
     "--disable-python${pyVars.notVer}interp"
 
-    "--with-x"
-    "--x-includes=${xlibs.libX11.dev}/include"
-    "--x-libraries=${xlibs.libX11.out}/lib"
     "--disable-gui"
 
     "--enable-fail-if-missing"
+  ] ++ lib.optionals (!stdenv.isDarwin) [
+    "--with-x"
+    "--x-includes=${xlibs.libX11.dev}/include"
+    "--x-libraries=${xlibs.libX11.out}/lib"
   ];
 
   enableParallelBuilding = true;

@@ -82,7 +82,11 @@ if v:version > 704 || v:version == 704 && has('patch1027')
 endif
 
 " Add system clipboard
-set clipboard=unnamedplus,autoselect
+if has('unnamedplus')
+  set clipboard=unnamedplus,autoselectplus
+else
+  set clipboard=unnamed,autoselect
+endif
 
 " Make Y behave like D, C, etc
 map Y y$
