@@ -12,8 +12,10 @@ hi Cursor	ctermfg=15	ctermbg=NONE	cterm=NONE
 hi CursorLine	ctermfg=NONE	ctermbg=23	cterm=NONE
 " hi CursorIM
 " hi CursorColumn
-" hi Visual
 " hi VisualNOS
+
+" Links
+hi! link Visual  CursorLine
 
 " Diff
 " hi DiffAdd
@@ -52,7 +54,6 @@ hi WarningMsg	ctermfg=15	ctermbg=197	cterm=NONE
 hi LineNr	ctermfg=25	ctermbg=232	cterm=NONE
 hi MatchParen	ctermfg=NONE	ctermbg=68	cterm=NONE
 " hi CursorLineNr
-" hi EndOfBuffer
 " hi VertSplit
 " hi StatusLine
 " hi StatusLineNC
@@ -60,14 +61,14 @@ hi MatchParen	ctermfg=NONE	ctermbg=68	cterm=NONE
 " hi TabLineFill
 " hi TabLineSel
 
+" Links
+hi! link EndOfBuffer	LineNr
+
 " Spelling
 hi SpellBad	ctermfg=9	ctermbg=11	cterm=underline
 " hi SpellCap
 hi SpellLocal	ctermfg=14	ctermbg=11	cterm=underline
 " hi SpellRare
-
-" Links
-hi! link EndOfBuffer	LineNr
 
 " Programming
 hi Normal	ctermfg=15	ctermbg=233	cterm=NONE
