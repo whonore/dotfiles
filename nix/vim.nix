@@ -1,10 +1,13 @@
 { pkgs ? import <nixpkgs> {}, py ? "3" }:
 with pkgs;
 
-let pyv = if py == "3" then "3" else "";
-    pyv_not = if py == "3" then "" else "3";
+let
+  pyvars = {
+    "2" = { ver = ""; notVer = "3"; py = python27; };
+    "3" = { ver = "3"; notVer = ""; py = python36; };
+  }.${py};
 in stdenv.mkDerivation {
-  name = "vim-py" + py;
+  name = "vim-py${py}";
 
   meta = {
     priority = 10 - builtins.fromJSON py;
@@ -15,17 +18,16 @@ in stdenv.mkDerivation {
     sha256 = "6ef5ada3970bf408239ab23edc5cdb0f815c9ed1b1d24363928c8b21ab4108c9";
   };
 
-  buildInputs = [ncurses xorg.libX11 xorg.libXt]
-                ++ (if py == "3" then [python36] else [python]);
+  buildInputs = [ncurses xorg.libX11 xorg.libXt pyvars.py];
 
   configureFlags = [
     "--with-features=huge"
     "--enable-cscope=yes"
     "--enable-multibyte=yes"
 
-    "--enable-python${pyv}interp=yes"
-    "--with-python${pyv}-config-dir=${if py == "3" then python36 else python}/lib"
-    "--disable-python${pyv_not}interp"
+    "--enable-python${pyvars.ver}interp=yes"
+    "--with-python${pyvars.ver}-config-dir=${pyvars.py}/lib"
+    "--disable-python${pyvars.notVer}interp"
 
     "--with-x"
     "--x-includes=${xlibs.libX11.dev}/include"
