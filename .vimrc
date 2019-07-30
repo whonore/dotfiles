@@ -107,17 +107,22 @@ inoremap <Right> <Nop>
 " Assume .tex files are LaTex
 let g:tex_flavor = 'latex'
 
-" Make :grep use 'git grep'
-let s:gitv = split(system('git --version'))
-if s:gitv != []
-  let s:gitv = split(s:gitv[2], '\.')
-  " If >=2.19 add --column
-  if 2 < s:gitv[0] || (2 <= s:gitv[0] && 19 <= s:gitv[1])
-    set grepprg=git\ --no-pager\ grep\ -n\ --no-color\ --column
-    set grepformat=%f:%l:%c:%m
-  else
-    set grepprg=git\ --no-pager\ grep\ -n\ --no-color
-    set grepformat=%f:%l:%m
+" Make :grep use smarter tools
+if system('rg --version') != ''
+  set grepprg=rg\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+else
+  let s:gitv = split(system('git --version'))
+  if s:gitv != []
+    let s:gitv = split(s:gitv[2], '\.')
+    " If >=2.19 add --column
+    if 2 < s:gitv[0] || (2 <= s:gitv[0] && 19 <= s:gitv[1])
+      set grepprg=git\ --no-pager\ grep\ -n\ --no-color\ --column
+      set grepformat=%f:%l:%c:%m
+    else
+      set grepprg=git\ --no-pager\ grep\ -n\ --no-color
+      set grepformat=%f:%l:%m
+    endif
   endif
 endif
 nnoremap gr :grep <cword><CR>
