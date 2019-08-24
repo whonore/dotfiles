@@ -1,48 +1,48 @@
-[submodule "bundle/vim-commentary"]
-	path = bundle/vim-commentary
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "bundle/latex-unicoder.vim"]
-	path = bundle/latex-unicoder.vim
+[submodule "vim/bundle/latex-unicoder.vim"]
+	path = vim/bundle/latex-unicoder.vim
 	url = https://github.com/whonore/latex-unicoder.vim.git
-[submodule "bundle/coqtail"]
-	path = bundle/coqtail
+[submodule "vim/bundle/coqtail"]
+	path = vim/bundle/coqtail
 	url = https://github.com/whonore/Coqtail.git
-[submodule "bundle/vimbufsync"]
-	path = bundle/vimbufsync
+[submodule "vim/bundle/vimbufsync"]
+	path = vim/bundle/vimbufsync
 	url = https://github.com/let-def/vimbufsync.git
-[submodule "bundle/vim-nix"]
-	path = bundle/vim-nix
+[submodule "vim/bundle/vim-nix"]
+	path = vim/bundle/vim-nix
 	url = https://github.com/LnL7/vim-nix.git
-[submodule "bundle/vader.vim"]
-	path = bundle/vader.vim
+[submodule "vim/bundle/vader.vim"]
+	path = vim/bundle/vader.vim
 	url = https://github.com/junegunn/vader.vim.git
-[submodule "bundle/deepsea.vim"]
-	path = bundle/deepsea.vim
+[submodule "vim/bundle/deepsea.vim"]
+	path = vim/bundle/deepsea.vim
 	url = https://github.com/whonore/deepsea.vim.git
-[submodule "bundle/typescript-vim"]
-	path = bundle/typescript-vim
+[submodule "vim/bundle/typescript-vim"]
+	path = vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule "bundle/vim-trim-ws"]
-	path = bundle/vim-trim-ws
+[submodule "vim/bundle/vim-trim-ws"]
+	path = vim/bundle/vim-trim-ws
 	url = https://github.com/whonore/vim-trim-ws.git
-[submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
 	url = https://github.com/whonore/vim-airline.git
-[submodule "bundle/vim-debate"]
-	path = bundle/vim-debate
+[submodule "vim/bundle/vim-debate"]
+	path = vim/bundle/vim-debate
 	url = https://github.com/whonore/vim-debate.git
-[submodule "bundle/vim-fish"]
-	path = bundle/vim-fish
+[submodule "vim/bundle/vim-fish"]
+	path = vim/bundle/vim-fish
 	url = https://github.com/dag/vim-fish.git
-[submodule "bundle/vim-repeat"]
-	path = bundle/vim-repeat
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "bundle/LeaderF"]
-	path = bundle/LeaderF
+[submodule "vim/bundle/LeaderF"]
+	path = vim/bundle/LeaderF
 	url = https://github.com/Yggdroot/LeaderF.git
-[submodule "bundle/vim-kami"]
-	path = bundle/vim-kami
+[submodule "vim/bundle/vim-kami"]
+	path = vim/bundle/vim-kami
 	url = https://github.com/whonore/vim-kami.git
