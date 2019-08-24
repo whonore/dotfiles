@@ -1,5 +1,25 @@
-execute pathogen#infect()
-execute pathogen#helptags()
+call plug#begin("~/.vim/bundle")
+" Display
+Plug 'whonore/vim-airline'
+" Editing
+Plug 'joom/latex-unicoder.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'whonore/vim-trim-ws'
+" Languages
+Plug 'dag/vim-fish'
+Plug 'leafgarland/typescript-vim'
+Plug 'LnL7/vim-nix'
+Plug 'whonore/coqtail' | Plug 'let-def/vimbufsync'
+Plug 'whonore/deepsea.vim'
+Plug 'whonore/vim-kami'
+" Navigation
+Plug 'whonore/vim-debate'
+Plug 'Yggdroot/LeaderF'
+" Scripting
+Plug 'junegunn/vader.vim'
+call plug#end()
 syntax on
 filetype plugin indent on
 colorscheme cobalt
