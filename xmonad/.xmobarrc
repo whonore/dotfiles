@@ -1,0 +1,62 @@
+Config {
+    font = "Sans-9:bold",
+    bgColor = "#000000",
+    fgColor = "#ffffff",
+    position = Top,
+    iconRoot = "/home/wolf/.xmonad/icons",
+    commands = [
+        Run MultiCpu [
+            "-t", "<fc=#00FFFF>CPUs</fc>: <total0>% <total1>% <total2>% <total3>%",
+            "-L", "30",
+            "-H", "60",
+            "-l", "green",
+            "-n", "darkorange",
+            "-h", "red",
+            "-w", "3"
+        ] 10,
+        Run Memory [
+            "-t", "<fc=#00FFFF>Mem</fc>: <usedratio>%",
+            "-L", "20",
+            "-H", "90",
+            "-l", "green",
+            "-n", "darkorange",
+            "-h", "red"
+        ] 10,
+        Run DynNetwork [
+            "-t", "<fc=#00FFFF><dev></fc>: <icon=up.xbm/><tx> <icon=down.xbm/><rx>",
+            "-S", "True",
+            "-m", "6"
+        ] 10,
+        Run CoreTemp [
+            "-t", "<core0><icon=degree.xbm/>C <core1><icon=degree.xbm/>C <core2><icon=degree.xbm/>C",
+            "-L", "70",
+            "-H", "80",
+            "-l", "green",
+            "-n", "darkorange",
+            "-h", "red"
+        ] 50,
+        Run Date "%a %b %d %r" "date" 10,
+        Run Battery [
+            "-t", "<acstatus>",
+            "-L", "15",
+            "-H", "50",
+            "-l", "red",
+            "-n", "darkorange",
+            "-h", "green",
+            "--",
+            "-O", "<left>% <fc=#FFFF00><icon=lightning.xbm/></fc>",
+            "-i", "<left>% <timeleft><icon=hourglass.xbm/>",
+            "-o", "<left>% <timeleft><icon=hourglass.xbm/>",
+            "-a", "notify-send -u critical 'Low battery'",
+            "-A", "5"
+        ] 50,
+        Run Volume "default" "Master" [
+            "-t", "<fc=#00FFFF>Vol</fc>: <volume>% <status>"
+        ] 10,
+        Run Locks,
+        Run StdinReader
+    ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{ [%locks%] <fc=#CC00FF><icon=separator.xbm/></fc> %multicpu% <fc=#CC00FF><icon=separator.xbm/></fc> %memory% <fc=#CC00FF><icon=separator.xbm/></fc> %coretemp% <fc=#CC00FF><icon=separator.xbm/></fc> %dynnetwork% <fc=#CC00FF><icon=separator.xbm/></fc> %battery% <fc=#CC00FF><icon=separator.xbm/></fc> %date% <fc=#CC00FF><icon=separator.xbm/></fc> %default:Master%"
+}
