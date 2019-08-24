@@ -1,0 +1,9 @@
+# This is a per-user configuration file
+[user]
+	name = whonore
+	email = wolfhonore@gmail.com
+[push]
+	default = simple
+[core]
+	editor = vim
+	excludesFile = ~/.config/git/ignore
