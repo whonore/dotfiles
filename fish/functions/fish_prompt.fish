@@ -21,10 +21,10 @@ set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_showcolorhints 1
 set -g __fish_git_prompt_showupstream "informative"
 
-function fish_prompt --description 'Write out the prompt'
+function fish_prompt --description "Write out the prompt"
     set -l last_status $status
 
-    set -l color_prompt FFCC00
+    test $last_status -eq 0; and set -l color_prompt FFCC00; or set -l color_prompt red
     set -l color_user 16A800
     set -l color_host C800CC
 
@@ -32,17 +32,19 @@ function fish_prompt --description 'Write out the prompt'
         set -g __fish_prompt_normal (set_color normal)
     end
 
-    set_color $color_prompt; printf '⦇'
-    set_color $color_user --bold; printf '%s' (whoami)
-    set_color $color_prompt --bold; printf '@'
-    set_color $color_host --bold; printf '%s' (hostname -s)
-    set_color normal; printf '%s' (__fish_git_prompt '⊧%s')
-    set_color $color_prompt; printf '⦈'
+    set_color $color_prompt; printf "⦇"
+    set_color $color_user --bold; printf "$USER"
+    set_color $color_prompt --bold; printf "@"
+    set_color $color_host --bold; printf "$hostname"
+    set_color normal; printf "%s" (__fish_git_prompt "⊧%s")
+    set_color $color_prompt; printf "⦈"
 
     # If current dir is not writable display it in red
     set_color $color_prompt
     if not [ -w (pwd) ]
         set_color red --bold
     end
-    printf '%s ' (prompt_pwd)
+    printf "%s " (prompt_pwd)
+
+    set_color normal
 end
