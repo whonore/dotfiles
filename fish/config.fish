@@ -59,6 +59,13 @@ set TEXMFHOME "$HOME/.local/texmf"
 # Coq 8.4
 alias coq-84 "nix-shell -I nixpkgs='https://github.com/NixOS/nixpkgs/archive/18.03.tar.gz' -p coq_8_4"
 
+# Greeting
+if command -qs proofaday
+    function fish_greeting
+        proofaday
+    end
+end
+
 # Clean up
 if not set -q $IN_NIX_SHELL
     clean_nix_path
