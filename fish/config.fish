@@ -49,7 +49,7 @@ if test -d "$HOME/.pyenv"
 end
 
 # Pipenv
-if command -qs pipenv
+if command -qs pipenv; and python -m pip freeze | grep -q pipenv
     eval (pipenv --completion)
 end
 
@@ -60,7 +60,7 @@ set TEXMFHOME "$HOME/.local/texmf"
 alias coq-84 "nix-shell -I nixpkgs='https://github.com/NixOS/nixpkgs/archive/18.03.tar.gz' -p coq_8_4"
 
 # Greeting
-if command -qs proofaday
+if command -qs proofaday; and python -m pip freeze | grep -q proofaday
     function fish_greeting
         proofaday
     end
