@@ -50,6 +50,13 @@ myWorkspaces = map show [1..9]
 myNormalBorderColor  = "black"
 myFocusedBorderColor = "white"
 
+volumeToggleKey = 0x1008ff12
+volumeUpKey     = 0x1008ff13
+volumeDownKey   = 0x1008ff11
+
+screenshotProg = "gnome-screenshot -d 2 -w"
+prtScnKey = 0xff61
+
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -62,10 +69,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
 
-     -- Rotate through the available layout algorithms
+    -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
 
-    --  Reset the layouts on the current workspace to default
+    -- Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
     -- Resize viewed windows to the correct size
@@ -107,11 +114,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
-
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
@@ -120,12 +122,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
-
     , ((controlMask .|. modm, xK_l), spawn "gnome-screensaver-command --lock")
+    , ((0, prtScnKey), spawn screenshotProg)
 
-    , ((0, 0x1008ff12), spawn "amixer -D pulse set Master toggle")
-    , ((0, 0x1008ff11), spawn "amixer set Master 2-")
-    , ((0, 0x1008ff13), spawn "amixer set Master 2+")
+    , ((0, volumeToggleKey), spawn "amixer -D pulse set Master toggle")
+    , ((0, volumeDownKey),   spawn "amixer set Master 2-")
+    , ((0, volumeUpKey),     spawn "amixer set Master 2+")
     ]
     ++
 
