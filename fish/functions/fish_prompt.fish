@@ -28,14 +28,21 @@ function fish_prompt --description "Write out the prompt"
     set -l color_user 16A800
     set -l color_host C800CC
 
+    set -l user "$USER"
+    set -l host "$hostname"
+    if iscaps
+        set user (string upper $user)
+        set host (string upper $host)
+    end
+
     if not set -q __fish_prompt_normal
         set -g __fish_prompt_normal (set_color normal)
     end
 
     set_color $color_prompt; printf "⦇"
-    set_color $color_user --bold; printf "$USER"
+    set_color $color_user --bold; printf "$user"
     set_color $color_prompt --bold; printf "@"
-    set_color $color_host --bold; printf "$hostname"
+    set_color $color_host --bold; printf "$host"
     set_color normal; printf "%s" (__fish_git_prompt "⊧%s")
     set_color $color_prompt; printf "⦈"
 
