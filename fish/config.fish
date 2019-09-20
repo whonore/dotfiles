@@ -6,6 +6,13 @@ function add_path_uniq --description "Prepend a path to PATH if it's not already
     end
 end
 
+set -l FISH_HOME "$HOME/.config/fish"
+
+# Load extra definitions
+if test -f "$FISH_HOME/local.fish"
+    source "$FISH_HOME/local.fish"
+end
+
 # Local bin directories
 add_path_uniq "$HOME/bin" "$HOME/.local/bin"
 
