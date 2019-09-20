@@ -15,26 +15,6 @@ if test -d "$HOME/.nix-profile"; and test -d /nix
     source "$HOME/.config/fish/conf.d/nix.fish"
 end
 
-# Clean up PATH if started by nix-shell
-function clean_nix_path
-    set -l first_nix 1
-    for idx in (seq (count $PATH))
-        if string match -e -q "/nix" $PATH[$idx]
-            set first_nix $idx
-            break
-        end
-    end
-    if not test $first_nix -eq 1
-        set -e PATH[1..(math $first_nix - 1)]
-    end
-end
-
-# Redefine nix-shell to use fish
-function nix-shell
-    set -l com "export SHELL=$SHELL; $SHELL"
-    command nix-shell --command "$com" $argv
-end
-
 # Yarn
 if test -d "$HOME/.yarn"
     add_path_uniq "$HOME/.yarn/bin"
@@ -56,17 +36,28 @@ end
 # tlmgr
 set TEXMFHOME "$HOME/.local/texmf"
 
-# Coq 8.4
-alias coq-84 "nix-shell -I nixpkgs='https://github.com/NixOS/nixpkgs/archive/18.03.tar.gz' -p coq_8_4"
-
 # Greeting
-if command -qs proofaday; and python -m pip freeze | grep -q proofaday
+if status is-interactive; and command -qs proofaday; and python -m pip freeze | grep -q proofaday
     function fish_greeting
         proofaday
     end
 end
 
 # Clean up
+# Clean up PATH if started by nix-shell
+function clean_nix_path
+    set -l first_nix 1
+    for idx in (seq (count $PATH))
+        if string match -e -q "/nix" $PATH[$idx]
+            set first_nix $idx
+            break
+        end
+    end
+    if not test $first_nix -eq 1
+        set -e PATH[1..(math $first_nix - 1)]
+    end
+end
+
 if not set -q $IN_NIX_SHELL
     clean_nix_path
 end
