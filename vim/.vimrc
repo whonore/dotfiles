@@ -1,4 +1,11 @@
+" Autoinstall vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
 call plug#begin("~/.vim/bundle")
+" Plugins
+Plug 'junegunn/vim-plug'
 " Display
 Plug 'whonore/vim-airline'
 " Editing
@@ -11,7 +18,7 @@ Plug 'whonore/vim-trim-ws'
 Plug 'dag/vim-fish'
 Plug 'leafgarland/typescript-vim'
 Plug 'LnL7/vim-nix'
-Plug 'whonore/coqtail' | Plug 'let-def/vimbufsync'
+Plug 'whonore/Coqtail' | Plug 'let-def/vimbufsync'
 Plug 'whonore/deepsea.vim'
 Plug 'whonore/vim-kami'
 " Navigation
