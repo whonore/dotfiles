@@ -35,11 +35,6 @@ if test -d "$HOME/.pyenv"
     pyenv virtualenv-init - | source
 end
 
-# Pipenv
-if command -qs pipenv; and python -m pip freeze | grep -q pipenv
-    eval (pipenv --completion)
-end
-
 # tlmgr
 set TEXMFHOME "$HOME/.local/texmf"
 
