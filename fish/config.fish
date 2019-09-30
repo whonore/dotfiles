@@ -38,13 +38,6 @@ end
 # tlmgr
 set TEXMFHOME "$HOME/.local/texmf"
 
-# Greeting
-if status is-interactive; and command -qs proofaday; and python -m pip freeze | grep -q proofaday
-    function fish_greeting
-        proofaday
-    end
-end
-
 # Clean up
 # Clean up PATH if started by nix-shell
 function clean_nix_path
@@ -64,3 +57,4 @@ if not set -q $IN_NIX_SHELL
     clean_nix_path
 end
 functions -e add_path_uniq
+functions -e clean_nix_path
