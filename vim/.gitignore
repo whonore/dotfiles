@@ -1,3 +1,4 @@
 .netrwhist
 bundle/
 nix/result
+autoload/*.old
