@@ -16,16 +16,16 @@ let
       sha256 = "16n3685gnc2y25kvac4x4bbxsxb1hxvq4p085qzc86lnaakhmmk0";
     };
     "8.1" = {
-      patch = "1670";
-      sha256 = "167zqdgvinw80n16cq8jrcgii677c1v9lhjyjnjrmp9gshlihbxb";
+      patch = "2424";
+      sha256 = "1d9mf4p55kjbh93z71pfhi8yypjkwf6fv76qnsi5rs7ahwnin05r";
+    };
+    "8.2" = {
+      patch = "0141";
+      sha256 = "060c82kpppzyla868r8nvm6srmx4ajnz7sc5hi0m55fs63qzkmqk";
     };
   }.${vim};
 in stdenv.mkDerivation {
-  name = "vim-py${py}";
-
-  meta = {
-    priority = 10 - builtins.fromJSON py;
-  };
+  name = "vim";
 
   src = with vimVars; fetchTarball {
     url = "https://github.com/vim/vim/archive/v${vim}.${patch}.tar.gz";
