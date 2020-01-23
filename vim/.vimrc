@@ -7,7 +7,7 @@ call plug#begin("~/.vim/bundle")
 " Plugins
 Plug 'junegunn/vim-plug'
 " Display
-Plug 'whonore/vim-airline'
+Plug 'vim-airline/vim-airline'
 " Editing
 Plug 'joom/latex-unicoder.vim'
 Plug 'tpope/vim-commentary'
@@ -156,3 +156,6 @@ nnoremap gr :grep <cword><CR>
 
 " File Searching
 cabbrev <expr> %% fnameescape(expand('%:p:h'))
+
+" Disable trim-ws printing
+let g:trim_ws_verbose = 0
