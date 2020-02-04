@@ -27,6 +27,7 @@ Plug 'whonore/vim-debate'
 Plug 'Yggdroot/LeaderF'
 " Scripting
 Plug 'junegunn/vader.vim'
+Plug 'whonore/helpful.vim' " Fork from tweekmonster
 call plug#end()
 syntax on
 filetype plugin indent on
@@ -117,7 +118,7 @@ else
 endif
 
 " Make Y behave like D, C, etc
-map Y y$
+noremap Y y$
 
 " Toggle spell check
 nnoremap <leader>ss :setlocal spell!<CR>
@@ -160,3 +161,6 @@ cabbrev <expr> %% fnameescape(expand('%:p:h'))
 
 " Disable trim-ws printing
 let g:trim_ws_verbose = 0
+
+" Toggle HelpfulVersion
+nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
