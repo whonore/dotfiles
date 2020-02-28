@@ -9,6 +9,7 @@ Plug 'junegunn/vim-plug'
 " Display
 Plug 'vim-airline/vim-airline'
 " Editing
+Plug 'andymass/vim-matchup'
 Plug 'joom/latex-unicoder.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -164,3 +165,7 @@ let g:trim_ws_verbose = 0
 
 " Toggle HelpfulVersion
 nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
+
+" vim-matchup options
+let g:matchup_surround_enabled = 1
+let g:matchup_matchparen_offscreen = {}

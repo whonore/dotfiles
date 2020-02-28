@@ -52,7 +52,7 @@ hi WarningMsg	ctermfg=15	ctermbg=197	cterm=NONE
 
 " Lines/Split
 hi LineNr	ctermfg=25	ctermbg=232	cterm=NONE
-hi MatchParen	ctermfg=NONE	ctermbg=68	cterm=NONE
+hi MatchParen	ctermfg=NONE	ctermbg=52	cterm=NONE
 " hi CursorLineNr
 " hi VertSplit
 " hi StatusLine
