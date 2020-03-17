@@ -8,13 +8,13 @@ function trash --description 'Move files into/out of a trash directory.'
     end
 
     # Ensure _trash_dir
-    if ! set -q _trash_dir
+    if not set -q _trash_dir
         set -g _trash_dir "$HOME/tmp/trash"
     end
-    if ! test -e $_trash_dir
+    if not test -e $_trash_dir
         mkdir -p $_trash_dir
     end
-    if ! test -d $_trash_dir
+    if not test -d $_trash_dir
         echo "$_trash_dir must be a directory"
         return 1
     end
@@ -29,7 +29,7 @@ function trash --description 'Move files into/out of a trash directory.'
         # Check if empty tar exists
         if test -e $trash_empty
             read -l -n1 -P "Overwrite $trash_empty (y/n)? " over
-            if ! string match -q -i -r '^y' $over
+            if not string match -q -i -r '^y' $over
                 return 0
             end
         end

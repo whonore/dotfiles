@@ -22,7 +22,7 @@ function coqclean --description 'Delete Coq compilation files'
             set -l name (string replace -r ".($extpat)\$" '' $base)
             set -l coq "$dir/$name.v"
 
-            if set -q _flag_all; or ! test -e $coq
+            if set -q _flag_all; or not test -e $coq
                 echo $f
                 if set -q _flag_force
                     rm $f
