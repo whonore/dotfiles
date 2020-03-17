@@ -1,4 +1,13 @@
-set -l color_git 96FFFB
+set -g prompt_color_git 96FFFB
+set -g prompt_color_user 16A800
+set -g prompt_color_host C800CC
+set -g prompt_color_base FFCC00
+
+set -g prompt_open "⦇"
+set -g prompt_close "⦈"
+set -g prompt_host_sep "@"
+set -g prompt_git_sep "⊧"
+set -g prompt_nix "+"
 
 set -g __fish_git_prompt_char_cleanstate "✓"
 set -g __fish_git_prompt_char_conflictedstate "⦸"
@@ -9,13 +18,13 @@ set -g __fish_git_prompt_char_untrackedfiles "⋄"
 set -g __fish_git_prompt_char_upstream_ahead "⇑"
 set -g __fish_git_prompt_char_upstream_behind "⇓"
 set -g __fish_git_prompt_char_upstream_prefix ""
-set -g __fish_git_prompt_color $color_git
-set -g __fish_git_prompt_color_branch $color_git
+set -g __fish_git_prompt_color $prompt_color_git
+set -g __fish_git_prompt_color_branch $prompt_color_git
 set -g __fish_git_prompt_color_cleanstate green
 set -g __fish_git_prompt_color_dirtystate blue --bold
 set -g __fish_git_prompt_color_invalidstate red
 set -g __fish_git_prompt_color_stagedstate yellow
-set -g __fish_git_prompt_color_untrackedfiles $color_git
+set -g __fish_git_prompt_color_untrackedfiles $prompt_color_git
 set -g __fish_git_prompt_hide_untrackedfiles 1
 set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_showcolorhints 1
@@ -24,9 +33,10 @@ set -g __fish_git_prompt_showupstream "informative"
 function fish_prompt --description "Write out the prompt"
     set -l last_status $status
 
-    test $last_status -eq 0; and set -l color_prompt FFCC00; or set -l color_prompt red
-    set -l color_user 16A800
-    set -l color_host C800CC
+    set -l color_base $prompt_color_base
+    if test $last_status -ne 0
+        set color_base red
+    end
 
     set -l user "$USER"
     set -l host "$hostname"
@@ -39,16 +49,19 @@ function fish_prompt --description "Write out the prompt"
         set -g __fish_prompt_normal (set_color normal)
     end
 
-    set_color $color_prompt; printf "⦇"
-    set_color $color_user --bold; printf "$user"
-    set_color $color_prompt --bold; printf "@"
-    set_color $color_host --bold; printf "$host"
-    set_color normal; printf "%s" (__fish_git_prompt "⊧%s")
-    set_color $color_prompt; printf "⦈"
+    set_color $color_base; printf $prompt_open
+    set_color $prompt_color_user --bold; printf $user
+    set_color $color_base --bold; printf $prompt_host_sep
+    set_color $prompt_color_host --bold; printf $host
+    if not set -q $IN_NIX_SHELL
+        set_color $color_base --bold; printf $prompt_nix
+    end
+    set_color normal; printf "%s" (__fish_git_prompt "$prompt_git_sep%s")
+    set_color $color_base; printf $prompt_close
 
     # If current dir is not writable display it in red
-    set_color $color_prompt
-    if not [ -w (pwd) ]
+    set_color $color_base
+    if not test -w (pwd)
         set_color red --bold
     end
     printf "%s " (prompt_pwd)
