@@ -8,6 +8,8 @@ call plug#begin("~/.vim/bundle")
 Plug 'junegunn/vim-plug'
 " Display
 Plug 'vim-airline/vim-airline'
+" Colorschemes
+Plug 'whonore/vim-blueper'
 " Editing
 Plug 'andymass/vim-matchup'
 Plug 'joom/latex-unicoder.vim'
@@ -32,7 +34,11 @@ Plug 'whonore/helpful.vim' " Fork from tweekmonster
 call plug#end()
 syntax on
 filetype plugin indent on
-colorscheme cobalt
+try
+  colorscheme blueper
+catch /E185:/
+  colorscheme cobalt
+endtry
 
 let g:mapleader = ','
 
