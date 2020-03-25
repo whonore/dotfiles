@@ -32,10 +32,12 @@ Plug 'Yggdroot/LeaderF'
 Plug 'junegunn/vader.vim'
 Plug 'whonore/helpful.vim' " Fork from tweekmonster
 call plug#end()
+
 syntax on
 filetype plugin indent on
 try
   colorscheme blueper
+  let g:airline_theme = 'blueper'
 catch /E185:/
   colorscheme cobalt
 endtry
