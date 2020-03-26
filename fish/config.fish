@@ -48,12 +48,12 @@ function clean_nix_path
             break
         end
     end
-    if not test $first_nix -eq 1
+    if test $first_nix -ne 1
         set -e PATH[1..(math $first_nix - 1)]
     end
 end
 
-if not set -q $IN_NIX_SHELL
+if test -n "$IN_NIX_SHELL"
     clean_nix_path
 end
 functions -e add_path_uniq

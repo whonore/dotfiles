@@ -53,7 +53,7 @@ function fish_prompt --description "Write out the prompt"
     set_color $prompt_color_user --bold; printf $user
     set_color $color_base --bold; printf $prompt_host_sep
     set_color $prompt_color_host --bold; printf $host
-    if not set -q $IN_NIX_SHELL
+    if test -n "$IN_NIX_SHELL"
         set_color $color_base --bold; printf $prompt_nix
     end
     set_color normal; printf "%s" (__fish_git_prompt "$prompt_git_sep%s")
