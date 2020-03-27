@@ -1,9 +1,16 @@
-" Autoinstall vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let s:vimhome = expand('$HOME/.vim/')
+if !isdirectory(s:vimhome)
+  echoerr printf('Aborting: %s does not exist.', s:vimhome)
+  finish
 endif
-call plug#begin("~/.vim/bundle")
+
+" Autoinstall vim-plug
+if empty(glob(s:vimhome . 'autoload/plug.vim'))
+  execute printf('silent !curl -fLo %sautoload/plug.vim --create-dirs' .
+                \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
+                \ s:vimhome)
+endif
+call plug#begin(s:vimhome . 'bundle')
 " Plugins
 Plug 'junegunn/vim-plug'
 " Display
@@ -73,7 +80,7 @@ set wrapscan
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Backups
-let s:vimdir = expand("$HOME/.vim/dirs/")
+let s:vimdir = s:vimhome . 'dirs/'
 execute 'set directory=' . s:vimdir . 'tmp'
 execute 'set backupdir=' . s:vimdir . 'back'
 execute 'set undodir=' . s:vimdir . 'undo'
@@ -82,7 +89,7 @@ set backup
 set undofile
 for s:dir in ['tmp', 'back', 'undo']
   if !isdirectory(s:vimdir . s:dir)
-    call mkdir(s:vimdir . s:dir, "p")
+    call mkdir(s:vimdir . s:dir, 'p')
   endif
 endfor
 
@@ -103,7 +110,10 @@ vnoremap <silent> # :call setreg("/", <SID>getSelected())<BAR>let v:searchforwar
 " Line Length Settings
 " Uses autocmd to override plugins that might try to set textwidth
 set nowrap
-autocmd FileType * setlocal textwidth=0
+augroup vimrc
+  autocmd! *
+  autocmd FileType * setlocal textwidth=0
+augroup END
 
 let s:over = 0
 let s:over_pattern = '\%80v.\+'
@@ -160,7 +170,7 @@ inoremap <Right> <Nop>
 let g:tex_flavor = 'latex'
 
 " Make :grep use smarter tools
-if system('rg --version') != ''
+if system('rg --version') !=# ''
   set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m
 else
