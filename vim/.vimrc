@@ -29,7 +29,7 @@ Plug 'dag/vim-fish'
 Plug 'leafgarland/typescript-vim'
 Plug 'LnL7/vim-nix'
 Plug 'rust-lang/rust.vim'
-Plug 'whonore/Coqtail' | Plug 'let-def/vimbufsync'
+Plug 'whonore/Coqtail', {'branch': 'async'} | Plug 'let-def/vimbufsync'
 Plug 'whonore/deepsea.vim'
 Plug 'whonore/vim-kami'
 " Navigation
@@ -37,7 +37,7 @@ Plug 'whonore/vim-debate'
 Plug 'Yggdroot/LeaderF'
 " Scripting
 Plug 'junegunn/vader.vim'
-Plug 'whonore/helpful.vim' " Fork from tweekmonster
+Plug 'whonore/helpful.vim', {'branch': 'buffer_version'} " Fork from tweekmonster
 call plug#end()
 
 syntax on
