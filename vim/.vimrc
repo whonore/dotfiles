@@ -72,6 +72,20 @@ set smartcase
 set wrapscan
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Backups
+let s:vimdir = expand("$HOME/.vim/dirs/")
+execute 'set directory=' . s:vimdir . 'tmp'
+execute 'set backupdir=' . s:vimdir . 'back'
+execute 'set undodir=' . s:vimdir . 'undo'
+execute 'set viminfo+=n' . s:vimdir . 'viminfo'
+set backup
+set undofile
+for s:dir in ['tmp', 'back', 'undo']
+  if !isdirectory(s:vimdir . s:dir)
+    call mkdir(s:vimdir . s:dir, "p")
+  endif
+endfor
+
 " Make * and # work on visual selection
 function! s:getSelected()
   let l:reg = getreg('"')

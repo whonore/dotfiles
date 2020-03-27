@@ -3,3 +3,4 @@ bundle/
 nix/result
 autoload/*.old
 view/
+dirs/
