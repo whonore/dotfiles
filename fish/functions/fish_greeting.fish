@@ -1,8 +1,8 @@
 if command -qs proofaday; and python -m pip freeze | grep -q proofaday
     function fish_greeting
-        if not dproofaday status -q
-            dproofaday start -q; dproofaday status -w -q
+        if not proofaday 2> /dev/null
+            dproofaday -q start; dproofaday -q status -w
+            proofaday
         end
-        proofaday
     end
 end
