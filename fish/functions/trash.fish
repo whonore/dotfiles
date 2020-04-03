@@ -1,10 +1,16 @@
 function trash --description 'Move files into/out of a trash directory.'
-    set -l options 'h/help' 'e/empty' 'l/list'
+    set -l options 'h/help' 'e/empty' 'r/restore' 'l/list'
     argparse $options -- $argv; or return
 
     if set -q _flag_help
-        echo 'Usage: trash [-h/--help] [-e/--empty] [-l/--list] [ARGS ...]'
+        echo 'Usage: trash [-h/--help] [-e/--empty] [-r/--restore] [-l/--list] [ARGS ...]'
         return 0
+    end
+
+    # Validate args
+    if set -q _flag_empty; and set -q _flag_restore
+        echo 'Error: --empty and --restore and mutually exclusive'
+        return 1
     end
 
     # Ensure _trash_dir
@@ -43,6 +49,10 @@ function trash --description 'Move files into/out of a trash directory.'
         end
 
         return
+    end
+
+    # Restore trash
+    if set -q _flag_restore
     end
 
     # List trash files
