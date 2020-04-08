@@ -38,6 +38,7 @@ Plug 'Yggdroot/LeaderF'
 " Scripting
 Plug 'junegunn/vader.vim'
 Plug 'whonore/helpful.vim', {'branch': 'buffer_version'} " Fork from tweekmonster
+Plug 'whonore/vim-synsational'
 call plug#end()
 
 syntax on
@@ -201,3 +202,6 @@ nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
 " vim-matchup options
 let g:matchup_surround_enabled = 1
 let g:matchup_matchparen_offscreen = {}
+
+" Synsational
+let g:synsational_mode = 'popup'
