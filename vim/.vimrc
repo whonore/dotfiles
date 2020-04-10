@@ -85,7 +85,9 @@ let s:vimdir = s:vimhome . 'dirs/'
 execute 'set directory=' . s:vimdir . 'tmp'
 execute 'set backupdir=' . s:vimdir . 'back'
 execute 'set undodir=' . s:vimdir . 'undo'
-execute 'set viminfo+=n' . s:vimdir . 'viminfo'
+if &viminfo !=# ''
+  execute 'set viminfo+=n' . s:vimdir . 'viminfo'
+endif
 set backup
 set undofile
 for s:dir in ['tmp', 'back', 'undo']
