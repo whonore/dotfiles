@@ -20,6 +20,7 @@ Plug 'whonore/vim-blueper'
 " Editing
 Plug 'andymass/vim-matchup'
 Plug 'joom/latex-unicoder.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
