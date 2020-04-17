@@ -29,6 +29,7 @@ Plug 'whonore/vim-trim-ws'
 " Languages
 Plug 'dag/vim-fish'
 Plug 'leafgarland/typescript-vim'
+Plug 'lervag/vimtex'
 Plug 'LnL7/vim-nix'
 Plug 'rust-lang/rust.vim'
 Plug 'whonore/Coqtail', {'branch': 'async'} | Plug 'let-def/vimbufsync'
@@ -172,9 +173,6 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-" Assume .tex files are LaTex
-let g:tex_flavor = 'latex'
-
 " Make :grep use smarter tools
 if system('rg --version') !=# ''
   set grepprg=rg\ --vimgrep
@@ -214,3 +212,7 @@ let g:synsational_mode = 'popup'
 
 " trim-ws
 let g:trim_ws_verbose = 0
+
+" vimtex
+let g:tex_flavor = 'latex'
+let g:matchup_override_vimtex = 1
