@@ -1,3 +1,6 @@
 interleavings
 linearizable
 linearizability
+timestamp
+nondeterministic
+nondeterminism
