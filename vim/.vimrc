@@ -198,15 +198,19 @@ nnoremap gr :grep <cword><CR>
 " File Searching
 cabbrev <expr> %% fnameescape(expand('%:p:h'))
 
-" Disable trim-ws printing
-let g:trim_ws_verbose = 0
+" Plugins
+" airline
+let g:airline#extensions#whitespace#enabled = 0
 
-" Toggle HelpfulVersion
+" helpful
 nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
 
-" vim-matchup options
+" matchup
 let g:matchup_surround_enabled = 1
 let g:matchup_matchparen_offscreen = {}
 
-" Synsational
+" synsational
 let g:synsational_mode = 'popup'
+
+" trim-ws
+let g:trim_ws_verbose = 0
