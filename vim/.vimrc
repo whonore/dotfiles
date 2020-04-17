@@ -53,6 +53,7 @@ catch /E185:/
 endtry
 
 let g:mapleader = ','
+let g:maplocalleader = g:mapleader
 
 " Indentation Settings
 set tabstop=8
