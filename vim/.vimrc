@@ -25,6 +25,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug 'whonore/vim-sentencer'
 Plug 'whonore/vim-trim-ws'
 " Languages
 Plug 'dag/vim-fish'
