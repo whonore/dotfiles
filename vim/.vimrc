@@ -215,6 +215,9 @@ let g:synsational_mode = 'popup'
 " trim-ws
 let g:trim_ws_verbose = 0
 
+" unicoder
+imap <C-l> <Plug>Unicoder
+
 " vimtex
 let g:tex_flavor = 'latex'
 let g:matchup_override_vimtex = 1
