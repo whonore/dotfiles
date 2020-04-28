@@ -35,6 +35,13 @@ if test -d "$HOME/.pyenv"
     pyenv virtualenv-init - | source
 end
 
+# Pyenv
+if test -d "$HOME/.rbenv"
+    set RBENV_ROOT "$HOME/.rbenv"
+    add_path_uniq "$RBENV_ROOT/bin"
+    rbenv init - | source
+end
+
 # tlmgr
 set TEXMFHOME "$HOME/.local/texmf"
 
