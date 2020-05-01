@@ -51,6 +51,7 @@ filetype plugin indent on
 try
   colorscheme blueper
   let g:airline_theme = 'blueper'
+  let g:Lf_StlColorscheme = 'blueper'
 catch /E185:/
   colorscheme cobalt
 endtry
@@ -209,6 +210,9 @@ let g:airline#extensions#whitespace#enabled = 0
 
 " helpful
 nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
+
+" leaderf
+let g:Lf_WorkingDirectoryMode = 'Ac'
 
 " matchup
 let g:matchup_surround_enabled = 1
