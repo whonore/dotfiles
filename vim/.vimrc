@@ -198,6 +198,11 @@ nnoremap gr :grep <cword><CR>
 " File Searching
 cabbrev <expr> %% fnameescape(expand('%:p:h'))
 
+" Window resizing
+command! -nargs=1 -count=1 Resize :resize <args><count> | :vertical resize <args><count>
+nnoremap + :<C-U>execute v:count1 'Resize +'<CR>
+nnoremap - :<C-U>execute v:count1 'Resize -'<CR>
+
 " Plugins
 " airline
 let g:airline#extensions#whitespace#enabled = 0
