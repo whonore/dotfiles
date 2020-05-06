@@ -4,3 +4,5 @@ linearizability
 timestamp
 nondeterministic
 nondeterminism
+linearized
+nondeterministically
