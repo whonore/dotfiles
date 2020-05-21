@@ -56,7 +56,7 @@ function fish_prompt --description "Write out the prompt"
     if test -n "$IN_NIX_SHELL"
         set_color $color_base --bold; printf $prompt_nix
     end
-    set_color normal; printf "%s" (__fish_git_prompt "$prompt_git_sep%s")
+    set_color normal; printf "%s" (fish_git_prompt "$prompt_git_sep%s")
     set_color $color_base; printf $prompt_close
 
     # If current dir is not writable display it in red

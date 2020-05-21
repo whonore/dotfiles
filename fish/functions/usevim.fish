@@ -4,7 +4,7 @@ function usevim --description 'Set the current Vim version.' --argument-names vi
     set -l nixpath "$HOME/.vim/nix"
 
     if test -z $py
-        set py '2'
+        set py '3'
     end
 
     if not contains $vim $vims
