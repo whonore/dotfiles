@@ -46,8 +46,8 @@ end
 set TEXMFHOME "$HOME/.local/texmf"
 
 # Fzf
-set FZF_DEFAULT_COMMAND "fd --type f"
-set FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
+set -x FZF_DEFAULT_COMMAND "fd --type f"
+set -x FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND . \$dir"
 set FZF_ALT_C_COMMAND "fd --type d . \$dir"
 

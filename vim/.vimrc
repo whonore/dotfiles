@@ -38,8 +38,8 @@ Plug 'whonore/Coqtail', {'branch': 'async'} | Plug 'let-def/vimbufsync'
 Plug 'whonore/deepsea.vim'
 Plug 'whonore/vim-kami'
 " Navigation
+Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'whonore/vim-debate'
-Plug 'Yggdroot/LeaderF'
 " Scripting
 Plug 'junegunn/vader.vim'
 Plug 'whonore/helpful.vim', {'branch': 'buffer_version'} " Fork from tweekmonster
@@ -208,11 +208,19 @@ nnoremap - :<C-U>execute v:count1 'Resize -'<CR>
 " airline
 let g:airline#extensions#whitespace#enabled = 0
 
+" fzf
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+nnoremap <leader>f :Files<CR>
+let g:fzf_action = {'ctrl-a': 'argadd'}
+if v:version > 800
+  let g:fzf_layout = {'window': 'botright split'}
+else
+  let g:fzf_layout = {'down': '~40%'}
+endif
+
 " helpful
 nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
-
-" leaderf
-let g:Lf_WorkingDirectoryMode = 'Ac'
 
 " matchup
 let g:matchup_surround_enabled = 1
