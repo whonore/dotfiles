@@ -1,7 +1,8 @@
-set -g prompt_color_git 96FFFB
-set -g prompt_color_user 16A800
-set -g prompt_color_host C800CC
-set -g prompt_color_base FFCC00
+blueper_colors
+set -g prompt_color_git $blueper_teal
+set -g prompt_color_user $blueper_green
+set -g prompt_color_host $blueper_purple
+set -g prompt_color_base $blueper_yellow
 
 set -g prompt_open "⦇"
 set -g prompt_close "⦈"
@@ -20,10 +21,10 @@ set -g __fish_git_prompt_char_upstream_behind "⇓"
 set -g __fish_git_prompt_char_upstream_prefix ""
 set -g __fish_git_prompt_color $prompt_color_git
 set -g __fish_git_prompt_color_branch $prompt_color_git
-set -g __fish_git_prompt_color_cleanstate green
-set -g __fish_git_prompt_color_dirtystate blue --bold
-set -g __fish_git_prompt_color_invalidstate red
-set -g __fish_git_prompt_color_stagedstate yellow
+set -g __fish_git_prompt_color_cleanstate $blueper_green
+set -g __fish_git_prompt_color_dirtystate $blueper_blue --bold
+set -g __fish_git_prompt_color_invalidstate $blueper_red
+set -g __fish_git_prompt_color_stagedstate $blueper_yellow
 set -g __fish_git_prompt_color_untrackedfiles $prompt_color_git
 set -g __fish_git_prompt_hide_untrackedfiles 1
 set -g __fish_git_prompt_show_informative_status 1
@@ -35,7 +36,7 @@ function fish_prompt --description "Write out the prompt"
 
     set -l color_base $prompt_color_base
     if test $last_status -ne 0
-        set color_base red
+        set color_base $blueper_red
     end
 
     set -l user "$USER"
@@ -62,7 +63,7 @@ function fish_prompt --description "Write out the prompt"
     # If current dir is not writable display it in red
     set_color $color_base
     if not test -w (pwd)
-        set_color red --bold
+        set_color $blueper_red --bold
     end
     printf "%s " (prompt_pwd)
 
