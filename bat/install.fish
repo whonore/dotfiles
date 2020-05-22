@@ -4,7 +4,7 @@ set -l dir (dirname (status filename))
 source $dir/../helper.fish
 
 set -l bat $HOME/.config/bat
-set -l files "$dir/../vim/bundle/vim-blueper/tmTheme/Blueper.tmTheme,$bat/themes/Blueper.tmTheme"
+set -l files "../vim/bundle/vim-blueper/themes/tmTheme/Blueper.tmTheme,$bat/themes/Blueper.tmTheme"
 set -a files "config,$bat/config"
 
 install_dots $dir $files
