@@ -44,6 +44,8 @@ Plug 'whonore/vim-debate'
 Plug 'junegunn/vader.vim'
 Plug 'whonore/helpful.vim', {'branch': 'buffer_version'} " Fork from tweekmonster
 Plug 'whonore/vim-synsational'
+" Misc
+Plug 'whonore/vim-tictactoe'
 call plug#end()
 
 syntax on
