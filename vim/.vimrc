@@ -213,7 +213,7 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 nnoremap <leader>f :Files<CR>
 let g:fzf_action = {'ctrl-a': 'argadd'}
-if v:version > 800
+if v:version >= 800
   let g:fzf_layout = {'window': 'botright split'}
 else
   let g:fzf_layout = {'down': '~40%'}
