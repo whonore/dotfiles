@@ -210,6 +210,9 @@ nnoremap - :<C-U>execute v:count1 'Resize -'<CR>
 " airline
 let g:airline#extensions#whitespace#enabled = 0
 
+" coqtail
+let g:coqtail_match_shift = 1
+
 " fzf
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
