@@ -8,10 +8,10 @@ function usevim --description 'Set the current Vim version.' --argument-names vi
     end
 
     if not contains $vim $vims
-        echo 'Invalid Vim version $vim. Must be one of: $vims.'
+        echo "Invalid Vim version $vim. Must be one of: $vims."
         return 1
     else if not contains $py $pys
-        echo 'Invalid Python version $py Must be one of: $pys.'
+        echo "Invalid Python version $py Must be one of: $pys."
         return 1
     end
 
