@@ -34,7 +34,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'lervag/vimtex'
 Plug 'LnL7/vim-nix'
 Plug 'rust-lang/rust.vim'
-Plug 'whonore/Coqtail', {'branch': 'async'} | Plug 'let-def/vimbufsync'
+Plug 'whonore/Coqtail'
 Plug 'whonore/deepsea.vim'
 Plug 'whonore/vim-kami'
 " Navigation
