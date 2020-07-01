@@ -94,7 +94,9 @@ let s:vimdir = s:vimhome . 'dirs/'
 execute 'set directory=' . s:vimdir . 'tmp'
 execute 'set backupdir=' . s:vimdir . 'back'
 execute 'set undodir=' . s:vimdir . 'undo'
-if &viminfo !=# ''
+if has('nvim')
+  execute 'set shada+=n' . s:vimdir . 'shada'
+elseif &viminfo !=# ''
   execute 'set viminfo+=n' . s:vimdir . 'viminfo'
 endif
 set backup
@@ -156,7 +158,9 @@ if v:version > 704 || v:version == 704 && has('patch1027')
 endif
 
 " Add system clipboard
-if has('unnamedplus')
+if has('nvim')
+  set clipboard=unnamedplus
+elseif has('unnamedplus')
   set clipboard=unnamedplus,autoselectplus
 else
   set clipboard=unnamed,autoselect
