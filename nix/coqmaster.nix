@@ -3,9 +3,11 @@ with pkgs;
 
 let
   coqsrc = fetchTarball https://github.com/coq/coq-on-cachix/tarball/master;
-  coq = callPackage coqsrc { doInstallCheck = false; buildDoc = false; };
-in stdenv.mkDerivation {
+  coqPackages = mkCoqPackages (import coqsrc {});
+in
+with coqPackages;
+stdenv.mkDerivation {
   name = "coqmaster";
 
-  buildInputs = [coq];
+  propagatedBuildInputs = [coq];
 }
