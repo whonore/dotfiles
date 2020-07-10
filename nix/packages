@@ -1,11 +1,11 @@
-bat-0.15.1
+bat-0.15.4
 dmenu-4.9
-fd-8.1.0
+fd-8.1.1
 fish-3.1.2
 fzf-0.21.1
-nix-2.3.4
-ripgrep-12.1.0
+nix-2.3.6
+ripgrep-12.1.1
 rustup-1.21.1
 xclip-0.13
-xmobar-0.33
+xmobar-0.35.1
 xmonad-with-packages-8.8.3
