@@ -138,14 +138,18 @@ function! s:overPattern() abort
   return printf(s:over_pattern, l:textwidth)
 endfunction
 function! s:toggleOver() abort
-  silent! call matchdelete(s:over)
-  let s:over = matchadd('OverLong', s:overPattern())
+  if s:over == -1
+    let s:over = matchadd('OverLong', s:overPattern())
+  else
+    silent! call matchdelete(s:over)
+    let s:over = -1
+  endif
 endfunction
 function! s:searchOver(backwards) abort
   call search(s:overPattern(), "w" . (a:backwards ? 'b' : ''))
 endfunction
 
-nnoremap <leader>oo :call <SID>toggleOver()<CR>
+nnoremap <silent> <leader>oo :call <SID>toggleOver()<CR>
 nnoremap <silent> ]o :call <SID>searchOver(0)<CR>
 nnoremap <silent> [o :call <SID>searchOver(1)<CR>
 
