@@ -109,7 +109,7 @@ for s:dir in ['tmp', 'back', 'undo']
 endfor
 
 " Make * and # work on visual selection
-function! s:getSelected()
+function! s:getSelected() abort
   let l:reg = getreg('"')
   let l:type = getregtype('"')
   normal! gvy
@@ -130,22 +130,24 @@ augroup vimrc
   autocmd FileType * setlocal textwidth=0
 augroup END
 
-let s:over = 0
-let s:over_pattern = '\%80v.\+'
-hi OverLong ctermfg=NONE ctermbg=NONE
-function! s:toggleOver()
-  let s:over = !s:over
-  if s:over
-    hi OverLong ctermfg=NONE ctermbg=208
-    echom 'Check over on'
-  else
-    hi clear OverLong
-    echom 'Check over off'
-  endif
+hi def link OverLong WarningMsg
+let s:over = -1
+let s:over_pattern = '\%%%dv.\+$'
+function! s:overPattern() abort
+  let l:textwidth = &textwidth > 0 ? &textwidth : 80
+  return printf(s:over_pattern, l:textwidth)
 endfunction
-execute 'match OverLong /' . s:over_pattern . '/'
+function! s:toggleOver() abort
+  silent! call matchdelete(s:over)
+  let s:over = matchadd('OverLong', s:overPattern())
+endfunction
+function! s:searchOver(backwards) abort
+  call search(s:overPattern(), "w" . (a:backwards ? 'b' : ''))
+endfunction
+
 nnoremap <leader>oo :call <SID>toggleOver()<CR>
-execute "nnoremap <leader>fo :call search('" . s:over_pattern . "')<CR>"
+nnoremap <silent> ]o :call <SID>searchOver(0)<CR>
+nnoremap <silent> [o :call <SID>searchOver(1)<CR>
 
 " Other Misc Settings
 set mouse=a
