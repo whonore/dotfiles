@@ -81,6 +81,7 @@ set showcmd
 set wildmode=longest,list
 set visualbell
 set encoding=utf-8
+set nojoinspaces
 
 " Search Settings
 set incsearch
