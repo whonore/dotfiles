@@ -44,6 +44,9 @@ Plug 'whonore/vim-debate'
 Plug 'junegunn/vader.vim'
 Plug 'whonore/helpful.vim', {'branch': 'buffer_version'} " Fork from tweekmonster
 Plug 'whonore/vim-synsational'
+" Snippets
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 " Misc
 Plug 'whonore/vim-tictactoe'
 call plug#end()
@@ -247,6 +250,11 @@ let g:synsational_mode = 'popup'
 
 " trim-ws
 let g:trim_ws_verbose = 0
+
+" ultisnips
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsExpandTrigger = '<C-I>'
+let g:UltiSnipsNoPythonWarning = 1
 
 " unicoder
 imap <C-l> <Plug>Unicoder
