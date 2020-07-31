@@ -47,6 +47,7 @@ Plug 'whonore/vim-synsational'
 " Snippets
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'whonore/coq-ultisnips'
 " Misc
 Plug 'whonore/vim-tictactoe'
 call plug#end()
