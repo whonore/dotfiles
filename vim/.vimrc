@@ -254,7 +254,7 @@ let g:trim_ws_verbose = 0
 
 " ultisnips
 let g:UltiSnipsEditSplit = 'vertical'
-let g:UltiSnipsExpandTrigger = '<C-I>'
+let g:UltiSnipsExpandTrigger = '<C-J>'
 let g:UltiSnipsNoPythonWarning = 1
 
 " unicoder
