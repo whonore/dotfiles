@@ -54,6 +54,11 @@ set -x FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND . \$dir"
 set FZF_ALT_C_COMMAND "fd --type d . \$dir"
 
+# Rust CLI aliases
+if command -q exa
+    alias ls exa
+end
+
 # Clean up
 # Clean up PATH if started by nix-shell
 function clean_nix_path
