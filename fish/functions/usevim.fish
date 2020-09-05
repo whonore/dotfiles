@@ -1,7 +1,7 @@
 function usevim --description 'Set the current Vim version.' --argument-names vim py
     set -l vims '7.4' '8.0' '8.1' '8.2'
     set -l pys '2' '3'
-    set -l nixpath "$HOME/.vim/nix"
+    set -l nixpath "$HOME/.dotfiles/nix"
 
     if test -z $py
         set py '3'

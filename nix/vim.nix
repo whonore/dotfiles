@@ -20,8 +20,8 @@ let
       sha256 = "1d9mf4p55kjbh93z71pfhi8yypjkwf6fv76qnsi5rs7ahwnin05r";
     };
     "8.2" = {
-      patch = "0803";
-      sha256 = "0l0mhv36khpkg867vc4arpmdpinznav7davgybi7fr1wpva87vyw";
+      patch = "1603";
+      sha256 = "1wzm83k4gpm9qm7bnm987qx1yfkcaqj6bq4s0ci8wwgm95vjgnlj";
     };
   }.${vim};
 in stdenv.mkDerivation {
