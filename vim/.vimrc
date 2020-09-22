@@ -112,6 +112,15 @@ for s:dir in ['tmp', 'back', 'undo']
   endif
 endfor
 
+" Update spellfiles
+for s:spl in glob(s:vimhome . 'spell/*.add', 1, 1)
+    if filereadable(s:spl)
+      \ && (!filereadable(s:spl . '.spl') || getftime(s:spl) > getftime(s:spl . '.spl'))
+        execute 'mkspell! ' . fnameescape(s:spl)
+    endif
+    execute 'set spellfile+=' . fnameescape(s:spl)
+endfor
+
 " Make * and # work on visual selection
 function! s:getSelected() abort
   let l:reg = getreg('"')
@@ -150,7 +159,7 @@ function! s:toggleOver() abort
   endif
 endfunction
 function! s:searchOver(backwards) abort
-  call search(s:overPattern(), "w" . (a:backwards ? 'b' : ''))
+  call search(s:overPattern(), 'w' . (a:backwards ? 'b' : ''))
 endfunction
 
 nnoremap <silent> <leader>oo :call <SID>toggleOver()<CR>
@@ -263,4 +272,5 @@ imap <C-l> <Plug>Unicoder
 
 " vimtex
 let g:tex_flavor = 'latex'
+let g:tex_comment_nospell = 1
 let g:matchup_override_vimtex = 1

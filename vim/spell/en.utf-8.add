@@ -6,9 +6,15 @@ nondeterministic
 nondeterminism
 linearized
 nondeterministically
-Compositionality
 compositionality
 preemptible
 toolchain
 deserialize
 serializer
+effectful
+typeclass
+hashtable
+well-formedness
+prover
+coinductive
+coinduction

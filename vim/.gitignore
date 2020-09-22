@@ -4,3 +4,4 @@ nix/result
 autoload/*.old
 view/
 dirs/
+spell/*.spl
