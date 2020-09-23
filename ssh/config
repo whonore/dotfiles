@@ -1,0 +1,43 @@
+Host jaco
+  User wolf
+  HostName jaco.cs.yale.internal
+  Port 22
+  IdentityFile ~/.ssh/id_rsa.pub
+  PreferredAuthentications publickey
+  ControlMaster auto
+  ControlPath /tmp/%r@%h:%p
+  ControlPersist 1h
+  ForwardAgent yes
+
+Host lddtech
+  User lddtechd
+  HostName lddtech.digitalscholar.rochester.edu
+  Port 22
+  IdentityFile ~/.ssh/id_rsa.pub
+  PreferredAuthentications publickey
+  ControlMaster auto
+  ControlPath /tmp/%r@%h:%p
+  ControlPersist 1h
+  ForwardAgent yes
+
+Host website
+  User wlh23
+  HostName box146.cs.yale.edu
+  Port 22
+  IdentityFile ~/.ssh/id_rsa.pub
+  PreferredAuthentications publickey
+  ControlMaster auto
+  ControlPath /tmp/%r@%h:%p
+  ControlPersist 1h
+  ForwardAgent yes
+
+Host zoo
+  User wlh23
+  HostName node.zoo.cs.yale.edu
+  Port 22
+  IdentityFile ~/.ssh/id_rsa.pub
+  PreferredAuthentications publickey
+  ControlMaster auto
+  ControlPath /tmp/%r@%h:%p
+  ControlPersist 1h
+  ForwardAgent yes

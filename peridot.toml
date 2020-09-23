@@ -49,8 +49,13 @@ links = [
     [".vimrc", "init.vim"],
 ]
 
-[Xmonad]
-dstdir = "xmonad"
+[ssh]
+srcdir = "$HOME/.ssh"
+links = [
+    ["config"],
+]
+
+[xmonad]
 links = [
     [".", ".xmonad"],
     [".xmobarrc"],
