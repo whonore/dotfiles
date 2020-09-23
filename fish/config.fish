@@ -75,5 +75,4 @@ end
 if test -n "$IN_NIX_SHELL"
     clean_nix_path
 end
-functions -e add_path_uniq
-functions -e clean_nix_path
+functions -e add_path_uniq clean_nix_path

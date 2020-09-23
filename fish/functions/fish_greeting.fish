@@ -1,8 +1,12 @@
 if command -qs proofaday
     function fish_greeting
-        if not proofaday 2> /dev/null
-            dproofaday -q start; dproofaday -q status -w
-            proofaday
+        alias pyexec='env -u PYTHONNOUSERSITE pyenv exec'
+
+        if not pyexec proofaday 2> /dev/null
+            pyexec dproofaday -q start; pyexec dproofaday -q status -w
+            pyexec proofaday
         end
+
+        functions -e pyexec
     end
 end
