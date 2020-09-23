@@ -1,0 +1,57 @@
+[bat]
+srcdir = "$HOME/.config/bat"
+links = [
+    ["config"],
+    ["{{vim}}/bundle/vim-blueper/themes/tmTheme/Blueper.tmTheme", "themes/Blueper.tmTheme"],
+]
+
+[fish]
+links = [
+    [".", ".config/fish"],
+]
+
+[git]
+description = "Git config"
+links = [
+    [".gitconfig"],
+    ["ignore", ".config/git/ignore"],
+]
+
+[kitty]
+srcdir = "$HOME/.config/kitty"
+links = [
+    ["kitty.conf"],
+    ["{{vim}}/bundle/vim-blueper/themes/kitty/colors.conf", "colors.conf"],
+]
+
+[misc]
+links = [
+    [".ghci"],
+    [".vintrc.yaml"],
+    [".screenrc"],
+    [".fdignore"],
+    [".jackdrc"],
+]
+
+[vim]
+links = [
+    [".", ".vim"],
+    [".vimrc"],
+]
+
+[neovim]
+dstdir = "vim"
+srcdir = "$HOME/.config/nvim"
+links = [
+    ["autoload"],
+    ["bundle"],
+    ["colors"],
+    [".vimrc", "init.vim"],
+]
+
+[Xmonad]
+dstdir = "xmonad"
+links = [
+    [".", ".xmonad"],
+    [".xmobarrc"],
+]
