@@ -38,5 +38,5 @@ vim +PlugUpdate
 
 ## Snap
 ```sh
-snap install discord spotify chromium
+snap install discord spotify firefox chromium
 ```
