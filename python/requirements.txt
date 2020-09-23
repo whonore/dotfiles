@@ -1,0 +1,12 @@
+pip
+black
+isort
+mypy
+flake8
+flake8-bugbear
+pylint
+vim-vint
+tox
+pytest
+pipenv
+proofaday
