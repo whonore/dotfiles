@@ -49,6 +49,7 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'whonore/coq-ultisnips'
 " Misc
+Plug 'lambdalisue/suda.vim'
 Plug 'whonore/vim-tictactoe'
 call plug#end()
 
