@@ -237,6 +237,7 @@ let g:airline#extensions#whitespace#enabled = 0
 
 " coqtail
 let g:coqtail_match_shift = 1
+let g:coqtail_project_names = ['_CoqProject', '_CoqProject.local']
 
 " fzf
 command! -bang -nargs=? -complete=dir Files
