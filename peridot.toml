@@ -17,6 +17,11 @@ links = [
     ["ignore", ".config/git/ignore"],
 ]
 
+[grip]
+links = [
+    [".", ".config/grip"],
+]
+
 [kitty]
 srcdir = "$HOME/.config/kitty"
 links = [

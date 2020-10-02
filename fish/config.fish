@@ -65,6 +65,9 @@ set -x FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND . \$dir"
 set FZF_ALT_C_COMMAND "fd --type d . \$dir"
 
+# Grip
+set -x GRIPHOME "$HOME/.config/grip"
+
 # Clean up
 function clean_nix_path --description "Clean up PATH if started by nix-shell"
     set -l first_nix 1
