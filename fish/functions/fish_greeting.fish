@@ -1,4 +1,4 @@
-if command -qs proofaday
+if command -q proofaday
     function fish_greeting
         alias pyexec='env -u PYTHONNOUSERSITE'
 
