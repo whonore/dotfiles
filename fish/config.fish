@@ -81,21 +81,9 @@ if command -q bat; and test -f $theme
     end
 end
 
-# Clean up
-function clean_nix_path --description "Clean up PATH if started by nix-shell"
-    set -l first_nix 1
-    for idx in (seq (count $PATH))
-        if string match -e -q "/nix" $PATH[$idx]
-            set first_nix $idx
-            break
-        end
-    end
-    if test $first_nix -ne 1
-        set -e PATH[1..(math $first_nix - 1)]
-    end
+# Move /nix paths from nix-shell before fish_user_paths
+if test -n "$IN_NIX_SHELL"; and ! string match -q "/nix*" $PATH[1]
+    move_nix_paths
 end
 
-if test -n "$IN_NIX_SHELL"
-    clean_nix_path
-end
-functions -e add_path_uniq clean_nix_path
+functions -e fish_add_path
