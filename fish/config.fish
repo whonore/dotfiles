@@ -10,11 +10,11 @@ else
     echo "fish_add_path already exists in fish 3.2"
 end
 
-set -l FISH_HOME "$HOME/.config/fish"
+set FISH_ROOT "$HOME/.config/fish"
 
 # Load extra definitions
-if test -f "$FISH_HOME/local.fish"
-    source "$FISH_HOME/local.fish"
+if test -f "$FISH_ROOT/local.fish"
+    source "$FISH_ROOT/local.fish"
 end
 
 # Local bin directories
@@ -55,11 +55,11 @@ if test -d "$HOME/.rbenv"
 end
 
 # tlmgr
-set TEXLIVE_HOME "/usr/local/texlive/2020"
-if test -d "$TEXLIVE_HOME"
-    fish_add_path "$TEXLIVE_HOME/bin/x86_64-linux"
-    set -a MANPATH "$TEXLIVE_HOME/texmf-dist/doc/man"
-    set -a INFOPATH "$TEXLIVE_HOME/texmf-dist/doc/info"
+set TEXLIVE_ROOT "/usr/local/texlive/2020"
+if test -d "$TEXLIVE_ROOT"
+    fish_add_path "$TEXLIVE_ROOT/bin/x86_64-linux"
+    set -a MANPATH "$TEXLIVE_ROOT/texmf-dist/doc/man"
+    set -a INFOPATH "$TEXLIVE_ROOT/texmf-dist/doc/info"
     set TEXMFHOME "$HOME/.local/texmf"
 end
 
@@ -77,7 +77,7 @@ set -l theme "$HOME/.config/bat/themes/Blueper.tmTheme"
 set -l meta "$HOME/.cache/bat/metadata.yaml"
 if command -q bat; and test -f $theme
     if test ! -f $meta; or test (stat -Lc %Y $meta) -lt (stat -Lc %Y $theme)
-        bat cache --build > /dev/null
+        bat cache --build >/dev/null
     end
 end
 
