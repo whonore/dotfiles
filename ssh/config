@@ -41,3 +41,14 @@ Host zoo
   ControlPath /tmp/%r@%h:%p
   ControlPersist 1h
   ForwardAgent yes
+
+Host helpwithcovid
+  User root
+  HostName newhavenhelpwithcovid.com
+  Port 22
+  IdentityFile ~/.ssh/id_rsa.pub
+  PreferredAuthentications publickey
+  ControlMaster auto
+  ControlPath /tmp/%r@%h:%p
+  ControlPersist 1h
+  ForwardAgent yes
