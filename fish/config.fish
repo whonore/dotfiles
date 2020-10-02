@@ -68,6 +68,15 @@ set FZF_ALT_C_COMMAND "fd --type d . \$dir"
 # grip
 set -x GRIPHOME "$HOME/.config/grip"
 
+# bat
+set -l theme "$HOME/.config/bat/themes/Blueper.tmTheme"
+set -l meta "$HOME/.cache/bat/metadata.yaml"
+if command -q bat; and test -f $theme
+    if test ! -f $meta; or test (stat -Lc %Y $meta) -lt (stat -Lc %Y $theme)
+        bat cache --build > /dev/null
+    end
+end
+
 # Clean up
 function clean_nix_path --description "Clean up PATH if started by nix-shell"
     set -l first_nix 1
