@@ -1,9 +1,13 @@
-function add_path_uniq --description "Prepend a path to PATH if it's not already included"
-    for p in $argv
-        if not contains $p $PATH
-            set -p PATH $p
+if not functions -q fish_add_path
+    function fish_add_path --description "Prepend a path to fish_user_paths if it's not already included"
+        for p in $argv
+            if not contains $p $fish_user_paths
+                set -Up fish_user_paths $p
+            end
         end
     end
+else
+    echo "fish_add_path already exists in fish 3.2"
 end
 
 set -l FISH_HOME "$HOME/.config/fish"
@@ -14,7 +18,7 @@ if test -f "$FISH_HOME/local.fish"
 end
 
 # Local bin directories
-add_path_uniq "$HOME/bin" "$HOME/.local/bin"
+fish_add_path "$HOME/bin" "$HOME/.local/bin"
 set -a MANPATH "$HOME/.local/man"
 set -a INFOPATH "$HOME/.local/info"
 
@@ -25,20 +29,20 @@ if test -d "$HOME/.nix-profile"; and test -d /nix
 end
 
 # rust
-add_path_uniq "$HOME/.cargo/bin"
+fish_add_path "$HOME/.cargo/bin"
 if command -q exa
     alias ls exa
 end
 
 # yarn
 if test -d "$HOME/.yarn"
-    add_path_uniq "$HOME/.yarn/bin"
+    fish_add_path "$HOME/.yarn/bin"
 end
 
 # pyenv
 if test -d "$HOME/.pyenv"
     set PYENV_ROOT "$HOME/.pyenv"
-    add_path_uniq "$PYENV_ROOT/bin"
+    fish_add_path "$PYENV_ROOT/bin"
     pyenv init - | source
     pyenv virtualenv-init - | source
 end
@@ -46,14 +50,14 @@ end
 # rbenv
 if test -d "$HOME/.rbenv"
     set RBENV_ROOT "$HOME/.rbenv"
-    add_path_uniq "$RBENV_ROOT/bin"
+    fish_add_path "$RBENV_ROOT/bin"
     rbenv init - | source
 end
 
 # tlmgr
 set TEXLIVE_HOME "/usr/local/texlive/2020"
 if test -d "$TEXLIVE_HOME"
-    add_path_uniq "$TEXLIVE_HOME/bin/x86_64-linux"
+    fish_add_path "$TEXLIVE_HOME/bin/x86_64-linux"
     set -a MANPATH "$TEXLIVE_HOME/texmf-dist/doc/man"
     set -a INFOPATH "$TEXLIVE_HOME/texmf-dist/doc/info"
     set TEXMFHOME "$HOME/.local/texmf"
