@@ -90,6 +90,9 @@ if command -q bat; and test -f $theme
     end
 end
 
+# nix
+set -a MANPATH "$HOME/.nix-profile/share/man"
+
 # Move /nix paths from nix-shell before fish_user_paths
 if test -n "$IN_NIX_SHELL"; and ! string match -q "/nix*" $PATH[1]
     move_nix_paths
