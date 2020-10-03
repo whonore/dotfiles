@@ -2,3 +2,4 @@ fishd.*
 local.fish
 conf.d/nix.fish
 nix-daemon.fish
+fish_variables

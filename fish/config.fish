@@ -22,12 +22,6 @@ fish_add_path "$HOME/bin" "$HOME/.local/bin"
 set -a MANPATH "$HOME/.local/man"
 set -a INFOPATH "$HOME/.local/info"
 
-# nix
-if test -d "$HOME/.nix-profile"; and test -d /nix
-    # Generated with https://gist.github.com/whonore/05abc83f9c741ff60583b5acefd7336d
-    source "$HOME/.config/fish/conf.d/nix.fish"
-end
-
 # rust
 fish_add_path "$HOME/.cargo/bin"
 if command -q exa
