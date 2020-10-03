@@ -22,6 +22,21 @@ fish_add_path "$HOME/bin" "$HOME/.local/bin"
 set -a MANPATH "$HOME/.local/man"
 set -a INFOPATH "$HOME/.local/info"
 
+# Browser
+if ! set -q BROWSER
+    for browser in firefox chromium
+        if command -q $browser
+            set -Ux BROWSER $browser
+            if string match -q "/snap*" (command -s $browser)
+                # Snap's sandboxing prevents browsers from opening help files in /nix
+                set __fish_help_dir_orig $__fish_help_dir
+                set -x __fish_help_dir ""
+            end
+            break
+        end
+    end
+end
+
 # rust
 fish_add_path "$HOME/.cargo/bin"
 if command -q exa
