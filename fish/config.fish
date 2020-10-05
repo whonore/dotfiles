@@ -22,19 +22,6 @@ fish_add_path "$HOME/bin" "$HOME/.local/bin"
 set -a MANPATH "$HOME/.local/man"
 set -a INFOPATH "$HOME/.local/info"
 
-# Browser
-for browser in firefox chromium
-    if command -q $browser
-        set -x BROWSER $browser
-        if string match -q "/snap*" (command -s $browser)
-            # Snap's sandboxing prevents browsers from opening help files in /nix
-            set __fish_help_dir_orig $__fish_help_dir
-            set -x __fish_help_dir ""
-        end
-        break
-    end
-end
-
 # rust
 fish_add_path "$HOME/.cargo/bin"
 if command -q exa
@@ -90,6 +77,24 @@ end
 
 # nix
 set -a MANPATH "$HOME/.nix-profile/share/man"
+
+# qutebrowser
+if test -d "$HOME/.qutebrowser"
+    set -x QUTEBROWSER_ROOT "$HOME/.qutebrowser"
+end
+
+# Browser
+for browser in firefox chromium
+    if command -q $browser
+        set -x BROWSER $browser
+        if string match -q "/snap*" (command -s $browser)
+            # Snap's sandboxing prevents browsers from opening help files in /nix
+            set __fish_help_dir_orig $__fish_help_dir
+            set -x __fish_help_dir ""
+        end
+        break
+    end
+end
 
 # Move /nix paths from nix-shell before fish_user_paths
 if test -n "$IN_NIX_SHELL"; and ! string match -q "/nix*" $PATH[1]

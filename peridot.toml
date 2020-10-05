@@ -38,6 +38,13 @@ links = [
     [".jackdrc"],
 ]
 
+[qutebrowser]
+srcdir = "$HOME/.config/qutebrowser"
+links = [
+    ["config.py"],
+    ["qutebrowser", "$HOME/bin/qutebrowser"],
+]
+
 [vim]
 links = [
     [".", ".vim"],

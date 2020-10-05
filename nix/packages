@@ -19,3 +19,6 @@ fish                    # 3.1.2
 
 # Rust
 rustup                  # 1.21.1
+
+# Qutebrowser
+asciidoc                # 8.6.9

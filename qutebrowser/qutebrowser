@@ -1,0 +1,2 @@
+#!/bin/sh
+$QUTEBROWSER_ROOT/.venv/bin/python3 -m qutebrowser
