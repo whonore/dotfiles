@@ -96,4 +96,7 @@ if test -n "$IN_NIX_SHELL"; and ! string match -q "/nix*" $PATH[1]
     move_nix_paths
 end
 
+# Append : to MANPATH so manpath appends default system paths
+set -a MANPATH :
+
 functions -e fish_add_path
