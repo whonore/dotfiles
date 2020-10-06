@@ -1,3 +1,5 @@
+config.load_autoconfig()
+
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
@@ -2158,8 +2160,7 @@ custom_bindings = {
     },
 }
 
-bindings = default_bindings
-bindings.update(custom_bindings)
+bindings = {**default_bindings, **custom_bindings}
 for mode, binds in bindings.items():
     for key, val in binds.items():
         config.bind(key, val, mode=mode)
