@@ -251,6 +251,9 @@ else
   let g:fzf_layout = {'down': '~40%'}
 endif
 
+" gutentags
+let g:gutentags_file_list_command = 'rg --files'
+
 " helpful
 nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
 
