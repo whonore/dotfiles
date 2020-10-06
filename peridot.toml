@@ -5,6 +5,12 @@ links = [
     ["{{vim}}/bundle/vim-blueper/themes/tmTheme/Blueper.tmTheme", "themes/Blueper.tmTheme"],
 ]
 
+[ctags]
+srcdir = "$HOME/.ctags.d"
+links = [
+    [".ctags", "config.ctags"],
+]
+
 [fish]
 links = [
     [".", ".config/fish"],
