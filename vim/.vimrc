@@ -39,6 +39,7 @@ Plug 'whonore/deepsea.vim'
 Plug 'whonore/vim-kami'
 " Navigation
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'whonore/vim-debate'
 " Scripting
 Plug 'junegunn/vader.vim'
