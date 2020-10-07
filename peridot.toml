@@ -6,7 +6,7 @@ links = [
 ]
 
 [ctags]
-srcdir = "$HOME/.ctags.d"
+srcdir = "$HOME/.config/ctags"
 links = [
     [".ctags", "config.ctags"],
 ]

@@ -14,6 +14,7 @@ sudo apt install fonts-firacode
 ```sh
 curl -L https://nixos.org/nix/install | sh
 cd ~/.dotfiles/nix; ./install-packages.sh
+nix-env -if ~/.dotfiles/nix/ctags.nix
 ```
 
 ## [Fish](https://fishshell.com/docs/current/index.html#installation)

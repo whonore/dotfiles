@@ -22,6 +22,3 @@ rustup                      # 1.21.1
 
 # Documentation
 asciidoc                    # 8.6.9
-
-# Code
-universal-ctags-unstable    # 2019-07-30
