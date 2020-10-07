@@ -1,2 +1,2 @@
 #!/bin/sh
-nix-env -iA $(cat packages | sed 's/#.*$//g' | sed '/^$/d' | sed 's/^/nixpkgs./')
+nix-env -iA $(sed '-e s/#.*$//g' -e '/^$/d' -e 's/^/nixpkgs./' packages)
