@@ -2161,6 +2161,11 @@ custom_bindings = {
     "command": {
         "<Ctrl-C>": "leave-mode",
     },
+    "insert": {
+        "<Ctrl-L><Ctrl-L>": "spawn --userscript qute-lastpass",
+        "<Ctrl-L><Ctrl-U>": "spawn --userscript qute-lastpass --username-only",
+        "<Ctrl-L><Ctrl-P>": "spawn --userscript qute-lastpass --password-only",
+    },
 }
 
 bindings = {**default_bindings, **custom_bindings}
