@@ -2158,6 +2158,9 @@ custom_bindings = {
     "normal": {
         leader + "m": "tab-mute",
     },
+    "command": {
+        "<Ctrl-C>": "leave-mode",
+    },
 }
 
 bindings = {**default_bindings, **custom_bindings}
