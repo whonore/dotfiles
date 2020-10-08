@@ -1015,7 +1015,7 @@ c.content.javascript.enabled = True
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-c.editor.command = ["vim", "{file}", "-c", "normal {line}G{column}|"]
+c.editor.command = ["kitty", "vim", "{file}", "-c", "normal {line}G{column}|"]
 
 ## Encoding to use for the editor.
 ## Type: Encoding
