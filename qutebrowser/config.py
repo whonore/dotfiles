@@ -1458,7 +1458,7 @@ c.search.wrap = True
 
 ## Load a restored tab as soon as it takes focus.
 ## Type: Bool
-c.session.lazy_restore = True
+c.session.lazy_restore = False
 
 ## Languages to use for spell checking. You can check for available
 ## languages and install dictionaries using scripts/dictcli.py. Run the
@@ -2153,6 +2153,8 @@ default_bindings = {
     },
 }
 
+lastpass = 'qute-lastpass -d "dmenu -l 50"'
+
 leader = ","
 custom_bindings = {
     "normal": {
@@ -2162,9 +2164,9 @@ custom_bindings = {
         "<Ctrl-C>": "leave-mode",
     },
     "insert": {
-        "<Ctrl-L><Ctrl-L>": "spawn --userscript qute-lastpass",
-        "<Ctrl-L><Ctrl-U>": "spawn --userscript qute-lastpass --username-only",
-        "<Ctrl-L><Ctrl-P>": "spawn --userscript qute-lastpass --password-only",
+        "<Ctrl-L><Ctrl-L>": f"spawn --userscript {lastpass}",
+        "<Ctrl-L><Ctrl-U>": f"spawn --userscript {lastpass} --username-only",
+        "<Ctrl-L><Ctrl-P>": f"spawn --userscript {lastpass} --password-only",
     },
 }
 
