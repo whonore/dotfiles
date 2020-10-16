@@ -45,6 +45,7 @@ Plug 'whonore/vim-debate'
 Plug 'junegunn/vader.vim'
 Plug 'whonore/helpful.vim', {'branch': 'buffer_version'} " Fork from tweekmonster
 Plug 'whonore/vim-synsational'
+Plug 'whonore/vim-unsource'
 " Snippets
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
@@ -53,6 +54,8 @@ Plug 'whonore/coq-ultisnips'
 Plug 'lambdalisue/suda.vim'
 Plug 'whonore/vim-tictactoe'
 call plug#end()
+
+silent! call unsource#unsource(['/etc/vimrc.local'])
 
 syntax on
 filetype plugin indent on
