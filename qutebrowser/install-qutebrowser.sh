@@ -10,4 +10,4 @@ make -f misc/Makefile man
 
 install -Dm755 -t ~/.local/share/qutebrowser/userscripts $QUTEBROWSER_ROOT/misc/userscripts/*
 sed -i "s|#!/usr/bin/env python.*|#!$QUTEBROWSER_ROOT/.venv/bin/python3|" ~/.local/share/qutebrowser/userscripts/*
-ln -s $QUTEBROWSER_ROOT/doc/qutebrowser.1 ~/.local/man/man1
+ln -sf $QUTEBROWSER_ROOT/doc/qutebrowser.1 ~/.local/man/man1
