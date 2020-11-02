@@ -148,16 +148,17 @@ augroup vimrc
   autocmd FileType * setlocal textwidth=0
 augroup END
 
-hi def link OverLong WarningMsg
 let s:over = -1
 let s:over_pattern = '\%%%dv.\+$'
+function! s:textwidth() abort
+  return &l:textwidth > 0 ? &l:textwidth : get(b:, 'textwidth', 80)
+endfunction
 function! s:overPattern() abort
-  let l:textwidth = &textwidth > 0 ? &textwidth : 80
-  return printf(s:over_pattern, l:textwidth)
+  return printf(s:over_pattern, s:textwidth())
 endfunction
 function! s:toggleOver() abort
   if s:over == -1
-    let s:over = matchadd('OverLong', s:overPattern())
+    let s:over = matchadd('ColorColumn', s:overPattern())
   else
     silent! call matchdelete(s:over)
     let s:over = -1
