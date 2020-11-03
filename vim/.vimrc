@@ -19,6 +19,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'whonore/vim-blueper'
 " Editing
 Plug 'andymass/vim-matchup'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'joom/latex-unicoder.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-commentary'
@@ -243,6 +244,10 @@ let g:airline#extensions#whitespace#enabled = 0
 " coqtail
 let g:coqtail_match_shift = 1
 let g:coqtail_project_names = ['_CoqProject', '_CoqProject.local']
+
+" editorconfig
+let g:EditorConfig_max_line_indicator = 'exceeding'
+let g:EditorConfig_preserve_formatoptions = 1
 
 " fzf
 command! -bang -nargs=? -complete=dir Files
