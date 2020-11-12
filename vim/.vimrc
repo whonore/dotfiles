@@ -21,6 +21,7 @@ Plug 'whonore/vim-blueper'
 Plug 'andymass/vim-matchup'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'joom/latex-unicoder.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -244,6 +245,10 @@ let g:airline#extensions#whitespace#enabled = 0
 " coqtail
 let g:coqtail_match_shift = 1
 let g:coqtail_project_names = ['_CoqProject', '_CoqProject.local']
+
+" easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " editorconfig
 let g:EditorConfig_max_line_indicator = 'exceeding'
