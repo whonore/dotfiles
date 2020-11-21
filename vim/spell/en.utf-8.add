@@ -19,3 +19,5 @@ prover
 coinductive
 coinduction
 axiomatized
+parallelizable
+parallelizability
