@@ -49,8 +49,8 @@ Plug 'whonore/helpful.vim', {'branch': 'buffer_version'} " Fork from tweekmonste
 Plug 'whonore/vim-synsational'
 Plug 'whonore/vim-unsource'
 " Snippets
-Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
 Plug 'whonore/coq-ultisnips'
 " Misc
 Plug 'lambdalisue/suda.vim'
