@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {}, py ? "3", vim ? "8.1" }:
+{ pkgs ? import <nixpkgs> {}, py ? "3", vim ? "8.1", gui ? false }:
 with pkgs;
 
 let
@@ -44,7 +44,7 @@ in stdenv.mkDerivation {
     "--with-python${pyVars.ver}-config-dir=${pyVars.py}/lib"
     "--disable-python${pyVars.notVer}interp"
 
-    "--disable-gui"
+    "--${if gui then "enable" else "disable"}-gui"
 
     "--enable-fail-if-missing"
   ] ++ lib.optionals (!stdenv.isDarwin) [
