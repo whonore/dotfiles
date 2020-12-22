@@ -8,6 +8,8 @@
     editor = vim
     pager = delta
     excludesFile = ~/.config/git/ignore
+[credential]
+    helper = store
 [interactive]
     diffFilter = delta --color-only
 [diff]
