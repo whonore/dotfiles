@@ -11,7 +11,7 @@ function coqclean --description 'Delete Coq compilation files'
         set argv[1] '.'
     end
 
-    set -l exts 'glob' 'vo' 'time' 'aux'
+    set -l exts 'glob' 'vo' 'vok' 'vos' 'time' 'aux'
     set -l extpat (string join '|' $exts)
     set -l extpat_esc (string join '\|' $exts)
     set -l pat "\.?.*\.\($extpat_esc\)"
