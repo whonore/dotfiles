@@ -2,7 +2,7 @@
 with pkgs;
 
 let
-  coq = import ./coq.nix { inherit pkgs version; };
+  coq = import ./. { inherit pkgs version; };
 in
 mkShell {
   name = "coq";

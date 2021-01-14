@@ -14,7 +14,7 @@ sudo apt install fonts-firacode
 ```sh
 curl -L https://nixos.org/nix/install | sh
 cd ~/.dotfiles/nix; ./install-packages.sh
-nix-env -if ~/.dotfiles/nix/ctags.nix
+nix-env -if ~/.dotfiles/nix/ctags/default.nix
 ```
 
 ## [Fish](https://fishshell.com/docs/current/index.html#installation)
@@ -49,7 +49,7 @@ python -m pip install --user --upgrade -r ~/.dotfiles/python/requirements.txt
 
 ## Vim
 ```sh
-usevim 8.1 3
+nix-env -if ~/.dotfiles/nix/vim/default.nix --argstr version 8.2
 vim +PlugInstall +Blueper
 ```
 

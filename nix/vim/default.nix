@@ -1,12 +1,9 @@
-{ pkgs ? import <nixpkgs> {}, py ? "3", vim ? "8.1", gui ? false }:
+{ pkgs ? import <nixpkgs> {}, version ? "8.2", py ? "3", gui ? false }:
 with pkgs;
 
 let
-  pyVars = {
-    "2" = { ver = ""; notVer = "3"; py = python27; };
-    "3" = { ver = "3"; notVer = ""; py = python36; };
-  }.${py};
-  vimVars = {
+  python = builtins.getAttr py { "2" = python27; "3" = python36; };
+  vimSrc = builtins.getAttr version {
     "7.4" = {
       patch = "2367";
       sha256 = "1r3a3sh1v4q2mc98j2izz9c5qc1a97vy49nv6644la0z2m92vyik";
@@ -23,16 +20,16 @@ let
       patch = "1770";
       sha256 = "14mbrbnjwb8r4pl06vafd56x0pmbcgqvr57s2ns2arh7xcy9bri7";
     };
-  }.${vim};
+  };
 in stdenv.mkDerivation {
   name = "vim";
 
-  src = with vimVars; fetchTarball {
-    url = "https://github.com/vim/vim/archive/v${vim}.${patch}.tar.gz";
+  src = with vimSrc; fetchTarball {
+    url = "https://github.com/vim/vim/archive/v${version}.${patch}.tar.gz";
     inherit sha256;
   };
 
-  buildInputs = [ncurses xorg.libX11 xorg.libXt pyVars.py]
+  buildInputs = [ncurses xorg.libX11 xorg.libXt python]
                 ++ lib.optionals stdenv.isDarwin [darwin.apple_sdk.frameworks.Cocoa];
 
   configureFlags = [
@@ -40,9 +37,9 @@ in stdenv.mkDerivation {
     "--enable-cscope=yes"
     "--enable-multibyte=yes"
 
-    "--enable-python${pyVars.ver}interp=yes"
-    "--with-python${pyVars.ver}-config-dir=${pyVars.py}/lib"
-    "--disable-python${pyVars.notVer}interp"
+    "--enable-python${if python.isPy3 then "3" else ""}interp=yes"
+    "--with-python${if python.isPy3 then "3" else ""}-config-dir=${python}/lib"
+    "--disable-python${if python.isPy3 then "" else "3"}interp"
 
     "--${if gui then "enable" else "disable"}-gui"
 
