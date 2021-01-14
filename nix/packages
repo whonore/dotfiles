@@ -23,6 +23,3 @@ rustup                      # 1.23.1
 # Qutebrowser
 asciidoc                    # 8.6.9
 lastpass-cli                # 1.3.3
-
-# Vim
-universal-ctags             # 2020-10-6
