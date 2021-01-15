@@ -5,6 +5,5 @@ let
   coq = import ./. { inherit pkgs version; };
 in
 mkShell {
-  name = "coq";
   buildInputs = [coq];
 }

@@ -22,7 +22,7 @@ let
     };
   };
 in stdenv.mkDerivation {
-  name = "vim";
+  name = "vim-${version}.${vimSrc.patch}-py${py}";
 
   src = with vimSrc; fetchTarball {
     url = "https://github.com/vim/vim/archive/v${version}.${patch}.tar.gz";

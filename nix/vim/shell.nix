@@ -4,6 +4,5 @@ with pkgs;
 let
   vim = import ./. { inherit pkgs version py gui; };
 in mkShell {
-  name = "vim";
   buildInputs = [vim];
 }
