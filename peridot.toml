@@ -49,7 +49,7 @@ srcdir = "$HOME/.config/qutebrowser"
 links = [
     ["config.py"],
     ["{{vim}}/bundle/vim-blueper/themes/qutebrowser/blueper.py", "blueper.py"],
-    ["qutebrowser", "$HOME/bin/qutebrowser"],
+    ["qutebrowser", "$HOME/.local/bin/qutebrowser"],
 ]
 
 [vim]
