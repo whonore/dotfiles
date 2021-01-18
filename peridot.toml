@@ -68,6 +68,12 @@ links = [
     [".vimrc", "init.vim"],
 ]
 
+[scripts]
+srcdir = "$HOME/.local/bin"
+links = [
+    ["brightness.py", "brightness"],
+]
+
 [ssh]
 srcdir = "$HOME/.ssh"
 links = [
