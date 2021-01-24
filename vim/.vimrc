@@ -6,9 +6,14 @@ endif
 
 " Autoinstall vim-plug
 if empty(glob(s:vimhome . 'autoload/plug.vim'))
-  execute printf('silent !curl -fLo %sautoload/plug.vim --create-dirs' .
-                \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
-                \ s:vimhome)
+  execute printf(
+    \ 'silent !curl -fLo %sautoload/plug.vim --create-dirs %s',
+    \ s:vimhome,
+    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+  if v:shell_error != 0
+    echoerr printf('Aborting: failed to download plug.vim (error=%d)', v:shell_error)
+    finish
+  endif
 endif
 call plug#begin(s:vimhome . 'bundle')
 " Plugins
