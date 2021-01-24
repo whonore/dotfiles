@@ -250,6 +250,7 @@ let g:airline#extensions#whitespace#enabled = 0
 " coqtail
 let g:coqtail_match_shift = 1
 let g:coqtail_project_names = ['_CoqProject', '_CoqProject.local']
+let g:coqtail_auto_set_proof_diffs = 'on'
 
 " easy-align
 xmap ga <Plug>(EasyAlign)
