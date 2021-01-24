@@ -108,13 +108,13 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 " Backups
 let s:vimdir = s:vimhome . 'dirs/'
-execute 'set directory=' . s:vimdir . 'tmp'
-execute 'set backupdir=' . s:vimdir . 'back'
-execute 'set undodir=' . s:vimdir . 'undo'
+let &directory = s:vimdir . 'tmp'
+let &backupdir = s:vimdir . 'back'
+let &undodir = s:vimdir . 'undo'
 if has('nvim')
-  execute 'set shada+=n' . s:vimdir . 'shada'
+  let &shada .= ',n' . s:vimdir . 'shada'
 elseif &viminfo !=# ''
-  execute 'set viminfo+=n' . s:vimdir . 'viminfo'
+  let &viminfo .= ',n' . s:vimdir . 'viminfo'
 endif
 set backup
 set undofile
@@ -125,13 +125,14 @@ for s:dir in ['tmp', 'back', 'undo']
 endfor
 
 " Update spellfiles
-for s:spl in glob(s:vimhome . 'spell/*.add', 1, 1)
-    if filereadable(s:spl)
-      \ && (!filereadable(s:spl . '.spl') || getftime(s:spl) > getftime(s:spl . '.spl'))
-        execute 'mkspell! ' . fnameescape(s:spl)
-    endif
-    execute 'set spellfile+=' . fnameescape(s:spl)
+let s:spls = glob(s:vimhome . 'spell/*.add', 1, 1)
+for s:spl in s:spls
+  if filereadable(s:spl)
+    \ && (!filereadable(s:spl . '.spl') || getftime(s:spl) > getftime(s:spl . '.spl'))
+    execute 'mkspell! ' . fnameescape(s:spl)
+  endif
 endfor
+let &spellfile = join(map(s:spls, 'fnameescape(v:val)'), ',')
 
 " Make * and # work on visual selection
 function! s:getSelected() abort
@@ -156,12 +157,11 @@ augroup vimrc
 augroup END
 
 let s:over = -1
-let s:over_pattern = '\%%%dv.\+$'
 function! s:textwidth() abort
   return &l:textwidth > 0 ? &l:textwidth : get(b:, 'textwidth', 80)
 endfunction
 function! s:overPattern() abort
-  return printf(s:over_pattern, s:textwidth())
+  return printf('\%%%dv.\+$', s:textwidth())
 endfunction
 function! s:toggleOver() abort
   if s:over == -1
