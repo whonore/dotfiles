@@ -71,7 +71,7 @@ links = [
 [scripts]
 srcdir = "$HOME/.local/bin"
 links = [
-    ["brightness.py", "brightness"],
+    ["bin", "setuid_scripts"],
 ]
 
 [ssh]

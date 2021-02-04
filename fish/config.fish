@@ -18,7 +18,7 @@ if test -f "$FISH_ROOT/local.fish"
 end
 
 # Local bin directories
-fish_add_path "$HOME/bin" "$HOME/.local/bin"
+fish_add_path "$HOME/bin" "$HOME/.local/bin" "$HOME/.local/bin/setuid_scripts"
 set -a MANPATH "$HOME/.local/man"
 set -a INFOPATH "$HOME/.local/info"
 
