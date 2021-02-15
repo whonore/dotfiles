@@ -36,6 +36,7 @@ Plug 'wellle/targets.vim'
 Plug 'whonore/vim-sentencer'
 Plug 'whonore/vim-trim-ws'
 " Languages
+Plug 'cespare/vim-toml'
 Plug 'dag/vim-fish'
 Plug 'leafgarland/typescript-vim'
 Plug 'lervag/vimtex'
