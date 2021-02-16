@@ -60,6 +60,7 @@ Plug 'sirver/ultisnips'
 Plug 'whonore/coq-ultisnips'
 " Misc
 Plug 'lambdalisue/suda.vim'
+Plug 'whonore/vim-palit'
 Plug 'whonore/vim-tictactoe'
 call plug#end()
 
