@@ -81,7 +81,7 @@ let g:maplocalleader = g:mapleader
 
 " Indentation Settings
 set tabstop=8
-set softtabstop=4
+set softtabstop=-1
 set shiftwidth=4
 set expandtab
 set autoindent
