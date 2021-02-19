@@ -163,7 +163,7 @@ function! s:textwidth() abort
   return &l:textwidth > 0 ? &l:textwidth : get(b:, 'textwidth', 80)
 endfunction
 function! s:overPattern() abort
-  return printf('\%%%dv.\+$', s:textwidth())
+  return printf('\%%>%dv.\+$', s:textwidth())
 endfunction
 function! s:toggleOver() abort
   if s:over == -1
