@@ -100,6 +100,7 @@ set wildmode=longest,list
 set visualbell
 set encoding=utf-8
 set nojoinspaces
+set conceallevel=2
 
 " Search Settings
 set incsearch
@@ -282,6 +283,9 @@ nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
 " matchup
 let g:matchup_surround_enabled = 1
 let g:matchup_matchparen_offscreen = {}
+
+" sentencer
+nnoremap <leader>sb :SentencerBind<CR>
 
 " synsational
 let g:synsational_mode = 'popup'
