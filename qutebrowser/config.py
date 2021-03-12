@@ -1582,7 +1582,7 @@ default_bindings = {
         "j": "move-to-next-line",
         "k": "move-to-prev-line",
         "l": "move-to-next-char",
-        "o": "reverse-selection",
+        "o": "selection-reverse",
         "v": "selection-toggle",
         "w": "move-to-next-word",
         "y": "yank selection",
