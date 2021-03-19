@@ -6,8 +6,6 @@ if not functions -q fish_add_path
             end
         end
     end
-else
-    echo "fish_add_path already exists in fish 3.2"
 end
 
 set FISH_ROOT "$HOME/.config/fish"
