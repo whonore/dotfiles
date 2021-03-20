@@ -1,7 +1,15 @@
-let s:vimhome = expand('$HOME/.vim/')
-if !isdirectory(s:vimhome)
-  echoerr printf('Aborting: %s does not exist.', s:vimhome)
+let s:vimhomes = [expand('$HOME/.vim/'), expand('$HOME/vimfiles/'), '']
+for s:vimhome in s:vimhomes
+  if isdirectory(s:vimhome)
+    break
+  endif
+endfor
+if s:vimhome ==# ''
+  echoerr printf('Aborting: None of %s exists.', join(s:vimhomes[:-2], ' '))
   finish
+endif
+if index(split(&rtp, ','), s:vimhome) == -1
+  let &rtp .= ',' . s:vimhome
 endif
 
 " Autoinstall vim-plug
