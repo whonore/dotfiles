@@ -1,4 +1,4 @@
-let s:vimhomes = [expand('$HOME/.vim/'), expand('$HOME/vimfiles/'), '']
+let s:vimhomes = [expand('$HOME/.vim'), expand('$HOME/vimfiles'), '']
 for s:vimhome in s:vimhomes
   if isdirectory(s:vimhome)
     break
@@ -11,6 +11,7 @@ endif
 if index(split(&rtp, ','), s:vimhome) == -1
   let &rtp .= ',' . s:vimhome
 endif
+let s:vimhome .= '/'
 
 " Autoinstall vim-plug
 if empty(glob(s:vimhome . 'autoload/plug.vim'))
