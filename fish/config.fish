@@ -101,5 +101,3 @@ end
 
 # Append : to MANPATH so manpath appends default system paths
 set -a MANPATH :
-
-functions -e fish_add_path
