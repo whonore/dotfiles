@@ -1,8 +1,4 @@
-blueper_colors
 set -g prompt_color_git $blueper_teal
-set -g prompt_color_user $blueper_green
-set -g prompt_color_host $blueper_purple
-set -g prompt_color_base $blueper_yellow
 
 set -g prompt_open "⦇"
 set -g prompt_close "⦈"
@@ -34,7 +30,7 @@ set -g __fish_git_prompt_showupstream "informative"
 function fish_prompt --description "Write out the prompt"
     set -l last_status $status
 
-    set -l color_base $prompt_color_base
+    set -l color_base $fish_color_cwd
     if test $last_status -ne 0
         set color_base $blueper_red
     end
@@ -51,9 +47,9 @@ function fish_prompt --description "Write out the prompt"
     end
 
     set_color $color_base; printf $prompt_open
-    set_color $prompt_color_user --bold; printf $user
+    set_color $fish_color_user --bold; printf $user
     set_color $color_base --bold; printf $prompt_host_sep
-    set_color $prompt_color_host --bold; printf $host
+    set_color $fish_color_host --bold; printf $host
     if test -n "$IN_NIX_SHELL"
         set_color $color_base --bold; printf $prompt_nix
     end

@@ -12,8 +12,11 @@ links = [
 ]
 
 [fish]
+srcdir = "$HOME/.config/fish"
 links = [
-    [".", ".config/fish"],
+    [".", "$HOME/.config/fish"],
+    ["{{vim}}/bundle/vim-blueper/themes/fish/blueper_colors.fish", "conf.d/blueper_colors.fish"],
+    ["{{vim}}/bundle/vim-blueper/themes/fish/blueper.fish", "conf.d/blueper.fish"],
 ]
 
 [git]

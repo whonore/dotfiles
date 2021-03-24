@@ -1,5 +1,6 @@
 fishd.*
 local.fish
 conf.d/nix.fish
+conf.d/blueper*.fish
 nix-daemon.fish
 fish_variables
