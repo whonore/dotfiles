@@ -65,7 +65,7 @@ Plug 'whonore/vim-synsational'
 Plug 'whonore/vim-unsource'
 " Snippets
 Plug 'honza/vim-snippets'
-if has('+python3')
+if has('python3')
   Plug 'sirver/ultisnips'
 endif
 Plug 'whonore/coq-ultisnips'
