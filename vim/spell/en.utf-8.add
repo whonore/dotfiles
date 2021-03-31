@@ -21,3 +21,7 @@ coinduction
 axiomatized
 parallelizable
 parallelizability
+serializable
+metatheory
+memoized
+inlined
