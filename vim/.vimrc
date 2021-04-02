@@ -296,6 +296,7 @@ let g:matchup_surround_enabled = 1
 let g:matchup_matchparen_offscreen = {}
 
 " sentencer
+let g:sentencer_max_length = s:textwidth()
 nnoremap <leader>sb :SentencerBind<CR>
 
 " synsational
