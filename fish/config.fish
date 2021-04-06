@@ -75,6 +75,7 @@ end
 
 # nix
 set -a MANPATH "$HOME/.nix-profile/share/man"
+alias nix-where "nix path-info"
 
 # qutebrowser
 if test -d "$HOME/.qutebrowser"
