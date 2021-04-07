@@ -47,6 +47,12 @@ links = [
     [".jackdrc"],
 ]
 
+[python]
+links = [
+    ["flake8", ".config/flake8"],
+    ["pylintrc", ".config/pylintrc"],
+]
+
 [qutebrowser]
 srcdir = "$HOME/.config/qutebrowser"
 links = [
