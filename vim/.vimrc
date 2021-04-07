@@ -8,8 +8,8 @@ if s:vimhome ==# ''
   echoerr printf('Aborting: None of %s exists.', join(s:vimhomes[:-2], ' '))
   finish
 endif
-if index(split(&rtp, ','), s:vimhome) == -1
-  let &rtp .= ',' . s:vimhome
+if index(split(&runtimepath, ','), s:vimhome) == -1
+  let &runtimepath .= ',' . s:vimhome
 endif
 let s:vimhome .= '/'
 
