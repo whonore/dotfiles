@@ -47,6 +47,7 @@ Plug 'whonore/vim-trim-ws'
 " Languages
 Plug 'cespare/vim-toml'
 Plug 'dag/vim-fish'
+Plug 'dense-analysis/ale'
 Plug 'leafgarland/typescript-vim'
 Plug 'lervag/vimtex'
 Plug 'LnL7/vim-nix'
@@ -260,6 +261,20 @@ nnoremap - :<C-U>execute v:count1 'Resize -'<CR>
 " Plugins
 " airline
 let g:airline#extensions#whitespace#enabled = 0
+
+" ale
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_disable_lsp = 1
+let g:ale_warn_about_trailing_blank_lines = 0
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_open_list = 1
+nnoremap QQ :ALELint<CR>
+
+let g:ale_rust_cargo_clippy_options = executable('cargo-clippy')
 
 " coqtail
 let g:coqtail_match_shift = 1
