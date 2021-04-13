@@ -25,3 +25,4 @@ serializable
 metatheory
 memoized
 inlined
+sequentialized
