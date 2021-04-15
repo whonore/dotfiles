@@ -1,5 +1,5 @@
 function trash --description 'Move files into/out of a trash directory.'
-    set -l options 'h/help' 'e/empty' 'r/restore' 'l/list'
+    set -l options h/help e/empty r/restore l/list
     argparse $options -- $argv; or return
 
     if set -q _flag_help

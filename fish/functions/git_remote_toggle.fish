@@ -1,5 +1,5 @@
 function git_remote_toggle --description 'Switch git repository between HTTPS and SSH'
-    set -l options 'h/help' 'q/quiet' 'S/ssh' 'H/https'
+    set -l options h/help q/quiet S/ssh H/https
     argparse $options -- $argv; or return
 
     if set -q _flag_help
