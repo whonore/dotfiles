@@ -1,9 +1,5 @@
-{ pkgs ? import <nixpkgs> {}, version }:
+{ pkgs ? import <nixpkgs> { }, version }:
 with pkgs;
 
-let
-  coq = import ./. { inherit pkgs version; };
-in
-mkShell {
-  buildInputs = [coq];
-}
+let coq = import ./. { inherit pkgs version; };
+in mkShell { buildInputs = [ coq ]; }

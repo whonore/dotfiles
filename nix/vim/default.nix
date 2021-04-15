@@ -1,8 +1,11 @@
-{ pkgs ? import <nixpkgs> {}, version ? "8.2", py ? "3", gui ? false }:
+{ pkgs ? import <nixpkgs> { }, version ? "8.2", py ? "3", gui ? false }:
 with pkgs;
 
 let
-  python = builtins.getAttr py { "2" = python27; "3" = python36; };
+  python = builtins.getAttr py {
+    "2" = python27;
+    "3" = python36;
+  };
   vimSrc = builtins.getAttr version {
     "7.4" = {
       patch = "2367";
@@ -24,13 +27,14 @@ let
 in stdenv.mkDerivation {
   name = "vim-${version}.${vimSrc.patch}-py${py}";
 
-  src = with vimSrc; fetchTarball {
-    url = "https://github.com/vim/vim/archive/v${version}.${patch}.tar.gz";
-    inherit sha256;
-  };
+  src = with vimSrc;
+    fetchTarball {
+      url = "https://github.com/vim/vim/archive/v${version}.${patch}.tar.gz";
+      inherit sha256;
+    };
 
-  buildInputs = [ncurses xorg.libX11 xorg.libXt python]
-                ++ lib.optionals stdenv.isDarwin [darwin.apple_sdk.frameworks.Cocoa];
+  buildInputs = [ ncurses xorg.libX11 xorg.libXt python ]
+    ++ lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Cocoa ];
 
   configureFlags = [
     "--with-features=huge"
@@ -51,5 +55,5 @@ in stdenv.mkDerivation {
   ];
 
   enableParallelBuilding = true;
-  hardeningDisable = ["fortify"];
+  hardeningDisable = [ "fortify" ];
 }
