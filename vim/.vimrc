@@ -273,6 +273,7 @@ let g:ale_warn_about_trailing_blank_lines = 0
 let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_open_list = 1
 nnoremap QQ :ALELint<CR>
+nnoremap QF :ALEFix<SPACE>
 
 let g:ale_rust_cargo_clippy_options = executable('cargo-clippy')
 
