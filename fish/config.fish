@@ -73,6 +73,11 @@ if command -q bat; and test -f $theme
     end
 end
 
+# zoxide
+if command -q zoxide
+    zoxide init fish | source
+end
+
 # nix
 set -a MANPATH "$HOME/.nix-profile/share/man"
 alias nix-where "nix path-info"
