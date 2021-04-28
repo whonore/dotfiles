@@ -113,6 +113,7 @@ set visualbell
 set encoding=utf-8
 set nojoinspaces
 set conceallevel=2
+set nofoldenable
 
 " Search Settings
 set incsearch
