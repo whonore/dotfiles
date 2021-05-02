@@ -278,6 +278,10 @@ nnoremap QF :ALEFix<SPACE>
 
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
+if fnamemodify(&shell, ':p:t') ==# 'fish'
+  let g:ale_vim_vint_executable = expand('$HOME/.dotfiles/scripts/vint.fish')
+endif
+
 " coqtail
 let g:coqtail_match_shift = 1
 let g:coqtail_project_names = ['_CoqProject', '_CoqProject.local']
