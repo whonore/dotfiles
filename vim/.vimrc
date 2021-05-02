@@ -276,7 +276,7 @@ let g:ale_open_list = 1
 nnoremap QQ :ALELint<CR>
 nnoremap QF :ALEFix<SPACE>
 
-let g:ale_rust_cargo_clippy_options = executable('cargo-clippy')
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
 " coqtail
 let g:coqtail_match_shift = 1
