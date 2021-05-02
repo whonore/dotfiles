@@ -11,7 +11,7 @@ extern const char _binary_prog_end[];
 static char TMP[] = ".wrapper_XXXXXX";
 
 int main(int argc, char *argv[]) {
-    const size_t prog_size = (void *) &_binary_prog_end - (void *) &_binary_prog_start;
+    const ssize_t prog_size = (void *) &_binary_prog_end - (void *) &_binary_prog_start;
 
     int tmp = mkstemp(TMP);
     assert_or(tmp != -1, "mkstemp");
