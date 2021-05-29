@@ -48,6 +48,7 @@ python -m pip install --user --upgrade -r ~/.dotfiles/python/requirements.txt
 
 ## Vim
 ```sh
+cachix use whonore-vim
 vim +PlugInstall +Blueper
 ```
 
