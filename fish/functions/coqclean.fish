@@ -1,9 +1,9 @@
 function coqclean --description 'Delete Coq compilation files'
-    set -l options h/help a/all f/force
+    set -l options h/help a/all f/force 'd/depth=?'
     argparse $options -- $argv; or return
 
     if set -q _flag_help
-        echo 'Usage: coqclean [-h/--help] [-a/--all] [-f/--force] [dirs ...]'
+        echo 'Usage: coqclean [-h/--help] [-a/--all] [-f/--force] [-d/--depth] [dirs ...]'
         return 0
     end
 
@@ -16,7 +16,13 @@ function coqclean --description 'Delete Coq compilation files'
     set -l extpat_esc (string join '\|' $exts)
     set -l pat "\.?.*\.\($extpat_esc\)"
     for d in $argv
-        for f in (find $d -regex $pat)
+        set -l fs
+        if set -q _flag_depth
+            set fs (find $d -maxdepth $_flag_depth -regex $pat)
+        else
+            set fs (find $d -regex $pat)
+        end
+        for f in $fs
             set -l dir (dirname $f)
             set -l base (string trim -l -c'.' (basename $f))
             set -l name (string replace -r ".($extpat)\$" '' $base)
