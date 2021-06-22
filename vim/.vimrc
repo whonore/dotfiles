@@ -62,7 +62,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'whonore/vim-debate'
 " Scripting
 Plug 'junegunn/vader.vim'
-Plug 'whonore/helpful.vim', {'branch': 'buffer_version'} " Fork from tweekmonster
+Plug 'tweekmonster/helpful.vim'
 Plug 'whonore/vim-synsational'
 Plug 'whonore/vim-unsource'
 " Snippets
