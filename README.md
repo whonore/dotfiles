@@ -68,3 +68,14 @@ git clone https://github.com/qutebrowser/qutebrowser.git ~/.qutebrowser
 ```sh
 make -C ~/.dotfiles/scripts/
 ```
+
+## LaTeX
+```sh
+sudo mkdir /usr/local/texlive
+sudo chown -R $USER /usr/local/texlive
+mkdir tlmgr-install; cd tlmgr-install
+curl -L -O http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+tar -xzvf install-tl-unx.tar.gz; cd install-tl-20*; ./install-tl
+cd ../..; rm -r tlmgr-install
+tlmgr init-usertree --usertree $TEXMFHOME
+```

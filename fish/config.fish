@@ -47,7 +47,7 @@ if test -d "$HOME/.rbenv"
 end
 
 # tlmgr
-set TEXLIVE_ROOT /usr/local/texlive/2020
+set TEXLIVE_ROOT (ls -dr1 /usr/local/texlive/20* | head -n1)
 if test -d "$TEXLIVE_ROOT"
     fish_add_path "$TEXLIVE_ROOT/bin/x86_64-linux"
     set -a MANPATH "$TEXLIVE_ROOT/texmf-dist/doc/man"
