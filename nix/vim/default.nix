@@ -25,7 +25,8 @@ let
     };
   };
 in stdenv.mkDerivation {
-  name = "vim-${version}.${vimSrc.patch}-py${py}";
+  pname = "vim-py${py}";
+  version = "${version}.${vimSrc.patch}";
 
   src = with vimSrc;
     fetchTarball {
