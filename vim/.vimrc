@@ -277,6 +277,10 @@ let g:ale_open_list = 1
 nnoremap QQ :ALELint<CR>
 nnoremap QF :ALEFix<SPACE>
 
+let g:ale_linters_ignore = {
+  \ 'tex': ['lacheck']
+\}
+
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
 if fnamemodify(&shell, ':p:t') ==# 'fish'
