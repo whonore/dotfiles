@@ -1,0 +1,21 @@
+snippet deriv "Derivation"
+{ pkgs ? import <nixpkgs> { } }:
+with pkgs;
+
+let
+in stdenv.mkDerivation {
+  name = "";
+  src = ;
+  buildInputs = [ ];
+}
+endsnippet
+
+snippet shell "Shell"
+{ pkgs ? import <nixpkgs> { } }:
+with pkgs;
+
+let
+in mkShell {
+  buildInputs = [ ];
+}
+endsnippet
