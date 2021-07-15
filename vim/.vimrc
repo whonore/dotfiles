@@ -324,7 +324,13 @@ else
 endif
 
 " gutentags
-let g:gutentags_file_list_command = 'rg --files'
+if !executable('ctags')
+  let g:gutentags_dont_load = 1
+else
+  if executable('rg')
+    let g:gutentags_file_list_command = 'rg --files'
+  endif
+endif
 
 " helpful
 nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
