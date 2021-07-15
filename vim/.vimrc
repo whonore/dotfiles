@@ -84,7 +84,6 @@ filetype plugin indent on
 try
   colorscheme blueper
   let g:airline_theme = 'blueper'
-  let g:Lf_StlColorscheme = 'blueper'
 catch /E185:/
   colorscheme cobalt
 endtry
