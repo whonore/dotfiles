@@ -151,18 +151,19 @@ endfor
 let &spellfile = join(map(s:spls, 'fnameescape(v:val)'), ',')
 
 " Make * and # work on visual selection
-function! s:getSelected() abort
-  let l:reg = getreg('"')
-  let l:type = getregtype('"')
-  normal! gvy
-  let l:ret = getreg('"')
-  call setreg('"', l:reg, l:type)
-  execute "normal \<ESC>"
-  return substitute(l:ret, '\_s\+', '\\_s\\+', 'g')
+function! s:getvisual() abort
+  try
+    let l:v_old = @v
+    normal! gv"vy
+    return @v
+  finally
+    " Restore register
+    let @v = l:v_old
+  endtry
 endfunction
 
-vnoremap <silent> * :call setreg("/", <SID>getSelected())<CR>n
-vnoremap <silent> # :call setreg("/", <SID>getSelected())<BAR>let v:searchforward = 0<CR>n
+xnoremap <silent> * :call setreg("/", <SID>getvisual())<CR>n
+xnoremap <silent> # :call setreg("/", <SID>getvisual())<BAR>let v:searchforward = 0<CR>n
 
 " Line Length Settings
 " Uses autocmd to override plugins that might try to set textwidth
@@ -232,17 +233,6 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
 " Make :grep use smarter tools
-function! s:getvisual() abort
-  try
-    let l:v_old = @v
-    normal! gv"vy
-    return @v
-  finally
-    " Restore register
-    let @v = l:v_old
-  endtry
-endfunction
-
 if executable('rg')
   set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m
