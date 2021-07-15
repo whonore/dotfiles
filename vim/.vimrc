@@ -233,7 +233,18 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
 " Make :grep use smarter tools
-if system('rg --version') !=# ''
+function! s:getvisual() abort
+  try
+    let l:v_old = @v
+    normal! gv"vy
+    return @v
+  finally
+    " Restore register
+    let @v = l:v_old
+  endtry
+endfunction
+
+if executable('rg')
   set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m
 else
@@ -250,7 +261,8 @@ else
     endif
   endif
 endif
-nnoremap gr :grep <cword><CR>
+nnoremap gr :grep "\b<cword>\b"<CR>
+xnoremap gr <ESC>:grep "\b<C-R>=<SID>getvisual()<CR>\b"<CR>
 
 " File Searching
 cabbrev <expr> %% fnameescape(expand('%:p:h'))
