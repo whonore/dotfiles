@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { }, version ? "8.2", py ? "3", gui ? false }:
+{ pkgs ? import <nixpkgs> { }, vimVer ? "8.2", py ? "3", gui ? false }:
 with pkgs;
 
 let
@@ -6,7 +6,7 @@ let
     "2" = python27;
     "3" = python36;
   };
-  vimSrc = builtins.getAttr version {
+  vimSrc = builtins.getAttr vimVer {
     "7.4" = {
       patch = "2367";
       sha256 = "1r3a3sh1v4q2mc98j2izz9c5qc1a97vy49nv6644la0z2m92vyik";
@@ -24,13 +24,15 @@ let
       sha256 = "1zzs65jldfhqayqa8jk2v0pky2s93a2cz64hxwm830k9hzki0p1l";
     };
   };
-in stdenv.mkDerivation {
+in stdenv.mkDerivation rec {
   pname = "vim-py${py}";
-  version = "${version}.${vimSrc.patch}";
+  version = "${vimVer}.${vimSrc.patch}";
 
   src = with vimSrc;
-    fetchTarball {
-      url = "https://github.com/vim/vim/archive/v${version}.${patch}.tar.gz";
+    fetchFromGitHub {
+      owner = "vim";
+      repo = "vim";
+      rev = "v${version}";
       inherit sha256;
     };
 
