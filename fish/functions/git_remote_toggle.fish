@@ -3,7 +3,7 @@ function git_remote_toggle --description 'Switch git repository between HTTPS an
     argparse $options -- $argv; or return
 
     if set -q _flag_help
-        echo 'Usage: trash [-h/--help] [-q/--quiet] [-S/--ssh] [-H/--https] [remotes ...]'
+        echo 'Usage: git_remote_toggle [-h/--help] [-q/--quiet] [-S/--ssh] [-H/--https] [remotes ...]'
         return 0
     end
 
