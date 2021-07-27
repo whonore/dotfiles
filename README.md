@@ -3,7 +3,7 @@
 sudo apt install gcc make
 ```
 
-## [Kitty](https://sw.kovidgoyal.net/kitty/) and [FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
+## [Kitty](https://sw.kovidgoyal.net/kitty) and [FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
 ```sh
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh
 ~/.dotfiles/kitty/install-kitty.sh
@@ -66,7 +66,7 @@ git clone https://github.com/qutebrowser/qutebrowser.git ~/.qutebrowser
 
 ## Scripts
 ```sh
-make -C ~/.dotfiles/scripts/
+make -C ~/.dotfiles/scripts
 ```
 
 ## LaTeX
