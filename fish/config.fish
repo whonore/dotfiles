@@ -20,33 +20,33 @@ fish_add_path "$HOME/bin" "$HOME/.local/bin" "$HOME/.local/bin/setuid_scripts"
 set -a MANPATH "$HOME/.local/man"
 set -a INFOPATH "$HOME/.local/info"
 
-# rust
-fish_add_path "$HOME/.cargo/bin"
-if command -q exa
-    alias ls exa
-end
+# Package Managers
+# nix
+set -a MANPATH "$HOME/.nix-profile/share/man"
+alias nix-where "nix path-info"
 
-# yarn
-if test -d "$HOME/.yarn"
-    fish_add_path "$HOME/.yarn/bin"
-end
-
-# pyenv
-if test -d "$HOME/.pyenv"
-    set PYENV_ROOT "$HOME/.pyenv"
+## pyenv
+set PYENV_ROOT "$HOME/.pyenv"
+if test -d "$PYENV_ROOT"
     fish_add_path "$PYENV_ROOT/bin"
     pyenv init - | source
     pyenv virtualenv-init - | source
 end
 
-# rbenv
-if test -d "$HOME/.rbenv"
-    set RBENV_ROOT "$HOME/.rbenv"
+## rbenv
+set RBENV_ROOT "$HOME/.rbenv"
+if test -d "$RBENV_ROOT"
     fish_add_path "$RBENV_ROOT/bin"
     rbenv init - | source
 end
 
-# tlmgr
+## rust
+set CARGO_ROOT "$HOME/.cargo"
+if test -d "$CARGO_ROOT"
+    fish_add_path "$CARGO_ROOT/bin"
+end
+
+## tlmgr
 set TEXLIVE_ROOT (ls -dr1 /usr/local/texlive/20* | head -n1)
 if test -d "$TEXLIVE_ROOT"
     fish_add_path "$TEXLIVE_ROOT/bin/x86_64-linux"
@@ -55,16 +55,14 @@ if test -d "$TEXLIVE_ROOT"
     set TEXMFHOME "$HOME/.local/texmf"
 end
 
-# fzf
-set -x FZF_DEFAULT_COMMAND "fd --type f"
-set -x FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
-set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND . \$dir"
-set FZF_ALT_C_COMMAND "fd --type d . \$dir"
+## yarn
+set YARN_ROOT "$HOME/.yarn"
+if test -d "$YARN_ROOT"
+    fish_add_path "$YARN_ROOT/bin"
+end
 
-# grip
-set -x GRIPHOME "$HOME/.config/grip"
-
-# bat
+# Programs
+## bat
 set -l theme "$HOME/.config/bat/themes/Blueper.tmTheme"
 set -l meta "$HOME/.cache/bat/metadata.yaml"
 if command -q bat; and test -f $theme
@@ -73,21 +71,29 @@ if command -q bat; and test -f $theme
     end
 end
 
-# zoxide
-if command -q zoxide
-    zoxide init fish | source
+## exa
+if command -q exa
+    alias ls exa
 end
 
-# rm-improved
-set -x GRAVEYARD "$HOME/tmp/graveyard"
+## fzf
+set -x FZF_DEFAULT_COMMAND "fd --type f"
+set -x FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
+set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND . \$dir"
+set FZF_ALT_C_COMMAND "fd --type d . \$dir"
 
-# nix
-set -a MANPATH "$HOME/.nix-profile/share/man"
-alias nix-where "nix path-info"
+## grip
+set -x GRIPHOME "$HOME/.config/grip"
 
 # qutebrowser
-if test -d "$HOME/.qutebrowser"
-    set -x QUTEBROWSER_ROOT "$HOME/.qutebrowser"
+set -x QUTEBROWSER_ROOT "$HOME/.qutebrowser"
+
+## rm-improved
+set -x GRAVEYARD "$HOME/tmp/graveyard"
+
+## zoxide
+if command -q zoxide
+    zoxide init fish | source
 end
 
 # Browser
