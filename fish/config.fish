@@ -78,6 +78,9 @@ if command -q zoxide
     zoxide init fish | source
 end
 
+# rm-improved
+set -x GRAVEYARD "$HOME/tmp/graveyard"
+
 # nix
 set -a MANPATH "$HOME/.nix-profile/share/man"
 alias nix-where "nix path-info"

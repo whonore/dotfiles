@@ -4,13 +4,12 @@ with pkgs;
 let
   cli = {
     inherit bat;                                  # 0.18.2
-    bitwise = import ./bitwise { inherit pkgs; }; # 0.42
     inherit delta;                                # 0.8.3
     inherit exa;                                  # 0.10.1
     inherit fd;                                   # 8.2.1
     inherit fzf;                                  # 0.27.2
     inherit ripgrep;                              # 13.0.0
-    # inherit rm-improved;                          # 0.0.0
+    inherit rm-improved;                          # 0.13.0
     inherit xclip;                                # 0.13
     inherit zoxide;                               # 0.7.2
   };
@@ -24,7 +23,7 @@ let
     inherit shfmt;                                # 3.3.0
   };
   misc = {
-    # inherit bitwise;                              # 0.0.0
+    inherit bitwise;                              # 0.42
     peridot = import ./peridot { inherit pkgs; }; # 0.1.1
   };
   nix = {
