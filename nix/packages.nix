@@ -25,7 +25,7 @@ let
   };
   misc = {
     # inherit bitwise;                              # 0.0.0
-    # inherit peridot;                              # 0.0.0
+    peridot = import ./peridot { inherit pkgs; }; # 0.1.1
   };
   nix = {
     inherit cachix;                               # 0.6.1

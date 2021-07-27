@@ -23,12 +23,15 @@ chsh -s $HOME/.nix-profile/bin/fish
 curl -L https://gist.githubusercontent.com/whonore/05abc83f9c741ff60583b5acefd7336d/raw/8518e88adc8307d5d6af8de3561a9e106e8386a0/nix-fishgen.py | python3
 ```
 
-## Rust
+## Vim
 ```sh
-rustup update stable
-rustup default stable
-cargo install peridot
-~/.cargo/bin/peridot --link
+cachix use whonore-vim
+vim +PlugInstall +Blueper
+```
+
+## Symlinks
+```sh
+peridot --link
 ```
 
 ## Xmonad
@@ -46,10 +49,10 @@ pyenv global 3.*.*
 python -m pip install --user --upgrade -r ~/.dotfiles/python/requirements.txt
 ```
 
-## Vim
+## Rust
 ```sh
-cachix use whonore-vim
-vim +PlugInstall +Blueper
+rustup update stable
+rustup default stable
 ```
 
 ## Snap
