@@ -9,6 +9,7 @@ let
     inherit fd;                                   # 8.2.1
     inherit fzf;                                  # 0.27.2
     inherit ripgrep;                              # 13.0.0
+    inherit rlwrap;                               # 0.45
     inherit rm-improved;                          # 0.13.0
     inherit xclip;                                # 0.13
     inherit zoxide;                               # 0.7.2

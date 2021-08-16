@@ -95,6 +95,9 @@ set FZF_ALT_C_COMMAND "fd --type d . \$dir"
 ## grip
 set -x GRIPHOME "$XDG_CONFIG_HOME/grip"
 
+## rlwrap
+set -x RLWRAP_HOME "$XDG_STATE_HOME/rlwrap"
+
 ## pylint
 set -x PYLINTHOME "$XDG_STATE_HOME/pylint"
 
