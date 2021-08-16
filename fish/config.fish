@@ -29,6 +29,7 @@ alias nix-where "nix path-info"
 set PYENV_ROOT "$HOME/.pyenv"
 if test -d "$PYENV_ROOT"
     fish_add_path "$PYENV_ROOT/bin"
+    pyenv init --path | source
     pyenv init - | source
     pyenv virtualenv-init - | source
 end
