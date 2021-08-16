@@ -81,6 +81,9 @@ if command -q bat; and test -f $theme
     end
 end
 
+## coqtop
+alias coqtop 'rlwrap coqtop'
+
 ## exa
 if command -q exa
     alias ls exa
@@ -94,6 +97,9 @@ set FZF_ALT_C_COMMAND "fd --type d . \$dir"
 
 ## grip
 set -x GRIPHOME "$XDG_CONFIG_HOME/grip"
+
+## mypy
+set -x MYPY_CACHE_DIR "$XDG_CACHE_HOME/mypy"
 
 ## rlwrap
 set -x RLWRAP_HOME "$XDG_STATE_HOME/rlwrap"
