@@ -8,7 +8,16 @@ if not functions -q fish_add_path
     end
 end
 
-set FISH_ROOT "$HOME/.config/fish"
+# XDG Directories
+set -q XDG_BIN_HOME || set XDG_BIN_HOME "$HOME/.local/bin"
+set -q XDG_CACHE_HOME || set XDG_CACHE_HOME "$HOME/.cache"
+set -q XDG_CONFIG_HOME || set XDG_CONFIG_HOME "$HOME/.config"
+set -q XDG_DATA_HOME || set XDG_DATA_HOME "$HOME/.local/share"
+set -q XDG_STATE_HOME || set XDG_STATE_HOME "$HOME/.local/state"
+set -q XDG_CONFIG_DIRS || set XDG_CONFIG_DIRS "/etc/xdg"
+set -q XDG_DATA_DIRS || set XDG_DATA_DIRS "/usr/local/share:/usr/share"
+
+set FISH_ROOT "$XDG_CONFIG_HOME/fish"
 
 # Load extra definitions
 if test -f "$FISH_ROOT/local.fish"
@@ -16,12 +25,12 @@ if test -f "$FISH_ROOT/local.fish"
 end
 
 # Local bin directories
-fish_add_path "$HOME/bin" "$HOME/.local/bin" "$HOME/.local/bin/setuid_scripts"
+fish_add_path "$HOME/bin" "$XDG_BIN_HOME" "$XDG_BIN_HOME/setuid_scripts"
 set -a MANPATH "$HOME/.local/man"
 set -a INFOPATH "$HOME/.local/info"
 
 # Package Managers
-# nix
+## nix
 set -a MANPATH "$HOME/.nix-profile/share/man"
 alias nix-where "nix path-info"
 
@@ -64,8 +73,8 @@ end
 
 # Programs
 ## bat
-set -l theme "$HOME/.config/bat/themes/Blueper.tmTheme"
-set -l meta "$HOME/.cache/bat/metadata.yaml"
+set -l theme "$XDG_CONFIG_HOME/bat/themes/Blueper.tmTheme"
+set -l meta "$XDG_CACHE_HOME/bat/metadata.yaml"
 if command -q bat; and test -f $theme
     if test ! -f $meta; or test (stat -Lc %Y $meta) -lt (stat -Lc %Y $theme)
         bat cache --build >/dev/null
@@ -84,9 +93,12 @@ set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND . \$dir"
 set FZF_ALT_C_COMMAND "fd --type d . \$dir"
 
 ## grip
-set -x GRIPHOME "$HOME/.config/grip"
+set -x GRIPHOME "$XDG_CONFIG_HOME/grip"
 
-# qutebrowser
+## pylint
+set -x PYLINTHOME "$XDG_STATE_HOME/pylint"
+
+## qutebrowser
 set -x QUTEBROWSER_ROOT "$HOME/.qutebrowser"
 
 ## rm-improved
