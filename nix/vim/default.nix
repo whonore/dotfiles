@@ -20,8 +20,8 @@ let
       sha256 = "1d9mf4p55kjbh93z71pfhi8yypjkwf6fv76qnsi5rs7ahwnin05r";
     };
     "8.2" = {
-      patch = "2845";
-      sha256 = "1zzs65jldfhqayqa8jk2v0pky2s93a2cz64hxwm830k9hzki0p1l";
+      patch = "3354";
+      sha256 = "0xzv5xir52sh0amn79yyiwfp1nb0h0wzw1311wp944dc06l509vp";
     };
   };
 in stdenv.mkDerivation rec {
