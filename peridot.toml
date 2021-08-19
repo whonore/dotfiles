@@ -1,3 +1,9 @@
+[arduino]
+srcdir = "$HOME/.local/Arduino"
+links = [
+    ["{{vim}}/bundle/vim-blueper/themes/arduino/blueper.zip", "theme/blueper.zip"]
+]
+
 [bat]
 srcdir = "$HOME/.config/bat"
 links = [

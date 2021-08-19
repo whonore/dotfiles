@@ -1,0 +1,18 @@
+2a3
+> build.verbose=true
+3a5,7
+> cache.enable=true
+> compiler.cache_core=true
+> compiler.warning_level=all
+23c27
+< editor.linenumbers=false
+---
+> editor.linenumbers=true
+26c30
+< editor.tabs.size=2
+---
+> editor.tabs.size=4
+72a77
+> theme.file=
+76a82
+> upload.verbose=true
