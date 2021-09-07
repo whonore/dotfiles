@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 QUTEBROWSER_ROOT=$HOME/.qutebrowser
 mkdir -p ~/.local/man/man1
 

@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 KITTY_ROOT=$HOME/.local/kitty.app
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share/applications

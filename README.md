@@ -3,16 +3,20 @@
 sudo apt install gcc make
 ```
 
-## [Kitty](https://sw.kovidgoyal.net/kitty) and [FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
+## [Kitty](https://sw.kovidgoyal.net/kitty)
 ```sh
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh
+curl -fL https://sw.kovidgoyal.net/kitty/installer.sh | sh
 ~/.dotfiles/kitty/install.sh
-sudo apt install fonts-firacode
+```
+
+[FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
+```sh
+~/.dotfiles/fonts/install.sh
 ```
 
 ## [Nix](https://nixos.org/download.html)
 ```sh
-curl -L https://nixos.org/nix/install | sh
+curl -fL https://nixos.org/nix/install | sh
 nix-env -j auto --cores 0 -if ~/.dotfiles/nix/packages.nix
 ```
 
@@ -20,7 +24,7 @@ nix-env -j auto --cores 0 -if ~/.dotfiles/nix/packages.nix
 ```sh
 echo $HOME/.nix-profile/bin/fish | sudo tee -a /etc/shells
 chsh -s $HOME/.nix-profile/bin/fish
-curl -L https://gist.githubusercontent.com/whonore/05abc83f9c741ff60583b5acefd7336d/raw/8518e88adc8307d5d6af8de3561a9e106e8386a0/nix-fishgen.py | python3
+curl -fL https://gist.githubusercontent.com/whonore/05abc83f9c741ff60583b5acefd7336d/raw/8518e88adc8307d5d6af8de3561a9e106e8386a0/nix-fishgen.py | python3
 ```
 
 ## Vim
@@ -80,7 +84,7 @@ make -C ~/.dotfiles/scripts
 sudo mkdir /usr/local/texlive
 sudo chown -R $USER /usr/local/texlive
 mkdir tlmgr-install; cd tlmgr-install
-curl -L -O http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+curl -fLO http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -xzvf install-tl-unx.tar.gz; cd install-tl-20*; ./install-tl
 cd ../..; rm -r tlmgr-install
 tlmgr init-usertree --usertree $TEXMFHOME
