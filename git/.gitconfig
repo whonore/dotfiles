@@ -8,6 +8,8 @@
     editor = vim
     pager = delta
     excludesFile = ~/.config/git/ignore
+[init]
+    defaultBranch = main
 [alias]
     s = status
     d = diff
