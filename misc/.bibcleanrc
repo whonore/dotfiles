@@ -1,0 +1,10 @@
+-align-equals
+-brace-protect
+-check-values
+-delete-empty-values
+-fix-accents
+-fix-braces
+-fix-initials
+-fix-names
+-prettyprint
+-remove-OPT-prefixes

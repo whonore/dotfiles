@@ -81,6 +81,9 @@ if command -q bat; and test -f $theme
     end
 end
 
+## bibclean
+set -x BIBCLEANINI "$XDG_CONFIG_HOME/bibclean/config"
+
 ## coqtop
 alias coqtop 'rlwrap coqtop'
 

@@ -51,6 +51,7 @@ links = [
     [".screenrc"],
     [".fdignore"],
     [".jackdrc"],
+    [".bibcleanrc", "$HOME/.config/bibclean/config"],
 ]
 
 [python]

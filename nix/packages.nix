@@ -18,6 +18,7 @@ let
     inherit coq_8_13;                             # 8.13.2
   };
   fmt = {
+    inherit bibclean;                             # 3.04
     inherit cppcheck;                             # 2.5
     inherit nixfmt;                               # 0.4.0
     inherit shellcheck;                           # 0.7.2
@@ -43,7 +44,7 @@ let
   };
   vim = {
     ctags = import ./ctags { inherit pkgs; };     # 5.9.20210411.0
-    vim = import ./vim { inherit pkgs; };         # 8.2.2845
+    vim = import ./vim { inherit pkgs; };         # 8.2.3354
   };
   xmonad = {
     inherit dmenu;                                # 5.0
