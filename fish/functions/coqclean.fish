@@ -20,9 +20,9 @@ function coqclean --description 'Delete Coq compilation files'
     if command -q fd
         function _find -a dir -V pat -V _flag_depth
             if test -z $_flag_depth
-                fd --no-ignore --case-sensitive $pat $dir
+                fd --no-ignore --hidden --case-sensitive $pat $dir
             else
-                fd --no-ignore --case-sensitive $pat $dir --max-depth $_flag_depth
+                fd --no-ignore --hidden --case-sensitive $pat $dir --max-depth $_flag_depth
             end
         end
     else
