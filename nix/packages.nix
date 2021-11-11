@@ -4,18 +4,18 @@ with pkgs;
 let
   cli = {
     inherit bat;                                  # 0.18.3
-    inherit delta;                                # 0.8.3
+    inherit delta;                                # 0.9.2
     inherit exa;                                  # 0.10.1
     inherit fd;                                   # 8.2.1
-    inherit fzf;                                  # 0.27.2
+    inherit fzf;                                  # 0.28.0
     inherit ripgrep;                              # 13.0.0
     inherit rlwrap;                               # 0.45.2
     inherit rm-improved;                          # 0.13.0
     inherit xclip;                                # 0.13
-    inherit zoxide;                               # 0.7.5
+    inherit zoxide;                               # 0.7.9
   };
   coq = {
-    inherit coq_8_13;                             # 8.13.2
+    inherit coq;                                  # 8.14.0
   };
   fmt = {
     inherit bibclean;                             # 3.06
@@ -25,7 +25,7 @@ let
     inherit shfmt;                                # 3.4.0
   };
   misc = {
-    inherit bitwise;                              # 0.42
+    inherit bitwise;                              # 0.43
     peridot = import ./peridot { inherit pkgs; }; # 0.1.1
   };
   nix = {
