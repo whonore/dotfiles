@@ -4,7 +4,7 @@ with pkgs;
 let
   python = builtins.getAttr py {
     "2" = python27;
-    "3" = python36;
+    "3" = python310;
   };
   vimSrc = builtins.getAttr vimVer {
     "7.4" = {
