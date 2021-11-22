@@ -30,7 +30,7 @@ let
   };
   nix = {
     inherit cachix;                               # 0.6.1
-    inherit nix;                                  # 2.3.10
+    inherit nix;                                  # 2.4
   };
   qutebrowser = {
     inherit asciidoc;                             # 9.1.0
@@ -48,7 +48,7 @@ let
   };
   xmonad = {
     inherit dmenu;                                # 5.0
-    inherit xmobar;                               # 0.39
+    inherit xmobar;                               # 0.40
     inherit xmonad-with-packages;                 # 8.10.7
   };
 in cli // coq // fmt // misc // nix // qutebrowser // rust // shell // vim
