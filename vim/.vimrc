@@ -56,7 +56,6 @@ Plug 'LnL7/vim-nix'
 Plug 'rust-lang/rust.vim'
 Plug 'whonore/Coqtail'
 Plug 'whonore/deepsea.vim'
-Plug 'whonore/vim-kami'
 " Navigation
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
