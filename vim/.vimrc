@@ -31,6 +31,8 @@ Plug 'junegunn/vim-plug'
 Plug 'vim-airline/vim-airline'
 " Colorschemes
 Plug 'whonore/vim-blueper'
+" Configuration
+Plug 'embear/vim-localvimrc'
 " Editing
 Plug 'andymass/vim-matchup'
 Plug 'editorconfig/editorconfig-vim'
@@ -323,6 +325,10 @@ endif
 
 " helpful
 nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
+
+" localvimrc
+let g:localvimrc_persistent = 2
+let g:localvimrc_persistence_file = s:vimdir . 'lvimrc'
 
 " matchup
 let g:matchup_surround_enabled = 1
