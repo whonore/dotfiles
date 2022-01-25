@@ -36,7 +36,9 @@ in stdenv.mkDerivation rec {
       inherit sha256;
     };
 
-  buildInputs = [ ncurses xorg.libX11 xorg.libXt python ]
+  # NOTE: pin Python to 3.9 until https://github.com/vim/vim/issues/6183 is
+  # fixed
+  buildInputs = [ ncurses xorg.libX11 xorg.libXt python39 ]
     ++ lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Cocoa ];
 
   configureFlags = [
