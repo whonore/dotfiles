@@ -34,6 +34,12 @@ set -a INFOPATH "$HOME/.local/info"
 set -a MANPATH "$HOME/.nix-profile/share/man"
 alias nix-where "nix path-info"
 
+## opam
+set OPAM_ROOT "$HOME/.opam"
+if test -d "$OPAM_ROOT"
+    source "$OPAM_ROOT/opam-init/init.fish" >/dev/null 2>/dev/null
+end
+
 ## pyenv
 set PYENV_ROOT "$HOME/.pyenv"
 if test -d "$PYENV_ROOT"
