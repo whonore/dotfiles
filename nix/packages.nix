@@ -3,34 +3,34 @@ with pkgs;
 
 let
   cli = {
-    inherit bat;                                  # 0.18.3
-    inherit delta;                                # 0.9.2
+    inherit bat;                                  # 0.19.0
+    inherit delta;                                # 0.11.3
     inherit exa;                                  # 0.10.1
-    inherit fd;                                   # 8.2.1
-    inherit fzf;                                  # 0.28.0
+    inherit fd;                                   # 8.3.1
+    inherit fzf;                                  # 0.29.0
     inherit ripgrep;                              # 13.0.0
     inherit rlwrap;                               # 0.45.2
     inherit rm-improved;                          # 0.13.0
     inherit xclip;                                # 0.13
-    inherit zoxide;                               # 0.7.9
+    inherit zoxide;                               # 0.8.0
   };
   coq = {
     inherit coq;                                  # 8.14.0
   };
   fmt = {
     inherit bibclean;                             # 3.06
-    inherit cppcheck;                             # 2.5
+    inherit cppcheck;                             # 2.6
     inherit nixfmt;                               # 0.4.0
-    inherit shellcheck;                           # 0.7.2
-    inherit shfmt;                                # 3.4.0
+    inherit shellcheck;                           # 0.8.0
+    inherit shfmt;                                # 3.4.2
   };
   misc = {
     inherit bitwise;                              # 0.43
     peridot = import ./peridot { inherit pkgs; }; # 0.1.1
   };
   nix = {
-    inherit cachix;                               # 0.6.1
-    inherit nix;                                  # 2.4
+    inherit cachix;                               # 0.7.0
+    inherit nix;                                  # 2.5.1
   };
   qutebrowser = {
     inherit asciidoc;                             # 9.1.0
@@ -48,7 +48,7 @@ let
   };
   xmonad = {
     inherit dmenu;                                # 5.0
-    inherit xmobar;                               # 0.40
+    inherit xmobar;                               # 0.41
     inherit xmonad-with-packages;                 # 8.10.7
   };
 in cli // coq // fmt // misc // nix // qutebrowser // rust // shell // vim
