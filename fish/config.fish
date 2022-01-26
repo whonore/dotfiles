@@ -128,7 +128,8 @@ if command -q zoxide
     zoxide init fish | source
 end
 
-# Browser
+# User Preferences
+## Browser
 for browser in firefox chromium
     if command -q $browser
         set -gx BROWSER $browser
@@ -140,6 +141,10 @@ for browser in firefox chromium
         break
     end
 end
+
+## Editor
+set -gx EDITOR vim
+set -gx VISUAL vim
 
 # Move /nix paths from nix-shell before fish_user_paths
 if string match -q "/nix*" $PATH
