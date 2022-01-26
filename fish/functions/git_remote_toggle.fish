@@ -1,19 +1,19 @@
-function git_remote_toggle --description 'Switch git repository between HTTPS and SSH'
+function git_remote_toggle --description "Switch git repository between HTTPS and SSH"
     set -l options h/help q/quiet S/ssh H/https
     argparse $options -- $argv; or return
 
     if set -q _flag_help
-        echo 'Usage: git_remote_toggle [-h/--help] [-q/--quiet] [-S/--ssh] [-H/--https] [remotes ...]'
+        echo "Usage: git_remote_toggle [-h/--help] [-q/--quiet] [-S/--ssh] [-H/--https] [remotes ...]"
         return 0
     end
 
     if set -q _flag_ssh; and set -q _flag_https
-        echo 'Must choose only one of --ssh and --https'
+        echo "Must choose only one of --ssh and --https"
         return 1
     end
 
     if ! __grt_in_git
-        echo 'Not in a git repository'
+        echo "Not in a git repository"
         return 1
     end
 
@@ -51,24 +51,24 @@ end
 
 # git@github.com:{repo} -> https://github.com/{repo}
 function __grt_to_https
-    set -l url (string replace ':' '/' $argv)
-    set -l url (string replace 'git@' 'https://' $url)
+    set -l url (string replace ":" "/" $argv)
+    set -l url (string replace "git@" "https://" $url)
     echo $url
 end
 
 # https://github.com/{repo} -> git@github.com:{repo}
 function __grt_to_ssh
-    set -l url (string replace 'https://' 'git@' $argv)
-    set -l url (string replace '/' ':' $url)
+    set -l url (string replace "https://" "git@" $argv)
+    set -l url (string replace "/" ":" $url)
     echo $url
 end
 
 function __grt_is_ssh
-    string match -qr '^git@' $argv
+    string match -qr "^git@" $argv
 end
 
 function __grt_is_https
-    string match -qr '^https://' $argv
+    string match -qr "^https://" $argv
 end
 
 function __grt_in_git

@@ -90,7 +90,7 @@ end
 set -gx BIBCLEANINI "$XDG_CONFIG_HOME/bibclean/config"
 
 ## coqtop
-alias coqtop 'rlwrap coqtop'
+alias coqtop "rlwrap coqtop"
 
 ## exa
 if command -q exa
