@@ -8,6 +8,14 @@ if not functions -q fish_add_path
     end
 end
 
+function append_unique \
+    --description "Append a value to a global variable only if it is not already present" \
+    --argument-names var val
+    if not set -q $var; or not contains $val $$var
+        set -g -a $var $val
+    end
+end
+
 # XDG Directories
 set -q XDG_BIN_HOME || set -gx XDG_BIN_HOME "$HOME/.local/bin"
 set -q XDG_CACHE_HOME || set -gx XDG_CACHE_HOME "$HOME/.cache"
@@ -26,12 +34,13 @@ end
 
 # Local bin directories
 fish_add_path "$HOME/bin" "$XDG_BIN_HOME" "$XDG_BIN_HOME/setuid_scripts"
-set -a MANPATH "$HOME/.local/man"
-set -a INFOPATH "$HOME/.local/info"
+append_unique MANPATH "$HOME/.local/man"
+append_unique INFOPATH "$HOME/.local/info"
 
 # Package Managers
 ## nix
-set -a MANPATH "$HOME/.nix-profile/share/man"
+append_unique MANPATH "$HOME/.nix-profile/share/man"
+append_unique INFOPATH "$HOME/.nix-profile/share/info"
 alias nix-where "nix path-info"
 
 ## opam
@@ -66,8 +75,8 @@ end
 set -g TEXLIVE_ROOT (ls -dr1 /usr/local/texlive/20* | head -n1)
 if test -d "$TEXLIVE_ROOT"
     fish_add_path "$TEXLIVE_ROOT/bin/x86_64-linux"
-    set -a MANPATH "$TEXLIVE_ROOT/texmf-dist/doc/man"
-    set -a INFOPATH "$TEXLIVE_ROOT/texmf-dist/doc/info"
+    append_unique MANPATH "$TEXLIVE_ROOT/texmf-dist/doc/man"
+    append_unique INFOPATH "$TEXLIVE_ROOT/texmf-dist/doc/info"
     set -gx TEXMFHOME "$HOME/.local/texmf"
 end
 
@@ -146,4 +155,4 @@ if string match -q "/nix*" $PATH
 end
 
 # Append : to MANPATH so manpath appends default system paths
-set -a MANPATH :
+append_unique MANPATH :
