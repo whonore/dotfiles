@@ -1,13 +1,3 @@
-if not functions -q fish_add_path
-    function fish_add_path --description "Prepend a path to fish_user_paths if it's not already included"
-        for p in $argv
-            if not contains $p $fish_user_paths
-                set -Up fish_user_paths $p
-            end
-        end
-    end
-end
-
 function append_unique \
     --description "Append a value to a global variable only if it is not already present" \
     --argument-names var val
