@@ -141,7 +141,7 @@ for browser in firefox chromium
 end
 
 # Move /nix paths from nix-shell before fish_user_paths
-if test -n "$IN_NIX_SHELL"; and ! string match -q "/nix*" $PATH[1]
+if string match -q "/nix*" $PATH
     move_nix_paths
 end
 
