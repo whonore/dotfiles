@@ -9,15 +9,15 @@ if not functions -q fish_add_path
 end
 
 # XDG Directories
-set -q XDG_BIN_HOME || set XDG_BIN_HOME "$HOME/.local/bin"
-set -q XDG_CACHE_HOME || set XDG_CACHE_HOME "$HOME/.cache"
-set -q XDG_CONFIG_HOME || set XDG_CONFIG_HOME "$HOME/.config"
-set -q XDG_DATA_HOME || set XDG_DATA_HOME "$HOME/.local/share"
-set -q XDG_STATE_HOME || set XDG_STATE_HOME "$HOME/.local/state"
-set -q XDG_CONFIG_DIRS || set XDG_CONFIG_DIRS /etc/xdg
-set -q XDG_DATA_DIRS || set XDG_DATA_DIRS "/usr/local/share:/usr/share"
+set -q XDG_BIN_HOME || set -gx XDG_BIN_HOME "$HOME/.local/bin"
+set -q XDG_CACHE_HOME || set -gx XDG_CACHE_HOME "$HOME/.cache"
+set -q XDG_CONFIG_HOME || set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -q XDG_DATA_HOME || set -gx XDG_DATA_HOME "$HOME/.local/share"
+set -q XDG_STATE_HOME || set -gx XDG_STATE_HOME "$HOME/.local/state"
+set -q XDG_CONFIG_DIRS || set -gx XDG_CONFIG_DIRS /etc/xdg
+set -q XDG_DATA_DIRS || set -gx --path XDG_DATA_DIRS "/usr/local/share:/usr/share"
 
-set FISH_ROOT "$XDG_CONFIG_HOME/fish"
+set -g FISH_ROOT "$XDG_CONFIG_HOME/fish"
 
 # Load extra definitions
 if test -f "$FISH_ROOT/local.fish"
@@ -35,13 +35,13 @@ set -a MANPATH "$HOME/.nix-profile/share/man"
 alias nix-where "nix path-info"
 
 ## opam
-set OPAM_ROOT "$HOME/.opam"
+set -g OPAM_ROOT "$HOME/.opam"
 if test -d "$OPAM_ROOT"
     source "$OPAM_ROOT/opam-init/init.fish" >/dev/null 2>/dev/null
 end
 
 ## pyenv
-set PYENV_ROOT "$HOME/.pyenv"
+set -g PYENV_ROOT "$HOME/.pyenv"
 if test -d "$PYENV_ROOT"
     fish_add_path "$PYENV_ROOT/bin"
     pyenv init --path | source
@@ -50,29 +50,29 @@ if test -d "$PYENV_ROOT"
 end
 
 ## rbenv
-set RBENV_ROOT "$HOME/.rbenv"
+set -g RBENV_ROOT "$HOME/.rbenv"
 if test -d "$RBENV_ROOT"
     fish_add_path "$RBENV_ROOT/bin"
     rbenv init - | source
 end
 
 ## rust
-set CARGO_ROOT "$HOME/.cargo"
+set -g CARGO_ROOT "$HOME/.cargo"
 if test -d "$CARGO_ROOT"
     fish_add_path "$CARGO_ROOT/bin"
 end
 
 ## tlmgr
-set TEXLIVE_ROOT (ls -dr1 /usr/local/texlive/20* | head -n1)
+set -g TEXLIVE_ROOT (ls -dr1 /usr/local/texlive/20* | head -n1)
 if test -d "$TEXLIVE_ROOT"
     fish_add_path "$TEXLIVE_ROOT/bin/x86_64-linux"
     set -a MANPATH "$TEXLIVE_ROOT/texmf-dist/doc/man"
     set -a INFOPATH "$TEXLIVE_ROOT/texmf-dist/doc/info"
-    set TEXMFHOME "$HOME/.local/texmf"
+    set -gx TEXMFHOME "$HOME/.local/texmf"
 end
 
 ## yarn
-set YARN_ROOT "$HOME/.yarn"
+set -g YARN_ROOT "$HOME/.yarn"
 if test -d "$YARN_ROOT"
     fish_add_path "$YARN_ROOT/bin"
 end
@@ -88,7 +88,7 @@ if command -q bat; and test -f $theme
 end
 
 ## bibclean
-set -x BIBCLEANINI "$XDG_CONFIG_HOME/bibclean/config"
+set -gx BIBCLEANINI "$XDG_CONFIG_HOME/bibclean/config"
 
 ## coqtop
 alias coqtop 'rlwrap coqtop'
@@ -99,28 +99,28 @@ if command -q exa
 end
 
 ## fzf
-set -x FZF_DEFAULT_COMMAND "fd --type f"
-set -x FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
-set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND . \$dir"
-set FZF_ALT_C_COMMAND "fd --type d . \$dir"
+set -gx FZF_DEFAULT_COMMAND "fd --type f"
+set -gx FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
+set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND . \$dir"
+set -gx FZF_ALT_C_COMMAND "fd --type d . \$dir"
 
 ## grip
-set -x GRIPHOME "$XDG_CONFIG_HOME/grip"
+set -gx GRIPHOME "$XDG_CONFIG_HOME/grip"
 
 ## mypy
-set -x MYPY_CACHE_DIR "$XDG_CACHE_HOME/mypy"
+set -gx MYPY_CACHE_DIR "$XDG_CACHE_HOME/mypy"
 
 ## rlwrap
-set -x RLWRAP_HOME "$XDG_STATE_HOME/rlwrap"
+set -gx RLWRAP_HOME "$XDG_STATE_HOME/rlwrap"
 
 ## pylint
-set -x PYLINTHOME "$XDG_STATE_HOME/pylint"
+set -gx PYLINTHOME "$XDG_STATE_HOME/pylint"
 
 ## qutebrowser
-set -x QUTEBROWSER_ROOT "$HOME/.qutebrowser"
+set -gx QUTEBROWSER_ROOT "$HOME/.qutebrowser"
 
 ## rm-improved
-set -x GRAVEYARD "$HOME/tmp/graveyard"
+set -gx GRAVEYARD "$HOME/tmp/graveyard"
 
 ## zoxide
 if command -q zoxide
@@ -130,7 +130,7 @@ end
 # Browser
 for browser in firefox chromium
     if command -q $browser
-        set -x BROWSER $browser
+        set -gx BROWSER $browser
         if string match -q "/snap*" (command -s $browser)
             # Snap's sandboxing prevents browsers from opening help files in /nix
             set __fish_help_dir_orig $__fish_help_dir
