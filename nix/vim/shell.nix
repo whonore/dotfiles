@@ -2,4 +2,4 @@
 with pkgs;
 
 let vim = import ./. { inherit pkgs vimVer py gui; };
-in mkShell { buildInputs = [ vim ]; }
+in mkShell { packages = [ vim ]; }

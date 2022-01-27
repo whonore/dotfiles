@@ -2,4 +2,4 @@
 with pkgs;
 
 let coq = import ./. { inherit pkgs version; };
-in mkShell { buildInputs = [ coq ]; }
+in mkShell { packages = [ coq ]; }
