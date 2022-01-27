@@ -59,6 +59,8 @@ in stdenv.mkDerivation rec {
     "--x-libraries=${xlibs.libX11.out}/lib"
   ];
 
+  patches = if vimVer == "7.4" then [ ./vim7.4-if_python3.patch ] else null;
+
   enableParallelBuilding = true;
   hardeningDisable = [ "fortify" ];
 }
