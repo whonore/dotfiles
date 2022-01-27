@@ -2,9 +2,11 @@
 with pkgs;
 
 let
+  # NOTE: pin Python to 3.9 until https://github.com/vim/vim/issues/6183 is
+  # fixed
   python = builtins.getAttr py {
     "2" = python27;
-    "3" = python310;
+    "3" = python39;
   };
   vimSrc = builtins.getAttr vimVer {
     "7.4" = {
@@ -36,9 +38,7 @@ in stdenv.mkDerivation rec {
       inherit sha256;
     };
 
-  # NOTE: pin Python to 3.9 until https://github.com/vim/vim/issues/6183 is
-  # fixed
-  buildInputs = [ ncurses xorg.libX11 xorg.libXt python39 ]
+  buildInputs = [ ncurses xorg.libX11 xorg.libXt python ]
     ++ lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Cocoa ];
 
   configureFlags = [
