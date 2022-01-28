@@ -1,6 +1,9 @@
 config.load_autoconfig()
 config.source('blueper.py')
 
+# NOTE: See https://github.com/qutebrowser/qutebrowser/issues/5656
+c.qt.workarounds.remove_service_workers = True
+
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
