@@ -2,7 +2,7 @@ function append_unique \
     --description "Append a value to a global variable only if it is not already present" \
     --argument-names var val
     if not set -q $var; or not contains $val $$var
-        set -g -a $var $val
+        set -g -a --path $var $val
     end
 end
 
@@ -31,6 +31,7 @@ append_unique INFOPATH "$HOME/.local/info"
 ## nix
 append_unique MANPATH "$HOME/.nix-profile/share/man"
 append_unique INFOPATH "$HOME/.nix-profile/share/info"
+append_unique XDG_DATA_DIRS "$HOME/.nix-profile/share"
 alias nix-where "nix path-info"
 
 ## opam
