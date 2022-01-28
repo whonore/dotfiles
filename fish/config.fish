@@ -43,6 +43,7 @@ end
 set -g PYENV_ROOT "$HOME/.pyenv"
 if test -d "$PYENV_ROOT"
     fish_add_path "$PYENV_ROOT/bin"
+    append_unique MANPATH "$PYENV_ROOT/man"
     pyenv init --path | source
     pyenv init - | source
     pyenv virtualenv-init - | source

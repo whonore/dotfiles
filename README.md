@@ -49,7 +49,6 @@ sudo ln -s ~/.dotfiles/xmonad/xmonad.desktop /usr/share/xsessions
 sudo apt install zlib1g-dev libbz2-dev libreadline-dev libssl-dev libsqlite3-dev libffi-dev
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-ln -s ~/.pyenv/pyenv.1 ~/.local/man/man1
 set PY_LATEST (pyenv install --list | awk '/^\s*3\.[0-9]+\.[0-9]+$/ { print $1 }' | tail -n1)
 pyenv install $PY_LATEST
 pyenv global $PY_LATEST
