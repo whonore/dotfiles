@@ -25,6 +25,12 @@ links = [
     ["{{vim}}/bundle/vim-blueper/themes/fish/blueper.fish", "conf.d/blueper.fish"],
 ]
 
+[fonts]
+srcdir = "$HOME/.config/fontconfig"
+links = [
+    ["fonts.conf"],
+]
+
 [git]
 description = "Git config"
 links = [

@@ -24,6 +24,9 @@ let
     inherit shellcheck;                           # 0.8.0
     inherit shfmt;                                # 3.4.2
   };
+  fonts = {
+    inherit fira-code;                            # 6.2
+  };
   misc = {
     inherit bitwise;                              # 0.43
     peridot = import ./peridot { inherit pkgs; }; # 0.1.1

@@ -9,15 +9,16 @@ curl -fL https://sw.kovidgoyal.net/kitty/installer.sh | sh
 ~/.dotfiles/kitty/install.sh
 ```
 
-[FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
-```sh
-~/.dotfiles/fonts/install.sh
-```
-
 ## [Nix](https://nixos.org/download.html)
 ```sh
 curl -fL https://nixos.org/nix/install | sh
 nix-env -j auto --cores 0 -if ~/.dotfiles/nix/packages.nix
+```
+
+[FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
+```sh
+fc-cache -fv
+fc-list | rg -i fira
 ```
 
 ## [Fish](https://fishshell.com/docs/current/index.html#installation)
