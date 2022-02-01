@@ -4,6 +4,7 @@ with pkgs;
 let
   cli = {
     inherit bat;                                  # 0.19.0
+    inherit clang-tools;                          # 13.0.0
     inherit delta;                                # 0.11.3
     inherit exa;                                  # 0.10.1
     inherit fd;                                   # 8.3.1
