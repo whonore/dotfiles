@@ -35,11 +35,12 @@
         buildPhase = ''
           runHook preBuild
 
-          cd compiler/parser
+          pushd compiler/parser/
           make -j $NIX_BUILD_CORES libdash
-          cd ../../runtime
+          popd
+          pushd runtime/
           make -j $NIX_BUILD_CORES eager split r-merge r-wrap r-split r-unwrap agg set-diff
-          cd ..
+          popd
 
           runHook postBuild
         '';
@@ -47,18 +48,20 @@
         installPhase = ''
           runHook preInstall
 
-          mkdir -p $out/bin/
-          cp -r * $out/
-          ln -s $out/pa.sh $out/bin/pa.sh
-          cp ${dgsh-tee.x86_64-linux.out}/bin/dgsh-tee $out/runtime/
+          mkdir -p "$out/bin/" "$out/lib/"
+          cp -r . "$out/lib/pash"
+          ln -s "$out/lib/pash/pa.sh" "$out/bin/pa.sh"
+          cp ${dgsh-tee.x86_64-linux.out}/bin/dgsh-tee "$out/lib/pash/runtime/"
 
           runHook postInstall
         '';
 
-        postFixup = let path = pkgs.lib.makeBinPath [ python ];
+        postFixup = let python-path = pkgs.lib.makeBinPath [ python ];
         in ''
-          wrapProgram $out/bin/pa.sh --set PASH_TOP $out --prefix PATH : ${path}
-          for prog in $out/pa.sh $out/compiler/pash_runtime.sh; do
+          wrapProgram "$out/bin/pa.sh" \
+            --set PASH_TOP "$out/lib/pash/" \
+            --prefix PATH : ${python-path}
+          for prog in "$out/lib/pash/pa.sh" "$out/lib/pash/compiler/pash_runtime.sh"; do
             substituteInPlace $prog --replace "python3 -S" "python3"
           done
         '';
@@ -92,8 +95,7 @@
         installPhase = ''
           runHook preInstall
 
-          mkdir -p $out/bin
-          cp dgsh-tee $out/bin/
+          install -Dm755 dgsh-tee "$out/bin/dgsh-tee"
 
           runHook postInstall
         '';
