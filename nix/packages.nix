@@ -7,7 +7,7 @@ let
     inherit clang-tools;                          # 13.0.0
     inherit delta;                                # 0.11.3
     inherit exa;                                  # 0.10.1
-    inherit fd;                                   # 8.3.1
+    inherit fd;                                   # 8.3.2
     inherit fzf;                                  # 0.29.0
     inherit ripgrep;                              # 13.0.0
     inherit rlwrap;                               # 0.45.2
@@ -34,7 +34,7 @@ let
   };
   nix = {
     inherit cachix;                               # 0.7.0
-    inherit nix;                                  # 2.5.1
+    inherit nix;                                  # 2.6.0
   };
   qutebrowser = {
     inherit asciidoc;                             # 9.1.0
