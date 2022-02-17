@@ -22,7 +22,7 @@ let
     inherit bibclean;                             # 3.06
     inherit cppcheck;                             # 2.6
     inherit nixfmt;                               # 0.4.0
-    inherit shellcheck;                           # 0.8.0
+    inherit shellcheck;                           # 0.8.0-bin
     inherit shfmt;                                # 3.4.2
   };
   fonts = {
@@ -41,6 +41,7 @@ let
     inherit lastpass-cli;                         # 1.3.3
   };
   rust = {
+    inherit rust-analyzer;                        # 2022-01-31
     inherit rustup;                               # 1.24.3
   };
   shell = {

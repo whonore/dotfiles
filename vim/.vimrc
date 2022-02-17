@@ -273,13 +273,15 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_filetype_changed = 0
-let g:ale_disable_lsp = 1
 let g:ale_warn_about_trailing_blank_lines = 0
 let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_open_list = 1
 nnoremap QQ :ALELint<CR>
 nnoremap QF :ALEFix<SPACE>
 
+let g:ale_linters = {
+  \ 'rust': ['cargo', 'analyzer']
+\}
 let g:ale_linters_ignore = {
   \ 'tex': ['lacheck']
 \}
