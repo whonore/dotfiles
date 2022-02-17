@@ -279,6 +279,9 @@ let g:ale_open_list = 1
 nnoremap QQ :ALELint<CR>
 nnoremap QF :ALEFix<SPACE>
 
+let g:ale_linter_aliases = {
+  \ 'arduino': ['arduino', 'cpp']
+\}
 let g:ale_linters = {
   \ 'rust': ['cargo', 'analyzer']
 \}
