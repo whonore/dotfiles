@@ -34,6 +34,8 @@ let
   };
   nix = {
     inherit cachix;                               # 0.7.0
+    # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
+    inherit glibcLocales;
     inherit nix;                                  # 2.6.0
   };
   qutebrowser = {

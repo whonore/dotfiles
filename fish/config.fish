@@ -33,6 +33,8 @@ append_unique MANPATH "$HOME/.nix-profile/share/man"
 append_unique INFOPATH "$HOME/.nix-profile/share/info"
 append_unique XDG_DATA_DIRS "$HOME/.nix-profile/share"
 alias nix-where "nix path-info"
+# NOTE: See https://github.com/NixOS/nixpkgs/issues/38991
+set -gx LOCALE_ARCHIVE_2_27 "$HOME/.nix-profile/lib/locale/locale-archive"
 
 ## opam
 set -g OPAM_ROOT "$HOME/.opam"
