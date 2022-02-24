@@ -58,6 +58,7 @@ links = [
     [".fdignore"],
     [".jackdrc"],
     [".bibcleanrc", "$HOME/.config/bibclean/config"],
+    [".chktexrc", ".config/chktex/.chktexrc"],
 ]
 
 [python]

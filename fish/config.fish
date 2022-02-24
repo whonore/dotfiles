@@ -93,6 +93,9 @@ end
 ## bibclean
 set -gx BIBCLEANINI "$XDG_CONFIG_HOME/bibclean/config"
 
+## chktex
+set -gx CHKTEXRC "$XDG_CONFIG_HOME/chktex"
+
 ## coqtop
 if command -q rlwrap
     alias coqtop "rlwrap coqtop"
