@@ -289,6 +289,18 @@ let g:ale_linters_ignore = {
   \ 'tex': ['lacheck']
 \}
 
+function! Alejandra(buffer) abort
+  return {
+    \ 'command': 'alejandra --'
+  \}
+endfunction
+
+call ale#fix#registry#Add('alejandra', 'Alejandra', ['nix'], 'Format nix')
+let g:ale_fixers = {
+  \ 'nix': ['alejandra']
+\}
+
+
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
 if fnamemodify(&shell, ':p:t') ==# 'fish'
