@@ -3,9 +3,9 @@ with pkgs;
 
 let
   cli = {
-    inherit bat;                                  # 0.19.0
+    inherit bat;                                  # 0.20.0
     inherit clang-tools;                          # 13.0.0
-    inherit delta;                                # 0.11.3
+    inherit delta;                                # 0.12.0
     inherit exa;                                  # 0.10.1
     inherit fd;                                   # 8.3.2
     inherit fzf;                                  # 0.29.0
@@ -20,10 +20,10 @@ let
   };
   fmt = {
     inherit bibclean;                             # 3.06
-    inherit cppcheck;                             # 2.6
+    inherit cppcheck;                             # 2.7
     inherit nixfmt;                               # 0.4.0
     inherit shellcheck;                           # 0.8.0-bin
-    inherit shfmt;                                # 3.4.2
+    inherit shfmt;                                # 3.4.3
   };
   fonts = {
     inherit fira-code;                            # 6.2
@@ -36,14 +36,14 @@ let
     inherit cachix;                               # 0.7.0
     # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
     inherit glibcLocales;
-    inherit nix;                                  # 2.6.0
+    inherit nix;                                  # 2.6.1
   };
   qutebrowser = {
     inherit asciidoc;                             # 9.1.0
     inherit lastpass-cli;                         # 1.3.3
   };
   rust = {
-    inherit rust-analyzer;                        # 2022-01-31
+    inherit rust-analyzer;                        # 2022-02-28
     inherit rustup;                               # 1.24.3
   };
   shell = {
@@ -54,7 +54,7 @@ let
     vim = import ./vim { inherit pkgs; };         # 8.2.3457
   };
   xmonad = {
-    inherit dmenu;                                # 5.0
+    inherit dmenu;                                # 5.1
     inherit xmobar;                               # 0.41
     inherit xmonad-with-packages;                 # 8.10.7
   };
