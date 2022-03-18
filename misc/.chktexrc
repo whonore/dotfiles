@@ -3,5 +3,12 @@ MathEnvir {
 }
 
 Silent {
+    \balance
     \flushleft
+}
+
+WipeArg {
+    \acmISBN:{}
+    \grantnum:{}{}
+    \orcid:{}
 }
