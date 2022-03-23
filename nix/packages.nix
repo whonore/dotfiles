@@ -2,6 +2,9 @@
 with pkgs;
 
 let
+  app = {
+    inherit drawio;                               # 16.5.1
+  }
   cli = {
     inherit bat;                                  # 0.20.0
     inherit clang-tools;                          # 13.0.0
@@ -16,7 +19,7 @@ let
     inherit zoxide;                               # 0.8.0
   };
   coq = {
-    inherit coq;                                  # 8.14.0
+    inherit coq;                                  # 8.15.0
   };
   fmt = {
     inherit bibclean;                             # 3.06
