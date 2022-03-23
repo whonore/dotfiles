@@ -9,7 +9,7 @@ PKG_MAP = {
     "universal-ctags": "ctags",
     "vim-py3": "vim",
 }
-PKG_VERSION_RE = re.compile(r"[\w/]+-(?P<pkg>[\w-]+?)-(?P<ver>\d[\w.-]+)")
+PKG_VERSION_RE = re.compile(r"[\w/]+-(?P<pkg>[\w.-]+?)-(?P<ver>\d[\w.-]+)")
 
 
 def split_version(path: str) -> Tuple[str, str]:
