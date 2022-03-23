@@ -3,6 +3,11 @@
 sudo apt install gcc make
 ```
 
+## Generate Scripts/Configs
+```sh
+make
+```
+
 ## [Kitty](https://sw.kovidgoyal.net/kitty)
 ```sh
 curl -fL https://sw.kovidgoyal.net/kitty/installer.sh | sh
@@ -72,11 +77,6 @@ snap install discord spotify firefox chromium
 sudo apt install ca-certificates libglib2.0-0 libgl1 libfontconfig1 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 libxkbcommon-x11-0 libdbus-1-3 libyaml-dev libxml2-utils xsltproc
 git clone https://github.com/qutebrowser/qutebrowser.git ~/.qutebrowser
 ~/.dotfiles/qutebrowser/install.sh
-```
-
-## Scripts
-```sh
-make -C ~/.dotfiles/scripts
 ```
 
 ## LaTeX
