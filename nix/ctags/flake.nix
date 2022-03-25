@@ -9,7 +9,7 @@
   }: let
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in rec {
-    defaultPackage.x86_64-linux = pkgs.universal-ctags.overrideAttrs (oldAttrs: {
+    packages.x86_64-linux.default = pkgs.universal-ctags.overrideAttrs (oldAttrs: {
       buildInputs = oldAttrs.buildInputs ++ [pkgs.libyaml pkgs.pcre2];
       doCheck = false;
     });

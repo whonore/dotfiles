@@ -9,7 +9,7 @@
   }: let
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in rec {
-    defaultPackage.x86_64-linux = pkgs.stdenv.mkDerivation rec {
+    packages.x86_64-linux.default = pkgs.stdenv.mkDerivation rec {
       pname = "coq.ctags";
       version = "0.0";
       src = pkgs.fetchFromGitHub {
