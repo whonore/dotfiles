@@ -38,7 +38,7 @@ let
   nix = {
     inherit cachix;                               # 0.7.0
     # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
-    inherit glibcLocales;
+    inherit glibcLocales;                         # 2.33-117
     inherit nix;                                  # 2.7.0
   };
   qutebrowser = {
@@ -53,7 +53,7 @@ let
     inherit fish;                                 # 3.4.0
   };
   vim = {
-    ctags = import ./ctags { inherit pkgs; };     # 5.9.20210411.0
+    ctags = import ./ctags { inherit pkgs; };     # 5.9.20220220.0
     vim = import ./vim { inherit pkgs; };         # 8.2.3457
   };
   xmonad = {

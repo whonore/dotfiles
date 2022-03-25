@@ -2,14 +2,16 @@
 
 import re
 import subprocess
+import sys
 from typing import Iterable, Tuple
 
-
 PKG_MAP = {
+    "glibc-locales": "glibcLocales",
     "universal-ctags": "ctags",
     "vim-py3": "vim",
 }
 PKG_VERSION_RE = re.compile(r"[\w/]+-(?P<pkg>[\w.-]+?)-(?P<ver>\d[\w.-]+)")
+PKG_FILE = "packages.nix"
 
 
 def split_version(path: str) -> Tuple[str, str]:
@@ -21,6 +23,10 @@ def split_version(path: str) -> Tuple[str, str]:
 def parse_line(line: str) -> Tuple[str, str]:
     _, _, _, path = line.split(" ")
     return split_version(path)
+
+
+def name2attr(pkg: str) -> str:
+    return PKG_MAP.get(pkg, pkg)
 
 
 def versions() -> Iterable[Tuple[str, str]]:
@@ -41,15 +47,23 @@ def tests() -> None:
 
 if __name__ == "__main__":
     tests()
-    with open("packages.nix", encoding="utf-8") as f:
+    quiet = "-q" in sys.argv
+
+    with open(PKG_FILE, encoding="utf-8") as f:
         pkgs = f.read()
+
     indent = max(line.rfind(";") for line in pkgs.splitlines()) + 2
     assert indent > 0
+
     for pkg, ver in versions():
+        pkg = name2attr(pkg)
         match = re.search(rf"(^.*?\b{pkg}\b.*;).*$", pkgs, flags=re.MULTILINE)
         if match is not None:
             assert indent > len(match.group(1))
             space = " " * (indent - len(match.group(1)))
             pkgs = re.sub(match.group(0), f"{match.group(1)}{space}# {ver}", pkgs)
-    with open("packages.nix", "w", encoding="utf-8") as f:
+        elif not quiet:
+            print(f"{pkg} not found in {PKG_FILE}")
+
+    with open(PKG_FILE, "w", encoding="utf-8") as f:
         f.write(pkgs)
