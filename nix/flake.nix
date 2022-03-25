@@ -9,20 +9,23 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
-    let
-      username = "wolf";
-      host = "tigran";
-    in {
-      homeConfigurations = {
-        "${username}@${host}" = home-manager.lib.homeManagerConfiguration {
-          configuration.imports = [ ./home.nix ];
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+  }: let
+    username = "wolf";
+    host = "tigran";
+  in {
+    homeConfigurations = {
+      "${username}@${host}" = home-manager.lib.homeManagerConfiguration {
+        configuration.imports = [./home.nix];
 
-          system = "x86_64-linux";
-          homeDirectory = "/home/${username}";
-          inherit username;
-          stateVersion = "21.05";
-        };
+        system = "x86_64-linux";
+        homeDirectory = "/home/${username}";
+        inherit username;
+        stateVersion = "22.05";
       };
     };
+  };
 }
