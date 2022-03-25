@@ -7,8 +7,8 @@ let
   }
   cli = {
     inherit bat;                                  # 0.20.0
-    inherit clang-tools;                          # 13.0.0
-    inherit delta;                                # 0.12.0
+    inherit clang-tools;                          # 13.0.1
+    inherit delta;                                # 0.12.1
     inherit exa;                                  # 0.10.1
     inherit fd;                                   # 8.3.2
     inherit fzf;                                  # 0.29.0
@@ -39,18 +39,18 @@ let
     inherit cachix;                               # 0.7.0
     # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
     inherit glibcLocales;
-    inherit nix;                                  # 2.6.1
+    inherit nix;                                  # 2.7.0
   };
   qutebrowser = {
     inherit asciidoc;                             # 9.1.0
     inherit lastpass-cli;                         # 1.3.3
   };
   rust = {
-    inherit rust-analyzer;                        # 2022-02-28
+    inherit rust-analyzer;                        # 2022-03-07
     inherit rustup;                               # 1.24.3
   };
   shell = {
-    inherit fish;                                 # 3.3.1
+    inherit fish;                                 # 3.4.0
   };
   vim = {
     ctags = import ./ctags { inherit pkgs; };     # 5.9.20210411.0
