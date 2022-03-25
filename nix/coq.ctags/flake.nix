@@ -15,8 +15,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "tomtomjhj";
         repo = pname;
-        rev = "6e28e8a7d937794f58a95c66ecfe6689e9dba28c";
-        sha256 = "sha256-Mfdma+a4A9Z4EyxaEt94ncOddT7Fic4tZeJpaKcXtUs=";
+        rev = "e03166eef9db79f618af4cba6ac35b2eec4c9d47";
+        sha256 = "sha256-4hJ2wGvSfLrYr+FPPXxigI3v4DSJnPlByOeFWP1cSwM=";
       };
 
       dontConfigure = true;
