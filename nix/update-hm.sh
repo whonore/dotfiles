@@ -13,3 +13,4 @@ if [ -n "$HMIDX" ]; then
 fi
 
 "$(nix path-info .#homeConfigurations.$PROFILE.activationPackage)"/activate
+./sync-version.py -q

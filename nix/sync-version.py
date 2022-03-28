@@ -88,7 +88,8 @@ if __name__ == "__main__":
                 sec[pkg] = (sec[pkg][0], ver)
                 break
         else:
-            print(f"{pkg} not found in {PKG_FILE}")
+            if not quiet:
+                print(f"{pkg} not found in {PKG_FILE}")
 
     out = ['pkgs:', 'with pkgs; [']
     for hdr in sorted(pkgs):
