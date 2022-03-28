@@ -15,7 +15,7 @@ with pkgs; [
   xclip # 0.13
   zoxide # 0.8.0
   ## coq
-  coq_8_15 # 8.15.0
+  coq # 8.15.0
   ## fmt
   alejandra
   bibclean # 3.06
