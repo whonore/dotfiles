@@ -55,8 +55,8 @@ in stdenv.mkDerivation rec {
     "--enable-fail-if-missing"
   ] ++ lib.optionals (!stdenv.isDarwin) [
     "--with-x"
-    "--x-includes=${xlibs.libX11.dev}/include"
-    "--x-libraries=${xlibs.libX11.out}/lib"
+    "--x-includes=${xorg.libX11.dev}/include"
+    "--x-libraries=${xorg.libX11.out}/lib"
   ];
 
   patches = if vimVer == "7.4" then [ ./vim7.4-if_python3.patch ] else null;

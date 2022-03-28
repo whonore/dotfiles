@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [hello];
+  home.packages = import ./packages.nix pkgs;
 
   programs.home-manager.enable = true;
 }

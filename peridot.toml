@@ -48,7 +48,8 @@ dstdir = "nix"
 srcdir = "$HOME/.config/nixpkgs"
 links = [
     ["flake.nix"],
-    ["home.nix"]
+    ["home.nix"],
+    ["update-hm.sh", "$HOME/.local/bin/update-hm"],
 ]
 
 [kitty]

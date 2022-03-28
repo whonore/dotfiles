@@ -1,5 +1,74 @@
 {
   "nodes": {
+    "alejandra": {
+      "inputs": {
+        "flakeCompat": "flakeCompat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1648332543,
+        "narHash": "sha256-9FWmFNLCOp4y0I8Yb4GvgGXxtDq3nBDSTI9qyCi2LJ4=",
+        "owner": "kamadorueda",
+        "repo": "alejandra",
+        "rev": "5cbb3486c7959646f452830c0a223edc5db5b951",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kamadorueda",
+        "repo": "alejandra",
+        "type": "github"
+      }
+    },
+    "coq-ctags": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-4uYtXC6Nbz/3nFIfowJO0XkvcgjC9xxhnJQgzfv9Nn4=",
+        "path": "./coq.ctags",
+        "type": "path"
+      },
+      "original": {
+        "path": "./coq.ctags",
+        "type": "path"
+      }
+    },
+    "ctags": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-I694JOKzfXBqsflseGBKiibHaai7hz+pB2n6mgA1ZlE=",
+        "path": "./ctags",
+        "type": "path"
+      },
+      "original": {
+        "path": "./ctags",
+        "type": "path"
+      }
+    },
+    "flakeCompat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648199409,
+        "narHash": "sha256-JwPKdC2PoVBkG6E+eWw3j6BMR6sL3COpYWfif7RVb8Y=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "64a525ee38886ab9028e6f61790de0832aa3ef03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -35,10 +104,51 @@
         "type": "github"
       }
     },
+    "pash": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-Jn2o7SGEOqbfUR84w5pxXFRmd6xle6Ony7RNhG1yE6c=",
+        "path": "./pash",
+        "type": "path"
+      },
+      "original": {
+        "path": "./pash",
+        "type": "path"
+      }
+    },
+    "peridot": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1648230654,
+        "narHash": "sha256-skfpL/WQQ71i1YdQ30LEJv0/yhvUEGX5ZowLttxOnow=",
+        "owner": "whonore",
+        "repo": "peridot",
+        "rev": "f90bfce06cfc5eb7396d5de4f320a3e97dc920dc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "whonore",
+        "repo": "peridot",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "alejandra": "alejandra",
+        "coq-ctags": "coq-ctags",
+        "ctags": "ctags",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "pash": "pash",
+        "peridot": "peridot"
       }
     }
   },
