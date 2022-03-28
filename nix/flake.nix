@@ -14,18 +14,27 @@
     nixpkgs,
     home-manager,
   }: let
-    username = "wolf";
-    host = "tigran";
+    configs = [
+      {
+        username = "wolf";
+        host = "tigran";
+      }
+    ];
   in {
-    homeConfigurations = {
-      "${username}@${host}" = home-manager.lib.homeManagerConfiguration {
-        configuration.imports = [./home.nix];
+    homeConfigurations = nixpkgs.lib.listToAttrs (map ({
+      username,
+      host,
+    }:
+      nixpkgs.lib.nameValuePair "${username}@${host}" (
+        home-manager.lib.homeManagerConfiguration {
+          configuration.imports = [./home.nix];
 
-        system = "x86_64-linux";
-        homeDirectory = "/home/${username}";
-        inherit username;
-        stateVersion = "22.05";
-      };
-    };
+          system = "x86_64-linux";
+          homeDirectory = "/home/${username}";
+          inherit username;
+          stateVersion = "22.05";
+        }
+      ))
+    configs);
   };
 }
