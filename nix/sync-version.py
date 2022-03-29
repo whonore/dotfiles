@@ -6,6 +6,7 @@ import sys
 from typing import Dict, Iterable, Tuple
 
 PKG_MAP = {
+    "coq": "coq_8_15",
     "coq.ctags": "coq-ctags",
     "glibc-locales": "glibcLocales",
     "universal-ctags": "ctags",
@@ -29,7 +30,7 @@ def read_packages(path: str) -> Dict[str, Dict[str, Tuple[str, str]]]:
             if re.match(r"^\s*##", line) is not None:
                 hdr = line.strip().strip("#").strip()
                 pkgs[hdr] = {}
-            elif not line.startswith(']'):
+            elif not line.startswith("]"):
                 assert hdr is not None
                 if re.match(r"^\s*#", line) is not None:
                     com.append(line.strip())
@@ -91,17 +92,17 @@ if __name__ == "__main__":
             if not quiet:
                 print(f"{pkg} not found in {PKG_FILE}")
 
-    out = ['pkgs:', 'with pkgs; [']
+    out = ["pkgs:", "with pkgs; ["]
     for hdr in sorted(pkgs):
-        out.append(f'  ## {hdr}')
+        out.append(f"  ## {hdr}")
         for pkg in sorted(pkgs[hdr]):
             com, ver = pkgs[hdr][pkg]
-            assert ver != ''
+            assert ver != ""
             ind = indent - len(pkg) + 1
-            if com != '':
-                out.append(f'  {com}')
+            if com != "":
+                out.append(f"  {com}")
             out.append(f"  {pkg}{' ' * ind}# {ver}")
-    out.append(']')
+    out.append("]")
 
     with open(PKG_FILE, "w", encoding="utf-8") as f:
-        f.write('\n'.join(out))
+        f.write("\n".join(out))
