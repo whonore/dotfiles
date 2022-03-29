@@ -1,8 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
+TOP=$(CDPATH='' cd -- "$(dirname -- $(readlink -e -- "$0"))" && pwd -P)
 PROFILE="$USER@$(hostname)"
-if ! nix build --no-link .#homeConfigurations.$PROFILE.activationPackage; then
+HM="path:$TOP#homeConfigurations.$PROFILE.activationPackage"
+
+cd "$TOP"
+
+OLD=$(home-manager generations | head -n1 | cut -d' ' -f7)
+
+if ! nix build --no-link "$HM"; then
     echo "Failed to update home-manager packages"
     exit 1
 fi
@@ -12,5 +19,10 @@ if [ -n "$HMIDX" ]; then
     nix profile remove "$HMIDX"
 fi
 
-"$(nix path-info .#homeConfigurations.$PROFILE.activationPackage)"/activate
-./sync-version.py -q
+"$(nix path-info $HM)"/activate
+
+NEW=$(home-manager generations | head -n1 | cut -d' ' -f7)
+if [ $OLD != $NEW ]; then
+    ./sync-version.py -q
+    nix store diff-closures $OLD $NEW
+fi
