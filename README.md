@@ -20,7 +20,7 @@ curl -fL https://nixos.org/nix/install | sh
 ~/.dotfiles/nix/update-hm.sh
 ```
 
-[FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
+[FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#manual-installation)
 ```sh
 fc-cache -fv
 fc-list | rg -i fira
@@ -79,7 +79,7 @@ git clone https://github.com/qutebrowser/qutebrowser.git ~/.qutebrowser
 ~/.dotfiles/qutebrowser/install.sh
 ```
 
-## LaTeX
+## [LaTeX](https://tug.org/texlive/doc/texlive-en/texlive-en.html#installation)
 ```sh
 sudo mkdir /usr/local/texlive
 sudo chown -R $USER /usr/local/texlive
