@@ -105,4 +105,4 @@ if __name__ == "__main__":
     out.append("]")
 
     with open(PKG_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(out))
+        f.write("\n".join(out) + "\n")
