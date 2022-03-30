@@ -3,26 +3,49 @@
 import re
 import subprocess
 import sys
-from typing import Iterable, Tuple
+from typing import Dict, Iterable, Tuple
 
 PKG_MAP = {
+    "coq": "coq_8_15",
+    "coq.ctags": "coq-ctags",
     "glibc-locales": "glibcLocales",
     "universal-ctags": "ctags",
     "vim-py3": "vim",
 }
-PKG_VERSION_RE = re.compile(r"[\w/]+-(?P<pkg>[\w.-]+?)-(?P<ver>\d[\w.-]+)")
+PKG_VERSION_RE = re.compile(r"(?P<pkg>[\w.-]+?)-(?P<ver>\d[\w.-]+)")
 PKG_FILE = "packages.nix"
+
+
+def read_packages(path: str) -> Dict[str, Dict[str, Tuple[str, str]]]:
+    pkgs: Dict[str, Dict[str, Tuple[str, str]]] = {}
+    hdr = None
+    com = []
+    with open(path, encoding="utf-8") as f:
+        # Skip until list open
+        for line in f:
+            if "[" in line:
+                break
+
+        for line in f:
+            if re.match(r"^\s*##", line) is not None:
+                hdr = line.strip().strip("#").strip()
+                pkgs[hdr] = {}
+            elif not line.startswith("]"):
+                assert hdr is not None
+                if re.match(r"^\s*#", line) is not None:
+                    com.append(line.strip())
+                else:
+                    pkg = line.strip().split()[0]
+                    pkgs[hdr][pkg] = ("".join(com), "")
+                    com = []
+    return pkgs
 
 
 def split_version(path: str) -> Tuple[str, str]:
     m = PKG_VERSION_RE.match(path)
-    assert m is not None
+    if m is None:
+        return ("", "")
     return m.group("pkg"), m.group("ver")
-
-
-def parse_line(line: str) -> Tuple[str, str]:
-    _, _, _, path = line.split(" ")
-    return split_version(path)
 
 
 def name2attr(pkg: str) -> str:
@@ -30,8 +53,15 @@ def name2attr(pkg: str) -> str:
 
 
 def versions() -> Iterable[Tuple[str, str]]:
-    res = subprocess.run(["nix", "profile", "list"], stdout=subprocess.PIPE, check=True)
-    return map(parse_line, res.stdout.decode("utf-8").splitlines())
+    res = subprocess.run(
+        ["home-manager", "packages"],
+        stdout=subprocess.PIPE,
+        check=True,
+    )
+    return filter(
+        lambda pkgver: pkgver[0] != "" and pkgver[1] != "",
+        map(split_version, res.stdout.decode("utf-8").splitlines()),
+    )
 
 
 def tests() -> None:
@@ -41,7 +71,7 @@ def tests() -> None:
         ("rust-analyzer", "2022-01-31"),
         ("vim-py3", "8.2.3457"),
     ):
-        path = f"/nix/store/abc123-{name}-{ver}"
+        path = f"{name}-{ver}"
         assert split_version(path) == (name, ver)
 
 
@@ -49,21 +79,32 @@ if __name__ == "__main__":
     tests()
     quiet = "-q" in sys.argv
 
-    with open(PKG_FILE, encoding="utf-8") as f:
-        pkgs = f.read()
+    pkgs = read_packages(PKG_FILE)
 
-    indent = max(line.rfind(";") for line in pkgs.splitlines()) + 2
+    indent = max(len(pkg) for sec in pkgs.values() for pkg in sec)
     assert indent > 0
 
     for pkg, ver in versions():
         pkg = name2attr(pkg)
-        match = re.search(rf"(^.*?\b{pkg}\b.*;).*$", pkgs, flags=re.MULTILINE)
-        if match is not None:
-            assert indent > len(match.group(1))
-            space = " " * (indent - len(match.group(1)))
-            pkgs = re.sub(match.group(0), f"{match.group(1)}{space}# {ver}", pkgs)
-        elif not quiet:
-            print(f"{pkg} not found in {PKG_FILE}")
+        for sec in pkgs.values():
+            if pkg in sec:
+                sec[pkg] = (sec[pkg][0], ver)
+                break
+        else:
+            if not quiet:
+                print(f"{pkg} not found in {PKG_FILE}")
+
+    out = ["pkgs:", "with pkgs; ["]
+    for hdr in sorted(pkgs):
+        out.append(f"  ## {hdr}")
+        for pkg in sorted(pkgs[hdr]):
+            com, ver = pkgs[hdr][pkg]
+            assert ver != ""
+            ind = indent - len(pkg) + 1
+            if com != "":
+                out.append(f"  {com}")
+            out.append(f"  {pkg}{' ' * ind}# {ver}")
+    out.append("]")
 
     with open(PKG_FILE, "w", encoding="utf-8") as f:
-        f.write(pkgs)
+        f.write("\n".join(out) + "\n")

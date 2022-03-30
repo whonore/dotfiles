@@ -43,6 +43,15 @@ links = [
     [".", ".config/grip"],
 ]
 
+[home-manager]
+dstdir = "nix"
+srcdir = "$HOME/.config/nixpkgs"
+links = [
+    ["flake.nix"],
+    ["home.nix"],
+    ["update-hm.sh", "$HOME/.local/bin/update-hm"],
+]
+
 [kitty]
 srcdir = "$HOME/.config/kitty"
 links = [
