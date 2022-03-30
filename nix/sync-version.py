@@ -54,7 +54,9 @@ def name2attr(pkg: str) -> str:
 
 def versions() -> Iterable[Tuple[str, str]]:
     res = subprocess.run(
-        ["home-manager", "packages"], stdout=subprocess.PIPE, check=True
+        ["home-manager", "packages"],
+        stdout=subprocess.PIPE,
+        check=True,
     )
     return filter(
         lambda pkgver: pkgver[0] != "" and pkgver[1] != "",
