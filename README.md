@@ -14,10 +14,10 @@ curl -fL https://sw.kovidgoyal.net/kitty/installer.sh | sh
 ~/.dotfiles/kitty/install.sh
 ```
 
-## [Nix](https://nixos.org/download.html)
+## [Nix](https://nixos.org/download.html) and [Home Manager](https://nix-community.github.io/home-manager/index.html#sec-flakes-standalone)
 ```sh
 curl -fL https://nixos.org/nix/install | sh
-nix-env -j auto --cores 0 -if ~/.dotfiles/nix/packages.nix
+~/.dotfiles/nix/update-hm.sh
 ```
 
 [FiraCode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
