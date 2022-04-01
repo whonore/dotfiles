@@ -3,7 +3,8 @@ Config {
     bgColor = "#000000",
     fgColor = "#ffffff",
     position = Top,
-    iconRoot = "/home/wolf/.xmonad/icons",
+    -- TODO: Figure out how to use a relative path
+    iconRoot = "$HOME/.config/xmobar/icons",
     commands = [
         Run MultiCpu [
             "-t", "<fc=#00FFFF>CPUs</fc>: <total0>% <total1>% <total2>% <total3>%",

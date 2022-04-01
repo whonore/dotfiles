@@ -114,6 +114,7 @@ links = [
 
 [xmonad]
 links = [
-    [".", ".xmonad"],
-    [".xmobarrc"],
+    ["xmonad.hs", "$HOME/.config/xmonad/xmonad.hs"],
+    ["xmobarrc", "$HOME/.config/xmobar/xmobarrc"],
+    ["icons", "$HOME/.config/xmobar/icons"],
 ]

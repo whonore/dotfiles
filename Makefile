@@ -1,9 +1,12 @@
-DIRS := $(dir $(wildcard */Makefile))
+TMPLS := $(wildcard */*.tmpl) $(wildcard */.*.tmpl)
+SUBST := $(basename $(TMPLS))
 
 .PHONY: all clean
 
-all:
-	for d in $(DIRS); do $(MAKE) -C $$d; done
+all: $(SUBST)
+
+%: %.tmpl
+	envsubst <$< >$@
 
 clean:
-	for d in $(DIRS); do $(MAKE) -C $$d clean; done
+	rm -rf $(SUBST)
