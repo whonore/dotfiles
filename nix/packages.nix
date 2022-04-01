@@ -1,7 +1,7 @@
 pkgs:
 with pkgs; [
   ## app
-  drawio               # 17.2.1
+  drawio               # 17.2.4
   ## cli
   bat                  # 0.20.0
   clang-tools          # 13.0.1
@@ -19,9 +19,9 @@ with pkgs; [
   ## fmt
   alejandra            # 1.1.0
   bibclean             # 3.06
-  cppcheck             # 2.7.3-man
-  nixfmt               # 0.4.0
-  shellcheck           # 0.8.0-man
+  cppcheck             # 2.7.4
+  nixfmt               # 0.5.0
+  shellcheck           # 0.8.0-bin
   shfmt                # 3.4.3
   ## fonts
   fira-code            # 6.2
@@ -48,6 +48,6 @@ with pkgs; [
   vim                  # 8.2.3457
   ## xmonad
   dmenu                # 5.1
-  xmobar               # 0.41
-  xmonad-with-packages # 8.10.7
+  xmobar               # 0.42
+  xmonad-with-packages # 9.0.2
 ]

@@ -28,7 +28,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-4uYtXC6Nbz/3nFIfowJO0XkvcgjC9xxhnJQgzfv9Nn4=",
+        "narHash": "sha256-AfvccWeXMfj/3x/Zhay5bdXp/EbWYreqe1++mUQ1ExY=",
         "path": "./coq.ctags",
         "type": "path"
       },
@@ -76,11 +76,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1648366999,
-        "narHash": "sha256-Sdm0lI2ZBc70EnMMmvfDVY7gIM3M4c2L86EdQ9tKRE4=",
+        "lastModified": 1648751066,
+        "narHash": "sha256-pYUSID9rSgYnl4PNa45/haCaHUKzY+Ul0fkqqSGflxs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "888eac32bd657bfe0d024c8770130d80d1c02cd3",
+        "rev": "cf62e96bf7c72e6a88e0bd43165110f42e44cdb4",
         "type": "github"
       },
       "original": {
@@ -91,11 +91,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1648471791,
-        "narHash": "sha256-tR/M+/5voDsmbovDVpfFHncBtuXurOuXlkPKheJYv2s=",
+        "lastModified": 1648818348,
+        "narHash": "sha256-lbxdRS6cJ8PkRnZp86f5grw68zbzEG7mY1LtthQe6f0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "584734ee64e5d08d57736dd4c919c273bfa2d43d",
+        "rev": "1b4d728eaf4dee1ac3bf60a4326d93026e2882c2",
         "type": "github"
       },
       "original": {
