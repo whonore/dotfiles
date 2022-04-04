@@ -4,6 +4,11 @@ links = [
     ["{{vim}}/bundle/vim-blueper/themes/arduino/blueper.zip", "theme/blueper.zip"]
 ]
 
+[backups]
+links = [
+    ["backup.sh", "$HOME/.local/bin/backup"],
+]
+
 [bat]
 srcdir = "$HOME/.config/bat"
 links = [
