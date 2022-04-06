@@ -300,7 +300,6 @@ let g:ale_fixers = {
   \ 'nix': ['alejandra']
 \}
 
-
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
 if fnamemodify(&shell, ':p:t') ==# 'fish'
