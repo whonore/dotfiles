@@ -41,7 +41,7 @@ with pkgs; [
   rustup               # 1.24.3
   ## shell
   fish                 # 3.4.1
-  pash                 # 0.6
+  pash                 # 0.7
   ## vim
   coq-ctags            # 0.0
   ctags                # 5.9.20220220.0

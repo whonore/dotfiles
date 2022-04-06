@@ -111,7 +111,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-Jn2o7SGEOqbfUR84w5pxXFRmd6xle6Ony7RNhG1yE6c=",
+        "narHash": "sha256-V5zKbbaAnZviMAdLKlbEFI0fyawLTecj/0q1LHkxT88=",
         "path": "./pash",
         "type": "path"
       },

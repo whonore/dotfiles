@@ -13,11 +13,11 @@
 
     dgsh-tee = pkgs.stdenv.mkDerivation {
       pname = "dgsh-tee";
-      version = "0.1";
+      version = "0.0.0";
       src = pkgs.fetchFromGitHub {
-        owner = "tammam1998";
+        owner = "binpash";
         repo = "dgsh";
-        rev = "83f817fed23445c59405b250774efde3bec7ba72";
+        rev = "pash";
         sha256 = "sha256-E2CN59fW2aQ7JRSY+LrurNWh/p6MwoaQUfuNsEpYJzk=";
       };
 
@@ -47,13 +47,13 @@
   in rec {
     packages.x86_64-linux.default = pkgs.stdenv.mkDerivation rec {
       pname = "pash";
-      version = "0.6";
+      version = "0.7";
       src = pkgs.fetchFromGitHub {
         fetchSubmodules = true;
         owner = "binpash";
         repo = pname;
         rev = "v${version}";
-        sha256 = "sha256-xDOMxrVvEyzA80SjX9jqf2RAO9NwuGfSXnv+UN4sZT8=";
+        sha256 = "sha256-uxfpHD8I3Gm+ifHGTSywOKjkG42GeWQHT8HA+C+nP28=";
       };
 
       buildInputs = [dgsh-tee pkgs.autoconf pkgs.automake pkgs.libtool];
