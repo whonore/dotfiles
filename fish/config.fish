@@ -71,7 +71,7 @@ if test -d "$TEXLIVE_ROOT"
     fish_add_path "$TEXLIVE_ROOT/bin/x86_64-linux"
     append_unique MANPATH "$TEXLIVE_ROOT/texmf-dist/doc/man"
     append_unique INFOPATH "$TEXLIVE_ROOT/texmf-dist/doc/info"
-    set -gx TEXMFHOME "$HOME/.local/texmf"
+    set -gx TEXMFHOME "$HOME/.local/texlive/$(basename $TEXLIVE_ROOT)"
 end
 
 ## yarn
