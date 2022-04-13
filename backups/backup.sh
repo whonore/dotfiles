@@ -42,7 +42,7 @@ rsync \
     --recursive \
     --archive \
     --partial \
-    --progress \
+    --info=name,progress2,stats2,symsafe,flist2 \
     --human-readable \
     --link-dest="$LATEST" \
     --filter='dir-merge,- .gitignore' \
