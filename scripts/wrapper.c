@@ -1,3 +1,5 @@
+#define _XOPEN_SOURCE 500
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
@@ -10,7 +12,7 @@ extern const char _binary_prog_end[];
 
 static char TMP[] = ".wrapper_XXXXXX";
 
-int main(int argc, char *argv[]) {
+int main(int argc, const char *argv[]) {
     const ssize_t prog_size = (void *) &_binary_prog_end - (void *) &_binary_prog_start;
 
     int tmp = mkstemp(TMP);
@@ -21,7 +23,7 @@ int main(int argc, char *argv[]) {
     pid_t python = fork();
     assert_or(python != -1, "fork");
     if (python == 0) {
-        char **pyargs = malloc(sizeof(char *) * (argc + 2));
+        const char **pyargs = malloc(sizeof(char *) * (argc + 2));
         pyargs[0] = argv[0];
         pyargs[1] = TMP;
         pyargs[argc + 1] = NULL;
