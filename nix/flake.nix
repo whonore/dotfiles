@@ -10,8 +10,8 @@
     alejandra.url = "github:kamadorueda/alejandra";
     coq-ctags.url = "path:./coq.ctags";
     coq-ctags.inputs.nixpkgs.follows = "nixpkgs";
-    ctags.inputs.nixpkgs.follows = "nixpkgs";
-    ctags.url = "path:./ctags";
+    universal-ctags.inputs.nixpkgs.follows = "nixpkgs";
+    universal-ctags.url = "path:./universal-ctags";
     pash.inputs.nixpkgs.follows = "nixpkgs";
     pash.url = "path:./pash";
     peridot.inputs.nixpkgs.follows = "nixpkgs";
@@ -24,9 +24,9 @@
     home-manager,
     alejandra,
     coq-ctags,
-    ctags,
     pash,
     peridot,
+    universal-ctags,
   }: let
     configs = [
       {
@@ -38,9 +38,9 @@
     overlay = system: self: super: {
       alejandra = alejandra.defaultPackage.${system};
       coq-ctags = coq-ctags.packages.${system}.default;
-      ctags = ctags.packages.${system}.default;
       pash = pash.packages.${system}.default;
       peridot = peridot.packages.${system}.default;
+      universal-ctags = universal-ctags.packages.${system}.default;
       vim = import ./vim {pkgs = super;};
     };
   in {
@@ -53,9 +53,8 @@
         home-manager.lib.homeManagerConfiguration {
           configuration.imports = [./home.nix];
 
-          inherit system;
+          inherit system username;
           homeDirectory = "/home/${username}";
-          inherit username;
           stateVersion = "22.05";
 
           pkgs = import nixpkgs {

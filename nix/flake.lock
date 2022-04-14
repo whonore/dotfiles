@@ -37,22 +37,6 @@
         "type": "path"
       }
     },
-    "ctags": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "narHash": "sha256-I694JOKzfXBqsflseGBKiibHaai7hz+pB2n6mgA1ZlE=",
-        "path": "./ctags",
-        "type": "path"
-      },
-      "original": {
-        "path": "./ctags",
-        "type": "path"
-      }
-    },
     "flakeCompat": {
       "flake": false,
       "locked": {
@@ -144,11 +128,27 @@
       "inputs": {
         "alejandra": "alejandra",
         "coq-ctags": "coq-ctags",
-        "ctags": "ctags",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "pash": "pash",
-        "peridot": "peridot"
+        "peridot": "peridot",
+        "universal-ctags": "universal-ctags"
+      }
+    },
+    "universal-ctags": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-I694JOKzfXBqsflseGBKiibHaai7hz+pB2n6mgA1ZlE=",
+        "path": "./universal-ctags",
+        "type": "path"
+      },
+      "original": {
+        "path": "./universal-ctags",
+        "type": "path"
       }
     }
   },

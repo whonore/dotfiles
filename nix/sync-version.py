@@ -9,7 +9,6 @@ PKG_MAP = {
     "coq": "coq_8_15",
     "coq.ctags": "coq-ctags",
     "glibc-locales": "glibcLocales",
-    "universal-ctags": "ctags",
     "vim-py3": "vim",
 }
 PKG_VERSION_RE = re.compile(r"(?P<pkg>[\w.-]+?)-(?P<ver>\d[\w.-]+)")

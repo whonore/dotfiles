@@ -44,7 +44,7 @@ with pkgs; [
   pash                 # 0.7
   ## vim
   coq-ctags            # 0.0
-  ctags                # 5.9.20220220.0
+  universal-ctags      # 5.9.20220220.0
   vim                  # 8.2.4700
   ## xmonad
   dmenu                # 5.1
