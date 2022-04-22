@@ -1,12 +1,12 @@
 pkgs:
 with pkgs; [
   ## app
-  drawio               # 17.2.4
+  drawio               # 17.4.2
   ## cli
   bat                  # 0.20.0
   clang-tools          # 13.0.1
   delta                # 0.12.1
-  exa                  # 0.10.1-man
+  exa                  # 0.10.1
   fd                   # 8.3.2
   fzf                  # 0.30.0-man
   ripgrep              # 13.0.0
@@ -19,7 +19,7 @@ with pkgs; [
   ## fmt
   alejandra            # 1.2.0
   bibclean             # 3.06
-  cppcheck             # 2.7.4-man
+  cppcheck             # 2.7.4
   nixfmt               # 0.5.0
   shellcheck           # 0.8.0-doc
   shfmt                # 3.4.3
@@ -27,7 +27,7 @@ with pkgs; [
   fira-code            # 6.2
   ## misc
   bitwise              # 0.43
-  openconnect          # 8.10
+  openconnect          # 8.20
   peridot              # 0.1.1
   ## nix
   cachix               # 0.7.0
@@ -37,7 +37,7 @@ with pkgs; [
   asciidoc             # 9.1.0
   lastpass-cli         # 1.3.3
   ## rust
-  rust-analyzer        # 2022-03-07
+  rust-analyzer        # 2022-04-11
   rustup               # 1.24.3
   ## shell
   fish                 # 3.4.1
