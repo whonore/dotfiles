@@ -9,7 +9,7 @@ cd "$TOP"
 
 OLD=$(home-manager generations | head -n1 | cut -d' ' -f7)
 
-if ! nix build --no-link "$HM"; then
+if ! nix build --print-build-logs --verbose --no-link "$HM"; then
     echo "Failed to update home-manager packages"
     exit 1
 fi
