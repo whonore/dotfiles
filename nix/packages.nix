@@ -1,28 +1,28 @@
 pkgs:
 with pkgs; [
   ## app
-  drawio               # 17.4.2
+  drawio               # 18.0.1
   ## cli
-  bat                  # 0.20.0
+  bat                  # 0.21.0
   clang-tools          # 13.0.1
   delta                # 0.12.1
-  exa                  # 0.10.1
+  exa                  # 0.10.1-man
   fd                   # 8.3.2
   fzf                  # 0.30.0-man
   ripgrep              # 13.0.0
   rlwrap               # 0.45.2
   rm-improved          # 0.13.0
   xclip                # 0.13
-  zoxide               # 0.8.0
+  zoxide               # 0.8.1
   ## coq
   coq_8_15             # 8.15.1
   ## fmt
   alejandra            # 1.2.0
   bibclean             # 3.06
-  cppcheck             # 2.7.4
+  cppcheck             # 2.7.5-man
   nixfmt               # 0.5.0
-  shellcheck           # 0.8.0-doc
-  shfmt                # 3.4.3
+  shellcheck           # 0.8.0-man
+  shfmt                # 3.5.0
   ## fonts
   fira-code            # 6.2
   ## misc
@@ -37,7 +37,7 @@ with pkgs; [
   asciidoc             # 9.1.0
   lastpass-cli         # 1.3.3
   ## rust
-  rust-analyzer        # 2022-04-11
+  rust-analyzer        # 2022-05-02
   rustup               # 1.24.3
   ## shell
   fish                 # 3.4.1
