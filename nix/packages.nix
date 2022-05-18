@@ -1,12 +1,12 @@
 pkgs:
 with pkgs; [
   ## app
-  drawio               # 18.0.1
+  drawio               # 18.0.6
   ## cli
   bat                  # 0.21.0
   clang-tools          # 13.0.1
-  delta                # 0.12.1
-  exa                  # 0.10.1-man
+  delta                # 0.13.0
+  exa                  # 0.10.1
   fd                   # 8.3.2
   fzf                  # 0.30.0-man
   ripgrep              # 13.0.0
@@ -17,11 +17,11 @@ with pkgs; [
   ## coq
   coq_8_15             # 8.15.1
   ## fmt
-  alejandra            # 1.2.0
+  alejandra            # 1.3.0
   bibclean             # 3.06
   cppcheck             # 2.7.5-man
   nixfmt               # 0.5.0
-  shellcheck           # 0.8.0-man
+  shellcheck           # 0.8.0-doc
   shfmt                # 3.5.0
   ## fonts
   fira-code            # 6.2
@@ -32,7 +32,7 @@ with pkgs; [
   ## nix
   cachix               # 0.7.0
   # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
-  glibcLocales         # 2.34-115
+  glibcLocales         # 2.34-210
   ## qutebrowser
   asciidoc             # 9.1.0
   lastpass-cli         # 1.3.3
