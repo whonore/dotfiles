@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 TMPLS := $(wildcard */*.tmpl) $(wildcard */.*.tmpl)
 SUBST := $(basename $(TMPLS))
 
@@ -6,7 +8,7 @@ SUBST := $(basename $(TMPLS))
 all: $(SUBST)
 
 %: %.tmpl
-	envsubst <$< >$@
+	source $(dir $@)/env.sh 2>/dev/null; envsubst <$< >$@
 
 clean:
 	rm -rf $(SUBST)
