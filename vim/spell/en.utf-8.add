@@ -34,3 +34,6 @@ subtree
 blockchains
 linearizing
 pipelining
+linearize
+nondecreasing
+unpipelined
