@@ -8,14 +8,14 @@
 
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
     alejandra.url = "github:kamadorueda/alejandra";
-    coq-ctags.url = "path:./coq.ctags";
     coq-ctags.inputs.nixpkgs.follows = "nixpkgs";
-    universal-ctags.inputs.nixpkgs.follows = "nixpkgs";
-    universal-ctags.url = "path:./universal-ctags";
+    coq-ctags.url = "path:./coq.ctags";
     pash.inputs.nixpkgs.follows = "nixpkgs";
     pash.url = "path:./pash";
     peridot.inputs.nixpkgs.follows = "nixpkgs";
     peridot.url = "github:whonore/peridot";
+    universal-ctags.inputs.nixpkgs.follows = "nixpkgs";
+    universal-ctags.url = "path:./universal-ctags";
   };
 
   outputs = {
