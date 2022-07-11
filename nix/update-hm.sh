@@ -3,11 +3,15 @@ set -euo pipefail
 
 TOP=$(CDPATH='' cd -- "$(dirname -- "$(readlink -e -- "$0")")" && pwd -P)
 PROFILE="$USER@$(hostname)"
-HM="path:$TOP#homeConfigurations.$PROFILE.activationPackage"
+HM="path:$TOP#homeConfigurations.\"$PROFILE\".activationPackage"
 
 cd "$TOP"
 
-OLD=$(home-manager generations | head -n1 | cut -d' ' -f7)
+if command -v home-manager; then
+    OLD=$(home-manager generations | head -n1 | cut -d' ' -f7)
+else
+    OLD=''
+fi
 
 if ! nix build --print-build-logs --verbose --no-link "$HM"; then
     echo "Failed to update home-manager packages"
@@ -24,5 +28,7 @@ fi
 NEW=$(home-manager generations | head -n1 | cut -d' ' -f7)
 if [ "$OLD" != "$NEW" ]; then
     ./sync-version.py -q
-    nix store diff-closures "$OLD" "$NEW"
+    if [ -n "$OLD" ]; then
+        nix store diff-closures "$OLD" "$NEW"
+    fi
 fi
