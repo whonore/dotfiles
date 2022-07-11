@@ -2,11 +2,9 @@
 with pkgs;
 
 let
-  # NOTE: pin Python to 3.9 until https://github.com/vim/vim/issues/6183 is
-  # fixed
   python = builtins.getAttr py {
     "2" = python27;
-    "3" = python39;
+    "3" = python3;
   };
   vimSrc = builtins.getAttr vimVer {
     "7.4" = {
@@ -22,8 +20,8 @@ let
       sha256 = "sha256-uQAbLYfq6Fyittic7YzjU17vUYTuhvNHgkvOUi5xNbU=";
     };
     "8.2" = {
-      patch = "4700";
-      sha256 = "sha256-P6CQQdXPcidhZ049FWvBqUPjM1xVg1cvGDA0En/YxRE=";
+      patch = "5172";
+      sha256 = "sha256-ycp9K7IpXBFLE9DV9/iQ+N1H7EMD/tP/KGv2VOXoDvE=";
     };
   };
 in stdenv.mkDerivation rec {
