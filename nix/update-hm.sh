@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-TOP=$(CDPATH='' cd -- "$(dirname -- "$(readlink -e -- "$0")")" && pwd -P)
+TOP=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 PROFILE="$USER@$(hostname)"
 HM="path:$TOP#homeConfigurations.\"$PROFILE\".activationPackage"
 
