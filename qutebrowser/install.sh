@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 
 QUTEBROWSER_ROOT=$HOME/.qutebrowser
 mkdir -p ~/.local/man/man1

@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 
 KITTY_ROOT=$HOME/.local/kitty.app
 mkdir -p ~/.local/bin

@@ -1,7 +1,7 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
-TOP=$(CDPATH='' cd -- "$(dirname -- $(readlink -e -- "$0"))" && pwd -P)
+TOP=$(CDPATH='' cd -- "$(dirname -- "$(readlink -e -- "$0")")" && pwd -P)
 PROFILE="$USER@$(hostname)"
 HM="path:$TOP#homeConfigurations.$PROFILE.activationPackage"
 
@@ -19,10 +19,10 @@ if [ -n "$HMIDX" ]; then
     nix profile remove "$HMIDX"
 fi
 
-"$(nix path-info $HM)"/activate
+"$(nix path-info "$HM")"/activate
 
 NEW=$(home-manager generations | head -n1 | cut -d' ' -f7)
-if [ $OLD != $NEW ]; then
+if [ "$OLD" != "$NEW" ]; then
     ./sync-version.py -q
-    nix store diff-closures $OLD $NEW
+    nix store diff-closures "$OLD" "$NEW"
 fi
