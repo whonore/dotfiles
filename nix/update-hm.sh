@@ -7,7 +7,7 @@ HM="path:$TOP#homeConfigurations.\"$PROFILE\".activationPackage"
 
 cd "$TOP"
 
-if command -v home-manager; then
+if command -v home-manager &>/dev/null; then
     OLD=$(home-manager generations | head -n1 | cut -d" " -f7)
 else
     OLD=""
