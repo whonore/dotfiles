@@ -1,10 +1,11 @@
-{ pkgs ? import <nixpkgs> { }, vimVer ? "8.2", py ? "3", gui ? false }:
+{ pkgs ? import <nixpkgs> { }, vimVer ? "9.0", py ? "3", gui ? false }:
 with pkgs;
 
 let
+  # NOTE: pin Python to 3.9 for Vim < 8.2 (https://github.com/vim/vim/issues/6183)
   python = builtins.getAttr py {
     "2" = python27;
-    "3" = python3;
+    "3" = if pkgs.lib.versionOlder vimVer "8.2" then python39 else python3;
   };
   vimSrc = builtins.getAttr vimVer {
     "7.4" = {
@@ -22,6 +23,10 @@ let
     "8.2" = {
       patch = "5172";
       sha256 = "sha256-ycp9K7IpXBFLE9DV9/iQ+N1H7EMD/tP/KGv2VOXoDvE=";
+    };
+    "9.0" = {
+      patch = "0048";
+      sha256 = "sha256-3QG5yClSg5j17anxfWymyPOIy/89FMQp1ycLN7My7Zs=";
     };
   };
 in stdenv.mkDerivation rec {
