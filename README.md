@@ -1,6 +1,16 @@
+## [Homebrew](https://brew.sh)
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
 ## Build Tools
 ```sh
+# Linux
 sudo apt install gcc make
+
+# Mac
+brew install gettext # For envsubst
 ```
 
 ## Generate Scripts/Configs
@@ -17,6 +27,7 @@ curl -fL https://sw.kovidgoyal.net/kitty/installer.sh | sh
 ## [Nix](https://nixos.org/download.html) and [Home Manager](https://nix-community.github.io/home-manager/index.html#sec-flakes-standalone)
 ```sh
 curl -fL https://nixos.org/nix/install | sh
+~/.dotfiles/nix/install.sh
 ~/.dotfiles/nix/update-hm.sh
 ```
 
@@ -24,6 +35,11 @@ curl -fL https://nixos.org/nix/install | sh
 ```sh
 fc-cache -fv
 fc-list | rg -i fira
+```
+
+## Symlinks
+```sh
+peridot --link
 ```
 
 ## [Fish](https://fishshell.com/docs/current/index.html#installation)
@@ -36,11 +52,8 @@ curl -fL https://gist.githubusercontent.com/whonore/05abc83f9c741ff60583b5acefd7
 ## Vim
 ```sh
 cachix use whonore-vim
-vim +PlugInstall +Blueper
-```
-
-## Symlinks
-```sh
+vim +PlugInstall
+vim +Blueper
 peridot --link
 ```
 
@@ -54,7 +67,7 @@ sudo ln -s ~/.dotfiles/xmonad/xmonad.desktop /usr/share/xsessions
 sudo apt install zlib1g-dev libbz2-dev libreadline-dev libssl-dev libsqlite3-dev libffi-dev
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-set PY_LATEST (pyenv install --list | awk '/^\s*3\.[0-9]+\.[0-9]+$/ { print $1 }' | tail -n1)
+set PY_LATEST (pyenv install --list | awk '/^[[:space:]]*3\.[0-9]+\.[0-9]+$/ { print $1 }' | tail -n1); echo $PY_LATEST
 pyenv install $PY_LATEST
 pyenv global $PY_LATEST
 pyenv rehash

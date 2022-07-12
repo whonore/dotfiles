@@ -18,12 +18,21 @@ if ! nix build --print-build-logs --verbose --no-link "$HM"; then
     exit 1
 fi
 
-HMIDX=$(nix profile list | grep home-manager-path | cut -d" " -f1)
+HMIDX=$(nix profile list | grep home-manager-path | cut -d" " -f1) || true
 if [ -n "$HMIDX" ]; then
     nix profile remove "$HMIDX"
 fi
 
-"$(nix path-info "$HM")"/activate
+HMPATH=$(nix path-info "$HM" 2>/dev/null)
+if [ ! -d "$HMPATH" ]; then
+    echo "Failed to locate home-manager path: $HMPATH"
+    exit 1
+fi
+
+if ! "$HMPATH"/activate; then
+    echo "Failed to activate $HMPATH"
+    exit 1
+fi
 
 NEW=$(home-manager generations | head -n1 | cut -d" " -f7)
 if [ "$OLD" != "$NEW" ]; then

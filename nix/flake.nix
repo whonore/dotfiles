@@ -34,6 +34,11 @@
         host = "tigran";
         system = "x86_64-linux";
       }
+      {
+        username = "wolf.honore";
+        host = "sufjan";
+        system = "aarch64-darwin";
+      }
     ];
     overlay = system: self: super: {
       alejandra = alejandra.defaultPackage.${system};
@@ -43,6 +48,11 @@
       universal-ctags = universal-ctags.packages.${system}.default;
       vim = import ./vim {pkgs = super;};
     };
+    isDarwin = system: builtins.elem system nixpkgs.lib.platforms.darwin;
+    homePath = system:
+      if isDarwin system
+      then "/Users"
+      else "/home";
   in {
     homeConfigurations = nixpkgs.lib.listToAttrs (map ({
       username,
@@ -54,7 +64,7 @@
           configuration.imports = [./home.nix];
 
           inherit system username;
-          homeDirectory = "/home/${username}";
+          homeDirectory = "${homePath system}/${username}";
           stateVersion = "22.05";
 
           pkgs = import nixpkgs {

@@ -36,6 +36,12 @@ alias nix-where "nix path-info"
 # NOTE: See https://github.com/NixOS/nixpkgs/issues/38991
 set -gx LOCALE_ARCHIVE_2_27 "$HOME/.nix-profile/lib/locale/locale-archive"
 
+## homebrew
+set -g BREW_ROOT /opt/homebrew
+if test -d "$BREW_ROOT"
+    "$BREW_ROOT/bin/brew" shellenv | source
+end
+
 ## opam
 set -g OPAM_ROOT "$HOME/.opam"
 if test -d "$OPAM_ROOT"
@@ -66,12 +72,14 @@ if test -d "$CARGO_ROOT"
 end
 
 ## tlmgr
-set -g TEXLIVE_ROOT (ls -dr1 /usr/local/texlive/20* | head -n1)
-if test -d "$TEXLIVE_ROOT"
-    fish_add_path "$TEXLIVE_ROOT/bin/x86_64-linux"
-    append_unique MANPATH "$TEXLIVE_ROOT/texmf-dist/doc/man"
-    append_unique INFOPATH "$TEXLIVE_ROOT/texmf-dist/doc/info"
-    set -gx TEXMFHOME "$HOME/.local/texlive/$(basename $TEXLIVE_ROOT)"
+if test -d /usr/local/texlive
+    set -g TEXLIVE_ROOT (ls -dr1 /usr/local/texlive/20* | head -n1)
+    if test -d "$TEXLIVE_ROOT"
+        fish_add_path "$TEXLIVE_ROOT/bin/x86_64-linux"
+        append_unique MANPATH "$TEXLIVE_ROOT/texmf-dist/doc/man"
+        append_unique INFOPATH "$TEXLIVE_ROOT/texmf-dist/doc/info"
+        set -gx TEXMFHOME "$HOME/.local/texlive/$(basename $TEXLIVE_ROOT)"
+    end
 end
 
 ## yarn
@@ -85,7 +93,7 @@ end
 set -l theme "$XDG_CONFIG_HOME/bat/themes/Blueper.tmTheme"
 set -l meta "$XDG_CACHE_HOME/bat/metadata.yaml"
 if command -q bat; and test -f $theme
-    if test ! -f $meta; or test (stat -Lc %Y $meta) -lt (stat -Lc %Y $theme)
+    if test ! -f $meta; or test (command ls -dt1 $meta $theme | head -n1) = $theme
         bat cache --build >/dev/null
     end
 end
@@ -120,6 +128,8 @@ set -gx MYPY_CACHE_DIR "$XDG_CACHE_HOME/mypy"
 
 ## rlwrap
 set -gx RLWRAP_HOME "$XDG_STATE_HOME/rlwrap"
+# NOTE: must exist before calling rlwrap
+mkdir -p $RLWRAP_HOME
 
 ## pylint
 set -gx PYLINTHOME "$XDG_STATE_HOME/pylint"
