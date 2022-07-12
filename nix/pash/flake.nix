@@ -110,10 +110,8 @@
         };
       };
   in {
-    packages.aarch64-darwin.default = pash "aarch64-darwin";
     packages.aarch64-linux.default = pash "aarch64-linux";
     packages.i686-linux.default = pash "i686-linux";
-    packages.x86_64-darwin.default = pash "x86_64-darwin";
     packages.x86_64-linux.default = pash "x86_64-linux";
   };
 }
