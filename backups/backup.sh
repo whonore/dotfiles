@@ -45,7 +45,7 @@ rsync \
     --info=name,progress2,stats2,symsafe,flist2 \
     --human-readable \
     --link-dest="$LATEST" \
-    --filter='dir-merge,- .gitignore' \
+    --filter="dir-merge,- .gitignore" \
     "$SRC" "$CURRENT"
 
 ln -sfT "$CURRENT" "$LATEST"
