@@ -40,12 +40,18 @@
         system = "aarch64-darwin";
       }
     ];
-    overlay = system: self: super: {
-      alejandra = alejandra.defaultPackage.${system};
-      coq-ctags = coq-ctags.packages.${system}.default;
-      pash = pash.packages.${system}.default;
-      peridot = peridot.packages.${system}.default;
-      universal-ctags = universal-ctags.packages.${system}.default;
+    overlay = system: self: super: let
+      default = flake:
+        nixpkgs.lib.attrByPath
+        ["packages" system "default"]
+        (nixpkgs.lib.attrByPath ["defaultPackage" system] null flake)
+        flake;
+    in {
+      alejandra = default alejandra;
+      coq-ctags = default coq-ctags;
+      pash = default pash;
+      peridot = default peridot;
+      universal-ctags = default universal-ctags;
       vim = import ./vim {pkgs = super;};
     };
     homePath = system:

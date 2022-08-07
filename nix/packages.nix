@@ -3,12 +3,15 @@
   system,
 }: let
   missing-platforms = {
-    xmonad-with-packages = pkgs.lib.platforms.linux;
+    "${pkgs.xmonad-with-packages.name}" = pkgs.lib.platforms.linux;
   };
-  platforms = pkg:
-    pkgs.lib.attrByPath ["meta" "platforms"] (builtins.getAttr pkg.pname missing-platforms) pkg;
+  platforms = pkg: let
+    good = pkgs.lib.attrByPath ["meta" "platforms"] (builtins.getAttr pkg.name missing-platforms) pkg;
+    bad = pkgs.lib.attrByPath ["meta" "badPlatforms"] [] pkg;
+  in
+    builtins.filter (sys: !(builtins.elem sys bad)) good;
   supportsSys = sys: system.canExecute (pkgs.lib.systems.elaborate sys);
-  supports = pkg: builtins.any supportsSys (platforms pkg);
+  supports = pkg: pkgs.lib.isAttrs pkg && builtins.any supportsSys (platforms pkg);
 in
   with pkgs;
     builtins.filter supports
