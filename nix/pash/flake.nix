@@ -107,6 +107,7 @@
           description = "A system for parallelizing POSIX shell scripts";
           homepage = "https://github.com/binpash/pash";
           license = with licenses; [mit];
+          platforms = platforms.linux;
         };
       };
   in {

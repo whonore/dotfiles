@@ -3,7 +3,7 @@
 import re
 import subprocess
 import sys
-from typing import Dict, Iterable, Tuple
+from typing import Dict, Iterable, List, Tuple
 
 PKG_MAP = {
     "coq": "coq_8_15",
@@ -15,21 +15,23 @@ PKG_VERSION_RE = re.compile(r"(?P<pkg>[\w.-]+?)-(?P<ver>\d[\w.-]+)")
 PKG_FILE = "packages.nix"
 
 
-def read_packages(path: str) -> Dict[str, Dict[str, Tuple[str, str]]]:
+def read_packages(path: str) -> Tuple[List[str], Dict[str, Dict[str, Tuple[str, str]]]]:
+    preamble = []
     pkgs: Dict[str, Dict[str, Tuple[str, str]]] = {}
     hdr = None
     com = []
     with open(path, encoding="utf-8") as f:
         # Skip until list open
         for line in f:
-            if "[" in line:
+            preamble.append(line.rstrip())
+            if line.strip() == "[":
                 break
 
         for line in f:
             if re.match(r"^\s*##", line) is not None:
                 hdr = line.strip().strip("#").strip()
                 pkgs[hdr] = {}
-            elif not line.startswith("]"):
+            elif not line.strip().startswith("]"):
                 assert hdr is not None
                 if re.match(r"^\s*#", line) is not None:
                     com.append(line.strip())
@@ -37,7 +39,7 @@ def read_packages(path: str) -> Dict[str, Dict[str, Tuple[str, str]]]:
                     pkg = line.strip().split()[0]
                     pkgs[hdr][pkg] = ("".join(com), "")
                     com = []
-    return pkgs
+    return preamble, pkgs
 
 
 def split_version(path: str) -> Tuple[str, str]:
@@ -78,10 +80,12 @@ if __name__ == "__main__":
     tests()
     quiet = "-q" in sys.argv
 
-    pkgs = read_packages(PKG_FILE)
+    preamble, pkgs = read_packages(PKG_FILE)
 
     indent = max(len(pkg) for sec in pkgs.values() for pkg in sec)
     assert indent > 0
+
+    lpad = " " * (len(preamble[-1]) - 1)
 
     for pkg, ver in versions():
         pkg = name2attr(pkg)
@@ -93,17 +97,17 @@ if __name__ == "__main__":
             if not quiet:
                 print(f"{pkg} not found in {PKG_FILE}")
 
-    out = ["pkgs:", "with pkgs; ["]
+    out = preamble
     for hdr in sorted(pkgs):
-        out.append(f"  ## {hdr}")
+        out.append(f"{lpad}  ## {hdr}")
         for pkg in sorted(pkgs[hdr]):
             com, ver = pkgs[hdr][pkg]
             assert ver != ""
             ind = indent - len(pkg) + 1
             if com != "":
-                out.append(f"  {com}")
-            out.append(f"  {pkg}{' ' * ind}# {ver}")
-    out.append("]")
+                out.append(f"{lpad}  {com}")
+            out.append(f"{lpad}  {pkg}{' ' * ind}# {ver}")
+    out.append(f"{lpad}]")
 
     with open(PKG_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(out) + "\n")

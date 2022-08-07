@@ -29,7 +29,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-YMTw/ltq1cOhfAdRtHAF/Wh1VPUI8WALxYxNvAZfA4U=",
+        "narHash": "sha256-a7NAtLK8BsAhhC+EnhQ6xUe2QpZ63r8eBJe05V4JkkE=",
         "path": "./coq.ctags",
         "type": "path"
       },
@@ -119,7 +119,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-kLq8h1s6M5EDTY4CesD16uB23vAbaO7Y8rB2ejE68N8=",
+        "narHash": "sha256-64fJohtUiVl9/9Ecr9axLqqXkQgcBwGA7/GIZK9Cp6c=",
         "path": "./pash",
         "type": "path"
       },

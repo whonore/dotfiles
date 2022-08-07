@@ -34,6 +34,7 @@
         meta = with pkgs.lib; {
           description = "Universal Ctags optlib parser for Coq";
           homepage = "https://github.com/tomtomjhj/coq.ctags";
+          platforms = platforms.unix;
         };
       };
   in {

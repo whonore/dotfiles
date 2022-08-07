@@ -1,5 +1,9 @@
-{pkgs, ...}: {
-  home.packages = import ./packages.nix pkgs;
+{
+  pkgs,
+  system,
+  ...
+}: {
+  home.packages = import ./packages.nix {inherit pkgs system;};
   imports = [
     ./modules/universal-ctags.nix
   ];

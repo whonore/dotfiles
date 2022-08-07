@@ -5,7 +5,7 @@ let
   # NOTE: pin Python to 3.9 for Vim < 8.2 (https://github.com/vim/vim/issues/6183)
   python = builtins.getAttr py {
     "2" = python27;
-    "3" = if pkgs.lib.versionOlder vimVer "8.2" then python39 else python3;
+    "3" = if lib.versionOlder vimVer "8.2" then python39 else python3;
   };
   vimSrc = builtins.getAttr vimVer {
     "7.4" = {
@@ -66,4 +66,11 @@ in stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
   hardeningDisable = [ "fortify" ];
+
+  meta = with lib; {
+    description = "The most popular clone of the VI editor";
+    homepage    = "http://www.vim.org";
+    license     = licenses.vim;
+    platforms   = platforms.unix;
+  };
 }

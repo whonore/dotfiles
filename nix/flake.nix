@@ -48,9 +48,8 @@
       universal-ctags = universal-ctags.packages.${system}.default;
       vim = import ./vim {pkgs = super;};
     };
-    isDarwin = system: builtins.elem system nixpkgs.lib.platforms.darwin;
     homePath = system:
-      if isDarwin system
+      if system.isDarwin
       then "/Users"
       else "/home";
   in {
@@ -58,19 +57,23 @@
       username,
       host,
       system,
-    }:
+    }: let
+      systemFull = nixpkgs.lib.systems.elaborate system;
+    in
       nixpkgs.lib.nameValuePair "${username}@${host}" (
         home-manager.lib.homeManagerConfiguration {
           configuration.imports = [./home.nix];
 
           inherit system username;
-          homeDirectory = "${homePath system}/${username}";
+          homeDirectory = "${homePath systemFull}/${username}";
           stateVersion = "22.05";
 
           pkgs = import nixpkgs {
             inherit system;
             overlays = [(overlay system)];
           };
+
+          extraSpecialArgs = {system = systemFull;};
         }
       ))
     configs);
