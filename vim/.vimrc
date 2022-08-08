@@ -56,6 +56,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'lervag/vimtex'
 Plug 'LnL7/vim-nix'
 Plug 'rust-lang/rust.vim'
+Plug 'thesis/vim-solidity'
 Plug 'whonore/Coqtail'
 Plug 'whonore/deepsea.vim'
 " Navigation
