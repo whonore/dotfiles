@@ -36,8 +36,8 @@ def read_packages(path: str) -> Tuple[List[str], Dict[str, Dict[str, Tuple[str, 
                 if re.match(r"^\s*#", line) is not None:
                     com.append(line.strip())
                 else:
-                    pkg = line.strip().split()[0]
-                    pkgs[hdr][pkg] = ("".join(com), "")
+                    (pkg, _, ver) = line.strip().split()
+                    pkgs[hdr][pkg] = ("".join(com), ver)
                     com = []
     return preamble, pkgs
 
