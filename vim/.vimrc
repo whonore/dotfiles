@@ -296,7 +296,7 @@ function! Alejandra(buffer) abort
   \}
 endfunction
 
-call ale#fix#registry#Add('alejandra', 'Alejandra', ['nix'], 'Format nix')
+silent! call ale#fix#registry#Add('alejandra', 'Alejandra', ['nix'], 'Format nix')
 let g:ale_fixers = {
   \ 'nix': ['alejandra']
 \}
