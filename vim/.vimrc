@@ -103,6 +103,11 @@ set autoindent
 set smarttab
 set smartindent
 
+" Formatting Settings
+set formatoptions+=jq
+set formatoptions-=t
+set nojoinspaces
+
 " Misc Settings
 set number
 set showmode
@@ -114,7 +119,6 @@ set showcmd
 set wildmode=longest,list
 set visualbell
 set encoding=utf-8
-set nojoinspaces
 set conceallevel=2
 set nofoldenable
 
