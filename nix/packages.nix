@@ -19,12 +19,12 @@ in
       ## app
       drawio               # 20.2.3
       ## cli
-      bat                  # 0.22.0
+      bat                  # 0.22.1
       clang-tools          # 14.0.6
       delta                # 0.14.0
       exa                  # 0.10.1
       fd                   # 8.4.0
-      fzf                  # 0.33.0
+      fzf                  # 0.34.0
       ripgrep              # 13.0.0
       rlwrap               # 0.45.2
       rm-improved          # 0.13.0
@@ -33,7 +33,7 @@ in
       ## coq
       coq_8_15             # 8.15.2
       ## fmt
-      alejandra            # 3.0.0+20220815.91d4a0b
+      alejandra            # 3.0.0+20221003.ba0b931
       bibclean             # 3.06
       cppcheck             # 2.9
       nixfmt               # 0.5.0
@@ -46,14 +46,14 @@ in
       openconnect          # 9.01
       peridot              # 0.1.1
       ## nix
-      cachix               # 0.8.1
+      cachix               # 1.0.1
       # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
       glibcLocales         # 2.35-163
       ## qutebrowser
       asciidoc             # 10.2.0
       lastpass-cli         # 1.3.3
       ## rust
-      rust-analyzer        # 2022-08-22
+      rust-analyzer        # 2022-10-10
       rustup               # 1.25.1
       ## shell
       fish                 # 3.5.1
