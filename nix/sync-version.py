@@ -3,7 +3,7 @@
 import re
 import subprocess
 import sys
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Iterable
 
 PKG_MAP = {
     "coq": "coq_8_15",
@@ -25,9 +25,9 @@ $
 PKG_FILE = "packages.nix"
 
 
-def read_packages(path: str) -> Tuple[List[str], Dict[str, Dict[str, Tuple[str, str]]]]:
+def read_packages(path: str) -> tuple[list[str], dict[str, dict[str, tuple[str, str]]]]:
     preamble = []
-    pkgs: Dict[str, Dict[str, Tuple[str, str]]] = {}
+    pkgs: dict[str, dict[str, tuple[str, str]]] = {}
     hdr = None
     com = []
     with open(path, encoding="utf-8") as f:
@@ -52,7 +52,7 @@ def read_packages(path: str) -> Tuple[List[str], Dict[str, Dict[str, Tuple[str, 
     return preamble, pkgs
 
 
-def split_version(path: str) -> Optional[Tuple[str, str]]:
+def split_version(path: str) -> tuple[str, str] | None:
     m = PKG_VERSION_RE.match(path)
     if m is None:
         return None
@@ -63,7 +63,7 @@ def name2attr(pkg: str) -> str:
     return PKG_MAP.get(pkg, pkg)
 
 
-def versions() -> Iterable[Tuple[str, str]]:
+def versions() -> Iterable[tuple[str, str]]:
     res = subprocess.run(
         ["home-manager", "packages"],
         stdout=subprocess.PIPE,
