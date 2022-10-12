@@ -22,7 +22,7 @@ in
       bat                  # 0.22.0
       clang-tools          # 14.0.6
       delta                # 0.14.0
-      exa                  # 0.10.1-man
+      exa                  # 0.10.1
       fd                   # 8.4.0
       fzf                  # 0.33.0
       ripgrep              # 13.0.0
@@ -33,11 +33,11 @@ in
       ## coq
       coq_8_15             # 8.15.2
       ## fmt
-      alejandra            # 3.0.0
+      alejandra            # 3.0.0+20220815.91d4a0b
       bibclean             # 3.06
-      cppcheck             # 2.9-man
+      cppcheck             # 2.9
       nixfmt               # 0.5.0
-      shellcheck           # 0.8.0-man
+      shellcheck           # 0.8.0
       shfmt                # 3.5.1
       ## fonts
       fira-code            # 6.2

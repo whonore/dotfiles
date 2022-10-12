@@ -3,7 +3,7 @@
 import re
 import subprocess
 import sys
-from typing import Dict, Iterable, List, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 
 PKG_MAP = {
     "coq": "coq_8_15",
@@ -11,7 +11,17 @@ PKG_MAP = {
     "glibc-locales": "glibcLocales",
     "vim-py3": "vim",
 }
-PKG_VERSION_RE = re.compile(r"(?P<pkg>[\w.-]+?)-(?P<ver>\d[\w.-]+)")
+PKG_VERSION_RE = re.compile(
+    r"""
+^
+(?P<pkg>[\w.-]+?)
+-
+(?P<ver>\d[\w.+-]+?)
+(?:-(?P<ext>[^\W\d][\w.]+))?
+$
+    """,
+    re.VERBOSE,
+)
 PKG_FILE = "packages.nix"
 
 
@@ -42,10 +52,10 @@ def read_packages(path: str) -> Tuple[List[str], Dict[str, Dict[str, Tuple[str, 
     return preamble, pkgs
 
 
-def split_version(path: str) -> Tuple[str, str]:
+def split_version(path: str) -> Optional[Tuple[str, str]]:
     m = PKG_VERSION_RE.match(path)
     if m is None:
-        return ("", "")
+        return None
     return m.group("pkg"), m.group("ver")
 
 
@@ -59,21 +69,21 @@ def versions() -> Iterable[Tuple[str, str]]:
         stdout=subprocess.PIPE,
         check=True,
     )
-    return filter(
-        lambda pkgver: pkgver[0] != "" and pkgver[1] != "",
-        map(split_version, res.stdout.decode("utf-8").splitlines()),
-    )
+    return filter(None, map(split_version, res.stdout.decode("utf-8").splitlines()))
 
 
 def tests() -> None:
-    for name, ver in (
-        ("coq", "8.6.5"),
-        ("xmonad-with-packages", "8.10.7"),
-        ("rust-analyzer", "2022-01-31"),
-        ("vim-py3", "8.2.3457"),
+    for name, ver, ext in (
+        ("coq", "8.6.5", None),
+        ("xmonad-with-packages", "8.10.7", None),
+        ("rust-analyzer", "2022-01-31", "man"),
+        ("vim-py3", "8.2.3457", None),
+        ("shellcheck", "0.8.0", "doc"),
+        ("alejandra", "3.0.0+20220815.91d4a0b", None),
     ):
-        path = f"{name}-{ver}"
-        assert split_version(path) == (name, ver)
+        path = f"{name}-{ver}" if ext is None else f"{name}-{ver}-{ext}"
+        msg = f"\nExpected: ({name}, {ver})\nGot:{split_version(path)}"
+        assert split_version(path) == (name, ver), msg
 
 
 if __name__ == "__main__":
