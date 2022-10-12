@@ -36,7 +36,7 @@
       }
       {
         username = "wolf.honore";
-        host = "WolfsMacBookPro";
+        host = "Wolfs-MBP";
         system = "aarch64-darwin";
       }
     ];
