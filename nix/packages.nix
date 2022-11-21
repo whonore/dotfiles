@@ -58,7 +58,7 @@ in
       ## shell
       fish                 # 3.5.1
       ## vim
-      coq-ctags            # 0.0
+      coq-ctags            # 0.0.0
       universal-ctags      # 5.9.20220814.0
       vim                  # 9.0.0399
       ## xmonad

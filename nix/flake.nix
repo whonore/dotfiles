@@ -8,24 +8,19 @@
     whonore.url = "github:whonore/flakes";
     whonore.inputs.nixpkgs.follows = "nixpkgs";
 
-    alejandra.inputs.nixpkgs.follows = "nixpkgs";
     alejandra.url = "github:kamadorueda/alejandra";
-    coq-ctags.inputs.nixpkgs.follows = "nixpkgs";
-    coq-ctags.url = "path:./coq.ctags";
-    peridot.inputs.nixpkgs.follows = "nixpkgs";
+    alejandra.inputs.nixpkgs.follows = "nixpkgs";
     peridot.url = "github:whonore/peridot";
-    universal-ctags.inputs.nixpkgs.follows = "nixpkgs";
-    universal-ctags.url = "path:./universal-ctags";
+    peridot.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    whonore,
     alejandra,
-    coq-ctags,
     peridot,
-    universal-ctags,
   }: let
     configs = [
       {
@@ -47,9 +42,9 @@
         flake;
     in {
       alejandra = default alejandra;
-      coq-ctags = default coq-ctags;
+      coq-ctags = whonore.packages.${system}.coq-ctags;
       peridot = default peridot;
-      universal-ctags = default universal-ctags;
+      universal-ctags = whonore.packages.${system}.universal-ctags;
       vim = import ./vim {pkgs = super;};
     };
     homePath = system:

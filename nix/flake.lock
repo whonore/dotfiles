@@ -22,23 +22,6 @@
         "type": "github"
       }
     },
-    "coq-ctags": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-a7NAtLK8BsAhhC+EnhQ6xUe2QpZ63r8eBJe05V4JkkE=",
-        "path": "./coq.ctags",
-        "type": "path"
-      },
-      "original": {
-        "path": "./coq.ctags",
-        "type": "path"
-      }
-    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -58,6 +41,21 @@
       "original": {
         "owner": "nix-community",
         "repo": "fenix",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -136,11 +134,10 @@
     "root": {
       "inputs": {
         "alejandra": "alejandra",
-        "coq-ctags": "coq-ctags",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "peridot": "peridot",
-        "universal-ctags": "universal-ctags"
+        "whonore": "whonore"
       }
     },
     "rust-analyzer-src": {
@@ -160,21 +157,25 @@
         "type": "github"
       }
     },
-    "universal-ctags": {
+    "whonore": {
       "inputs": {
+        "flake-utils": "flake-utils",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-ZE4eKIviPGf2dE2ZfZ74lkLMryHY6087kyX3cPbxYEk=",
-        "path": "./universal-ctags",
-        "type": "path"
+        "lastModified": 1669055898,
+        "narHash": "sha256-RwO3DLW+kPJF/EfLQhJHqFwCCGuVGx0OmHBrLYcpqYo=",
+        "owner": "whonore",
+        "repo": "flakes",
+        "rev": "58f62a86662eb86908a0f3344a57bfd7aef490a5",
+        "type": "github"
       },
       "original": {
-        "path": "./universal-ctags",
-        "type": "path"
+        "owner": "whonore",
+        "repo": "flakes",
+        "type": "github"
       }
     }
   },
