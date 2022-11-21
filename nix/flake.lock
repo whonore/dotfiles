@@ -113,23 +113,6 @@
         "type": "github"
       }
     },
-    "pash": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-64fJohtUiVl9/9Ecr9axLqqXkQgcBwGA7/GIZK9Cp6c=",
-        "path": "./pash",
-        "type": "path"
-      },
-      "original": {
-        "path": "./pash",
-        "type": "path"
-      }
-    },
     "peridot": {
       "inputs": {
         "nixpkgs": [
@@ -156,7 +139,6 @@
         "coq-ctags": "coq-ctags",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "pash": "pash",
         "peridot": "peridot",
         "universal-ctags": "universal-ctags"
       }

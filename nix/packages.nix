@@ -57,7 +57,6 @@ in
       rustup               # 1.25.1
       ## shell
       fish                 # 3.5.1
-      pash                 # 0.7
       ## vim
       coq-ctags            # 0.0
       universal-ctags      # 5.9.20220814.0

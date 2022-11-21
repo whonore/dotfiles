@@ -5,13 +5,13 @@
     nixpkgs.url = "github:nixos/nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-22.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    whonore.url = "github:whonore/flakes";
+    whonore.inputs.nixpkgs.follows = "nixpkgs";
 
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
     alejandra.url = "github:kamadorueda/alejandra";
     coq-ctags.inputs.nixpkgs.follows = "nixpkgs";
     coq-ctags.url = "path:./coq.ctags";
-    pash.inputs.nixpkgs.follows = "nixpkgs";
-    pash.url = "path:./pash";
     peridot.inputs.nixpkgs.follows = "nixpkgs";
     peridot.url = "github:whonore/peridot";
     universal-ctags.inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +24,6 @@
     home-manager,
     alejandra,
     coq-ctags,
-    pash,
     peridot,
     universal-ctags,
   }: let
@@ -49,7 +48,6 @@
     in {
       alejandra = default alejandra;
       coq-ctags = default coq-ctags;
-      pash = default pash;
       peridot = default peridot;
       universal-ctags = default universal-ctags;
       vim = import ./vim {pkgs = super;};
