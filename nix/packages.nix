@@ -60,7 +60,7 @@ in
       ## vim
       coq-ctags            # 0.0.0
       universal-ctags      # 5.9.20221106.0
-      vim                  # 9.0.0399
+      vim                  # 9.0.0915
       ## xmonad
       dmenu                # 5.2
       xmobar               # 0.44.2

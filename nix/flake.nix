@@ -45,7 +45,7 @@
       coq-ctags = whonore.packages.${system}.coq-ctags;
       peridot = default peridot;
       universal-ctags = whonore.packages.${system}.universal-ctags;
-      vim = import ./vim {pkgs = super;};
+      vim = whonore.packages.${system}.vim;
     };
     homePath = system:
       if system.isDarwin

@@ -165,11 +165,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1669055898,
-        "narHash": "sha256-RwO3DLW+kPJF/EfLQhJHqFwCCGuVGx0OmHBrLYcpqYo=",
+        "lastModified": 1669059364,
+        "narHash": "sha256-143PikpWDKluPjMhModOKN5DuExqmPAHow/bzA/K5tU=",
         "owner": "whonore",
         "repo": "flakes",
-        "rev": "58f62a86662eb86908a0f3344a57bfd7aef490a5",
+        "rev": "177c9f5799b4c8271af199b60396c16776f9d1aa",
         "type": "github"
       },
       "original": {
