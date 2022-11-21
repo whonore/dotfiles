@@ -1,0 +1,16 @@
+{
+  "flakes": [
+    {
+      "from": {
+        "id": "whonore",
+        "type": "indirect"
+      },
+      "to": {
+        "owner": "whonore",
+        "repo": "flakes",
+        "type": "github"
+      }
+    }
+  ],
+  "version": 2
+}

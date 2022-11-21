@@ -69,6 +69,12 @@ links = [
     [".chktexrc", ".config/chktex/.chktexrc"],
 ]
 
+[nix]
+srcdir = "$HOME/.config/nix"
+links = [
+    ["registry.json"]
+]
+
 [python]
 links = [
     ["flake8", ".config/flake8"],
