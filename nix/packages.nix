@@ -17,7 +17,7 @@ in
     builtins.filter supports
     [
       ## app
-      drawio               # 20.2.3
+      drawio               # 20.3.0
       ## cli
       bat                  # 0.22.1
       clang-tools          # 14.0.6
@@ -63,6 +63,6 @@ in
       vim                  # 9.0.0915
       ## xmonad
       dmenu                # 5.2
-      xmobar               # 0.44.2
+      xmobar               # 0.45
       xmonad-with-packages # 9.0.2
     ]
