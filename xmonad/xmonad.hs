@@ -229,7 +229,7 @@ myEventHook = mempty
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 myLogHook = return ()
 
-xmobarTitleColor = "green"
+xmobarTitleColor = "#00FF5F"
 xmobarCurrentWorkspaceColor = "gold"
 myPP = def {
     ppTitle = xmobarColor xmobarTitleColor "" . shorten 45,

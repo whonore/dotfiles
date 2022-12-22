@@ -1,7 +1,7 @@
 Config {
     font = "Fira Code Semi-Bold 11",
     bgColor = "#000000",
-    fgColor = "#ffffff",
+    fgColor = "#AFFFFF",
     position = Top,
     -- TODO: Figure out how to use a relative path
     iconRoot = "$HOME/.config/xmobar/icons",
@@ -10,18 +10,18 @@ Config {
             "-t", "<fc=#00FFFF>CPUs</fc>: $CPU_USAGE",
             "-L", "30",
             "-H", "60",
-            "-l", "green",
+            "-l", "#00FF5F",
             "-n", "darkorange",
-            "-h", "red",
+            "-h", "#FF0000",
             "-w", "3"
         ] 10,
         Run Memory [
             "-t", "<fc=#00FFFF>Mem</fc>: <usedratio>%",
             "-L", "20",
             "-H", "90",
-            "-l", "green",
+            "-l", "#00FF5F",
             "-n", "darkorange",
-            "-h", "red"
+            "-h", "#FF0000"
         ] 10,
         Run DynNetwork [
             "-t", "<fc=#00FFFF><dev></fc>: <icon=up.xbm/><tx> <icon=down.xbm/><rx>",
@@ -32,18 +32,18 @@ Config {
             "-t", "<core0><icon=degree.xbm/>C <core1><icon=degree.xbm/>C <core2><icon=degree.xbm/>C",
             "-L", "70",
             "-H", "80",
-            "-l", "green",
+            "-l", "#00FF5F",
             "-n", "darkorange",
-            "-h", "red"
+            "-h", "#FF0000"
         ] 50,
         Run Date "%a %b %d %r" "date" 10,
         Run Battery [
             "-t", "<acstatus>",
             "-L", "15",
             "-H", "50",
-            "-l", "red",
+            "-l", "#FF0000",
             "-n", "darkorange",
-            "-h", "green",
+            "-h", "#00FF5F",
             "--",
             "-O", "<left>% <fc=#FFFF00><icon=lightning.xbm/></fc>",
             "-i", "<left>% <timeleft><icon=hourglass.xbm/>",
@@ -59,5 +59,5 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ [%locks%] <fc=#CC00FF><icon=separator.xbm/></fc> %multicpu% <fc=#CC00FF><icon=separator.xbm/></fc> %memory% <fc=#CC00FF><icon=separator.xbm/></fc> %coretemp% <fc=#CC00FF><icon=separator.xbm/></fc> %dynnetwork% <fc=#CC00FF><icon=separator.xbm/></fc> %battery% <fc=#CC00FF><icon=separator.xbm/></fc> %date% <fc=#CC00FF><icon=separator.xbm/></fc> %default:Master%"
+    template = "%StdinReader% }{ [%locks%] <fc=#5F005F><icon=separator.xbm/></fc> %multicpu% <fc=#5F005F><icon=separator.xbm/></fc> %memory% <fc=#5F005F><icon=separator.xbm/></fc> %coretemp% <fc=#5F005F><icon=separator.xbm/></fc> %dynnetwork% <fc=#5F005F><icon=separator.xbm/></fc> %battery% <fc=#5F005F><icon=separator.xbm/></fc> %date% <fc=#5F005F><icon=separator.xbm/></fc> %default:Master%"
 }
