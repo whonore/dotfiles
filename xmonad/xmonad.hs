@@ -232,7 +232,7 @@ myLogHook = return ()
 xmobarTitleColor = "green"
 xmobarCurrentWorkspaceColor = "gold"
 myPP = def {
-    ppTitle = xmobarColor xmobarTitleColor "" . shorten 100,
+    ppTitle = xmobarColor xmobarTitleColor "" . shorten 45,
     ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "",
     ppSep = "  "
 }
