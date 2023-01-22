@@ -17,7 +17,7 @@ in
     builtins.filter supports
     [
       ## app
-      drawio               # 20.3.0
+      drawio               # 20.7.4
       ## cli
       bat                  # 0.22.1
       clang-tools          # 14.0.6
@@ -48,7 +48,7 @@ in
       ## nix
       cachix               # 1.1
       # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
-      glibcLocales         # 2.35-163
+      glibcLocales         # 2.35-224
       ## qutebrowser
       asciidoc             # 10.2.0
       lastpass-cli         # 1.3.3
@@ -64,5 +64,5 @@ in
       ## xmonad
       dmenu                # 5.2
       xmobar               # 0.45
-      xmonad-with-packages # 9.0.2
+      xmonad-with-packages # 9.2.4
     ]
