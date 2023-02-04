@@ -7,6 +7,6 @@ pylint
 vim-vint
 tox
 pytest
-pipenv
+poetry
 proofaday
 grip
