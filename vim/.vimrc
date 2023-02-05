@@ -315,6 +315,8 @@ endif
 let g:coqtail_match_shift = 1
 let g:coqtail_project_names = ['_CoqProject', '_CoqProject.local']
 let g:coqtail_auto_set_proof_diffs = 'on'
+nmap <leader>cL <Plug>CoqOmitToLine
+imap <leader>cL <Plug>CoqOmitToLine
 
 " easy-align
 xmap ga <Plug>(EasyAlign)
