@@ -47,10 +47,12 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'whonore/vim-sentencer'
 Plug 'whonore/vim-trim-ws'
+" IDE
+Plug 'dense-analysis/ale'
+Plug 'prabirshrestha/vim-lsp'
 " Languages
 Plug 'cespare/vim-toml'
 Plug 'dag/vim-fish'
-Plug 'dense-analysis/ale'
 Plug 'fladson/vim-kitty'
 Plug 'leafgarland/typescript-vim'
 Plug 'lervag/vimtex'
@@ -341,6 +343,27 @@ nnoremap <silent> <leader>hh :let b:helpful = !get(b:, 'helpful', 0)<CR>
 " localvimrc
 let g:localvimrc_persistent = 2
 let g:localvimrc_persistence_file = s:vimdir . 'lvimrc'
+
+" lsp
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+  autocmd! *
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
 " matchup
 let g:matchup_surround_enabled = 1
