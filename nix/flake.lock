@@ -9,11 +9,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1677033122,
-        "narHash": "sha256-woPhdK2AvHDWPHD2/Fu3xjJ3TEuHyYyflxAkBKdumfY=",
+        "lastModified": 1679679664,
+        "narHash": "sha256-YSdHsJ73G7TEFzbmpZ2peuMefIa9/vNB2g+xdiyma3U=",
         "owner": "kamadorueda",
         "repo": "alejandra",
-        "rev": "a7005b0c500432549e2aa94fd817f5ff9b529f05",
+        "rev": "d00d03f0b45d2d1d6e0ae2d110c821b497d8fb09",
         "type": "github"
       },
       "original": {
@@ -82,31 +82,31 @@
         ]
       },
       "locked": {
-        "lastModified": 1667907331,
-        "narHash": "sha256-bHkAwkYlBjkupPUFcQjimNS8gxWSWjOTevEuwdnp5m0=",
+        "lastModified": 1682203081,
+        "narHash": "sha256-kRL4ejWDhi0zph/FpebFYhzqlOBrk0Pl3dzGEKSAlEw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6639e3a837fc5deb6f99554072789724997bc8e5",
+        "rev": "32d3e39c491e2f91152c84f8ad8b003420eab0a1",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-22.05",
         "repo": "home-manager",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1678733926,
-        "narHash": "sha256-/4M9Ediy3XK/KavdvozVmRCdYogN3qoXuomdv7AoXbs=",
+        "lastModified": 1682109806,
+        "narHash": "sha256-d9g7RKNShMLboTWwukM+RObDWWpHKaqTYXB48clBWXI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b0f59fe5ffa9c060aa6df4cec0d37588c413d627",
+        "rev": "2362848adf8def2866fabbffc50462e929d7fffb",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -165,11 +165,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1675806043,
-        "narHash": "sha256-bgCptIosU+HJKRbMxMdLJisr0cHGa/hghStQLjPjDho=",
+        "lastModified": 1681478306,
+        "narHash": "sha256-UIlruCSfFcJ1wO2EaRYYodXrI6C6VmkcubGKlb2Q0i0=",
         "owner": "whonore",
         "repo": "flakes",
-        "rev": "fb64350c7c3e8d1d7c785417aa8178229597f21d",
+        "rev": "5b490a8d3bba8b341c95ba3aa3b44566e25b113d",
         "type": "github"
       },
       "original": {
