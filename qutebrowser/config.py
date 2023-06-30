@@ -1679,7 +1679,7 @@ default_bindings = {
     },
 }
 
-lastpass = 'qute-lastpass -d "dmenu -l 50"'
+password = 'qute-bitwarden -d "dmenu -p Bitwarden -l 50" -p "dmenu -p BitwardenPassword -l 0"'
 
 leader = ","
 custom_bindings = {
@@ -1690,9 +1690,9 @@ custom_bindings = {
         "<Ctrl-C>": "mode-leave",
     },
     "insert": {
-        "<Ctrl-L><Ctrl-L>": f"spawn --userscript {lastpass}",
-        "<Ctrl-L><Ctrl-U>": f"spawn --userscript {lastpass} --username-only",
-        "<Ctrl-L><Ctrl-P>": f"spawn --userscript {lastpass} --password-only",
+        "<Ctrl-L><Ctrl-L>": f"spawn --userscript {password}",
+        "<Ctrl-L><Ctrl-U>": f"spawn --userscript {password} --username-only",
+        "<Ctrl-L><Ctrl-P>": f"spawn --userscript {password} --password-only",
     },
 }
 

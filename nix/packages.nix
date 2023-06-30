@@ -51,7 +51,7 @@ in
       glibcLocales         # 2.37-8
       ## qutebrowser
       asciidoc             # 10.2.0
-      lastpass-cli         # 1.3.4
+      bitwarden-cli        # 2023.3.0
       ## rust
       rust-analyzer        # 2023-04-17
       rustup               # 1.25.2
