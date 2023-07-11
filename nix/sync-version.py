@@ -6,7 +6,7 @@ import sys
 from typing import Iterable
 
 PKG_MAP = {
-    "coq": "coq_8_15",
+    "coq": "coq_8_17",
     "coq.ctags": "coq-ctags",
     "glibc-locales": "glibcLocales",
     "vim-py3": "vim",

@@ -8,8 +8,6 @@
     whonore.url = "github:whonore/flakes";
     whonore.inputs.nixpkgs.follows = "nixpkgs";
 
-    alejandra.url = "github:kamadorueda/alejandra";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs";
     peridot.url = "github:whonore/peridot";
     peridot.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -19,7 +17,6 @@
     nixpkgs,
     home-manager,
     whonore,
-    alejandra,
     peridot,
   }: let
     configs = [
@@ -41,7 +38,6 @@
         (nixpkgs.lib.attrByPath ["defaultPackage" system] null flake)
         flake;
     in {
-      alejandra = default alejandra;
       coq-ctags = whonore.packages.${system}.coq-ctags;
       peridot = default peridot;
       universal-ctags = whonore.packages.${system}.universal-ctags;
