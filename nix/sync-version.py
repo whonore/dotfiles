@@ -34,7 +34,7 @@ def read_packages(path: str) -> tuple[list[str], dict[str, dict[str, tuple[str, 
         # Skip until list open
         for line in f:
             preamble.append(line.rstrip())
-            if line.strip() == "[":
+            if line.strip().endswith("["):
                 break
 
         for line in f:
@@ -96,6 +96,7 @@ if __name__ == "__main__":
     assert indent > 0
 
     lpad = " " * (len(preamble[-1]) - 1)
+    lpad = ""
 
     for pkg, ver in versions():
         pkg = name2attr(pkg)

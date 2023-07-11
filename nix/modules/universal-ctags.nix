@@ -1,10 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-with lib; let
+{ config, lib, pkgs, ... }:
+with lib;
+
+let
   cfg = config.programs.universal-ctags;
 
   toPluginCfg = plugins:
@@ -17,7 +14,7 @@ in {
 
       plugins = mkOption {
         type = with types; listOf package;
-        default = [];
+        default = [ ];
       };
 
       extraConfig = mkOption {
@@ -28,8 +25,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [pkgs.universal-ctags] ++ cfg.plugins;
-    xdg.configFile."ctags/config.ctags".text =
-      toPluginCfg cfg.plugins + cfg.extraConfig;
+    home.packages = [ pkgs.universal-ctags ] ++ cfg.plugins;
+    xdg.configFile."ctags/config.ctags".text = toPluginCfg cfg.plugins
+      + cfg.extraConfig;
   };
 }
