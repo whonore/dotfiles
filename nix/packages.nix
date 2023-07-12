@@ -21,13 +21,15 @@ let
   supportsSys = sys: system.canExecute (pkgs.lib.systems.elaborate sys);
   supports = pkg:
     pkgs.lib.isAttrs pkg && builtins.any supportsSys (platforms pkg);
+
+  exa = pkgs.callPackage ./exa {};
 in with pkgs;
 builtins.filter supports [
   ## cli
   bat                  # 0.23.0
   clang-tools          # 14.0.6
   delta                # 0.16.5
-  exa                  # 0.10.1
+  exa                  # 2021-08-12
   fd                   # 8.7.0
   fzf                  # 0.42.0
   ripgrep              # 13.0.0
