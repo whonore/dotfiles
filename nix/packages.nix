@@ -1,10 +1,17 @@
 { pkgs, system, }:
 
 let
-  missing-platforms = {
-    "${pkgs.xmonad-with-packages.name}" = pkgs.lib.platforms.linux;
-    "${pkgs.glibcLocales.name}" = pkgs.lib.platforms.linux;
-  };
+  missing-platforms = let
+    name_or = pkg:
+      pkgs.lib.mapNullable (pkg: pkg.name) (builtins.getAttr pkg pkgs);
+  in builtins.listToAttrs (builtins.map (xs:
+    let
+      pkg = (builtins.elemAt xs 0);
+      plat = builtins.elemAt xs 1;
+    in pkgs.lib.nameValuePair (if pkg != null then pkg else "__null") plat) [
+      [ (name_or "xmonad-with-packages") pkgs.lib.platforms.linux ]
+      [ (name_or "glibcLocales") pkgs.lib.platforms.linux ]
+    ]);
   platforms = pkg:
     let
       good = pkgs.lib.attrByPath [ "meta" "platforms" ]

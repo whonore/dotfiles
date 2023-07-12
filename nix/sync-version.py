@@ -34,7 +34,7 @@ def read_packages(path: str) -> tuple[list[str], dict[str, dict[str, tuple[str, 
         # Skip until list open
         for line in f:
             preamble.append(line.rstrip())
-            if line.strip().endswith("["):
+            if line.strip() == 'builtins.filter supports [':
                 break
 
         for line in f:
