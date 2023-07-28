@@ -37,8 +37,6 @@ builtins.filter supports [
   rm-improved          # 0.13.0
   xclip                # 0.13
   zoxide               # 0.9.1
-  ## coq
-  coq_8_17             # 8.17.1
   ## fmt
   bibclean             # 3.07
   cppcheck             # 2.11
@@ -60,6 +58,9 @@ builtins.filter supports [
   rustup               # 1.26.0
   ## shell
   fish                 # 3.6.1
+  ## verification
+  coq_8_17             # 8.17.1
+  dafny                # 4.2.0
   ## vim
   coq-ctags            # 0.0.0
   universal-ctags      # 6.0.0
