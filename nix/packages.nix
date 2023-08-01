@@ -53,7 +53,7 @@ builtins.filter supports [
   glibcLocales         # 2.37-8
   ## qutebrowser
   asciidoc             # 10.2.0
-  bitwarden-cli        # 2023.5.0
+  bitwarden-cli        # 2023.7.0
   ## rust
   rustup               # 1.26.0
   ## shell
