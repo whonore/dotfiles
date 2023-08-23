@@ -87,7 +87,8 @@ snap install discord spotify firefox chromium
 
 ## [Qutebrowser](https://github.com/qutebrowser/qutebrowser/blob/master/doc/install.asciidoc)
 ```sh
-sudo apt install ca-certificates libglib2.0-0 libgl1 libfontconfig1 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 libxkbcommon-x11-0 libdbus-1-3 libyaml-dev libxml2-utils xsltproc
+sudo apt install --no-install-recommends ca-certificates libgl1 libxkbcommon-x11-0 libegl1-mesa libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 libasound2
+
 git clone https://github.com/qutebrowser/qutebrowser.git ~/.qutebrowser
 ~/.dotfiles/qutebrowser/install.sh
 ```
