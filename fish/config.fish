@@ -109,9 +109,9 @@ if command -q rlwrap
     alias coqtop "rlwrap coqtop"
 end
 
-## exa
-if command -q exa
-    alias ls exa
+## eza
+if command -q eza
+    alias ls eza
 end
 
 ## fzf

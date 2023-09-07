@@ -8,7 +8,6 @@ from typing import Iterable
 PKG_MAP = {
     "coq": "coq_8_17",
     "coq.ctags": "coq-ctags",
-    "exa-unstable": "exa",
     "glibc-locales": "glibcLocales",
     "vim-py3": "vim",
 }

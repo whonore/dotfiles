@@ -21,25 +21,23 @@ let
   supportsSys = sys: system.canExecute (pkgs.lib.systems.elaborate sys);
   supports = pkg:
     pkgs.lib.isAttrs pkg && builtins.any supportsSys (platforms pkg);
-
-  exa = pkgs.callPackage ./exa {};
 in with pkgs;
 builtins.filter supports [
   ## cli
   bat                  # 0.23.0
   clang-tools          # 14.0.6
   delta                # 0.16.5
-  exa                  # 2021-08-12
+  eza                  # 0.11.0
   fd                   # 8.7.0
   fzf                  # 0.42.0
   ripgrep              # 13.0.0
   rlwrap               # 0.46.1
   rm-improved          # 0.13.0
   xclip                # 0.13
-  zoxide               # 0.9.1
+  zoxide               # 0.9.2
   ## fmt
   bibclean             # 3.07
-  cppcheck             # 2.11
+  cppcheck             # 2.11.1
   nixfmt               # 0.5.0
   shellcheck           # 0.9.0
   shfmt                # 3.7.0
@@ -53,7 +51,7 @@ builtins.filter supports [
   glibcLocales         # 2.37-8
   ## qutebrowser
   asciidoc             # 10.2.0
-  bitwarden-cli        # 2023.7.0
+  bitwarden-cli        # 2023.8.2
   ## rust
   rustup               # 1.26.0
   ## shell
