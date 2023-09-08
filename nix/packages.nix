@@ -66,5 +66,5 @@ builtins.filter supports [
   ## xmonad
   dmenu                # 5.2
   xmobar               # 0.46
-  xmonad-with-packages # 9.2.8
+  xmonad-with-packages # 9.4.6
 ]
