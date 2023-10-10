@@ -361,6 +361,8 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <leader>rn <plug>(lsp-rename)
   nmap <buffer> [g <plug>(lsp-previous-diagnostic)
   nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> [e <plug>(lsp-previous-error)
+  nmap <buffer> ]e <plug>(lsp-next-error)
   nmap <buffer> K <plug>(lsp-hover)
 endfunction
 
