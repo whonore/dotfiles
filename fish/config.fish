@@ -114,6 +114,9 @@ if command -q eza
     alias ls eza
 end
 
+## fly
+set -gx FLYCTL_INSTALL "$HOME/.local/fly"
+
 ## fzf
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FZF_DEFAULT_OPTS "--height=40% --reverse --cycle"
