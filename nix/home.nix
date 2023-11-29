@@ -8,6 +8,6 @@
 
   programs.universal-ctags = {
     enable = true;
-    plugins = [ pkgs.coq-ctags ];
+    plugins = [ pkgs.coq-ctags pkgs.solidity-ctags ];
   };
 }

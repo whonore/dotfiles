@@ -10,6 +10,7 @@ PKG_MAP = {
     "coq.ctags": "coq-ctags",
     "Dafny": "dafny",
     "glibc-locales": "glibcLocales",
+    "solidity.ctags": "solidity-ctags",
     "vim-py3": "vim",
 }
 PKG_VERSION_RE = re.compile(

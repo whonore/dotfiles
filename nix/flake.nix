@@ -10,9 +10,11 @@
 
     peridot.url = "github:whonore/peridot";
     peridot.inputs.nixpkgs.follows = "nixpkgs";
+    solidity-ctags.url = "github:whonore/solidity.ctags";
+    solidity-ctags.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, whonore, peridot, }:
+  outputs = { self, nixpkgs, home-manager, whonore, peridot, solidity-ctags }:
     let
       configs = [
         {
@@ -35,6 +37,7 @@
         in {
           coq-ctags = whonore.packages.${system}.coq-ctags;
           peridot = default peridot;
+          solidity-ctags = default solidity-ctags;
           universal-ctags = whonore.packages.${system}.universal-ctags;
           vim = whonore.packages.${system}.vim;
         };
