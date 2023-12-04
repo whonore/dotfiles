@@ -61,7 +61,7 @@ builtins.filter supports [
   dafny                # 4.3.0
   ## vim
   coq-ctags            # 0.0.0
-  solidity-ctags       # 0.0.1
+  solidity-ctags       # 0.0.2
   universal-ctags      # 6.0.0
   vim                  # 9.0.1291
   ## xmonad

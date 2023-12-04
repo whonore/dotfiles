@@ -106,11 +106,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701210906,
-        "narHash": "sha256-AFQyYM0TEU6tax66FCw3uNzbZOstVXQrBbvXGUcCGls=",
+        "lastModified": 1701727442,
+        "narHash": "sha256-lrl4P/gwLEiQq6PSK+m5OAJzrov6zcU+eWw2ZBs+cZM=",
         "owner": "whonore",
         "repo": "solidity.ctags",
-        "rev": "380787e96e843dbd5a514c19ce0589955bfb7128",
+        "rev": "1bf47b50c89c79e3ac392e31445233bf3960506c",
         "type": "github"
       },
       "original": {
