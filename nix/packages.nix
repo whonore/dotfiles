@@ -27,10 +27,10 @@ builtins.filter supports [
   bat                  # 0.24.0
   clang-tools          # 14.0.6
   delta                # 0.16.5
-  eza                  # 0.15.0
+  eza                  # 0.17.0
   fd                   # 8.7.1
-  fzf                  # 0.43.0
-  ripgrep              # 13.0.0
+  fzf                  # 0.44.1
+  ripgrep              # 14.0.3
   rlwrap               # 0.46.1
   rm-improved          # 0.13.0
   xclip                # 0.13
@@ -38,7 +38,7 @@ builtins.filter supports [
   ## fmt
   bibclean             # 3.07
   cppcheck             # 2.12.1
-  nixfmt               # 0.5.0
+  nixfmt               # 0.6.0
   shellcheck           # 0.9.0
   shfmt                # 3.7.0
   ## fonts
@@ -48,14 +48,14 @@ builtins.filter supports [
   ## nix
   cachix               # 1.6.1
   # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
-  glibcLocales         # 2.38-23
+  glibcLocales         # 2.38-27
   ## qutebrowser
   asciidoc             # 10.2.0
-  bitwarden-cli        # 2023.9.1
+  bitwarden-cli        # 2023.12.0
   ## rust
   rustup               # 1.26.0
   ## shell
-  fish                 # 3.6.1
+  fish                 # 3.6.4
   ## verification
   coq_8_17             # 8.17.1
   dafny                # 4.3.0
@@ -66,6 +66,6 @@ builtins.filter supports [
   vim                  # 9.0.1291
   ## xmonad
   dmenu                # 5.2
-  xmobar               # 0.47.1
-  xmonad-with-packages # 9.4.7
+  xmobar               # 0.47.2
+  xmonad-with-packages # 9.4.8
 ]

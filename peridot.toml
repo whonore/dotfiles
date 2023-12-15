@@ -44,7 +44,7 @@ links = [
 
 [home-manager]
 dstdir = "nix"
-srcdir = "$HOME/.config/nixpkgs"
+srcdir = "$HOME/.config/home-manager"
 links = [
     ["flake.nix"],
     ["home.nix"],
