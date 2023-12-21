@@ -25,10 +25,10 @@ in with pkgs;
 builtins.filter supports [
   ## cli
   bat                  # 0.24.0
-  clang-tools          # 14.0.6
+  clang-tools          # 16.0.6
   delta                # 0.16.5
   eza                  # 0.17.0
-  fd                   # 8.7.1
+  fd                   # 9.0.0
   fzf                  # 0.44.1
   ripgrep              # 14.0.3
   rlwrap               # 0.46.1
@@ -58,7 +58,7 @@ builtins.filter supports [
   fish                 # 3.6.4
   ## verification
   coq_8_17             # 8.17.1
-  dafny                # 4.3.0
+  dafny                # 4.4.0
   ## vim
   coq-ctags            # 0.0.0
   solidity-ctags       # 0.0.2
