@@ -25,21 +25,21 @@ in with pkgs;
 builtins.filter supports [
   ## cli
   bat                  # 0.24.0
-  clang-tools          # 16.0.6
+  clang-tools          # 17.0.6
   delta                # 0.17.0
-  eza                  # 0.18.7
+  eza                  # 0.18.10
   fd                   # 9.0.0
-  fzf                  # 0.47.0
+  fzf                  # 0.50.0
   ripgrep              # 14.1.0
   rlwrap               # 0.46.1
-  rm-improved          # 0.13.0
+  rm-improved          # 0.13.1
   xclip                # 0.13
   zoxide               # 0.9.4
   ## fmt
   bibclean             # 3.07
   cppcheck             # 2.13.4
   nixfmt               # 0.6.0
-  shellcheck           # 0.9.0
+  shellcheck           # 0.10.0
   shfmt                # 3.8.0
   ## fonts
   fira-code            # 6.2
@@ -48,24 +48,24 @@ builtins.filter supports [
   ## nix
   cachix               # 1.7
   # NOTE: see https://github.com/NixOS/nixpkgs/issues/38991
-  glibcLocales         # 2.38-27
+  glibcLocales         # 2.39-5
   ## qutebrowser
   asciidoc             # 10.2.0
-  bitwarden-cli        # 2024.2.1
+  bitwarden-cli        # 2024.3.1
   ## rust
   rustup               # 1.26.0
   ## shell
-  fish                 # 3.7.0
+  fish                 # 3.7.1
   ## verification
   coq_8_17             # 8.17.1
-  dafny                # 4.5.0
+  dafny                # 4.6.0
   ## vim
   coq-ctags            # 0.0.0
   solidity-ctags       # 0.0.2
   universal-ctags      # 6.1.0
-  vim                  # 9.0.2190
+  vim                  # 9.1.0346
   ## xmonad
-  dmenu                # 5.2
-  xmobar               # 0.47.2
-  xmonad-with-packages # 9.4.8
+  dmenu                # 5.3
+  xmobar               # 0.47.4
+  xmonad-with-packages # 9.6.4
 ]

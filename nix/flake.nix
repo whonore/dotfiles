@@ -39,7 +39,8 @@
           peridot = default peridot;
           solidity-ctags = default solidity-ctags;
           universal-ctags = whonore.packages.${system}.universal-ctags;
-          vim = whonore.packages.${system}.vim;
+          vim = nixpkgs.legacyPackages.${system}.vim
+            // whonore.packages.${system}.vim;
         };
       homePath = system: if system.isDarwin then "/Users" else "/home";
     in {
