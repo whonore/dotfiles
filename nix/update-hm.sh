@@ -13,7 +13,8 @@ else
     OLD=""
 fi
 
-if ! nix build --print-build-logs --verbose --no-link "$HM"; then
+export NIXPKGS_ALLOW_INSECURE=1
+if ! nix build --impure --print-build-logs --verbose --no-link "$HM"; then
     echo "Failed to update home-manager packages"
     exit 1
 fi
@@ -23,7 +24,7 @@ if [ -n "$HMIDX" ]; then
     nix profile remove "$HMIDX"
 fi
 
-HMPATH=$(nix path-info "$HM" 2>/dev/null)
+HMPATH=$(nix path-info --impure "$HM" 2>/dev/null)
 if [ ! -d "$HMPATH" ]; then
     echo "Failed to locate home-manager path: $HMPATH"
     exit 1
