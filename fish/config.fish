@@ -36,6 +36,19 @@ alias nix-where "nix path-info"
 # NOTE: See https://github.com/NixOS/nixpkgs/issues/38991
 set -gx LOCALE_ARCHIVE_2_27 "$HOME/.nix-profile/lib/locale/locale-archive"
 
+## dotnet
+set -gx DOTNET_ROOT "$HOME/.dotnet"
+if test -d "$DOTNET_ROOT"
+    fish_add_path "$DOTNET_ROOT"
+    fish_add_path "$DOTNET_ROOT/tools"
+end
+
+## elan
+set -gx ELAN_ROOT "$HOME/.elan"
+if test -d "$ELAN_ROOT"
+    fish_add_path "$ELAN_ROOT/bin"
+end
+
 ## homebrew
 set -g BREW_ROOT /opt/homebrew
 if test -d "$BREW_ROOT"
