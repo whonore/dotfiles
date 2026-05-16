@@ -9,4 +9,4 @@ cores = 0
 max-jobs = auto
 EOF
 
-nix profile install nix
+nix profile add nix
