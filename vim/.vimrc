@@ -50,6 +50,7 @@ Plug 'whonore/vim-trim-ws'
 " IDE
 Plug 'dense-analysis/ale'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 " Languages
 Plug 'cespare/vim-toml'
 Plug 'dag/vim-fish'
@@ -57,6 +58,7 @@ Plug 'fladson/vim-kitty'
 Plug 'leafgarland/typescript-vim'
 Plug 'lervag/vimtex'
 Plug 'LnL7/vim-nix'
+Plug 'max-lv/picat.vim'
 Plug 'mlr-msft/vim-loves-dafny'
 Plug 'rust-lang/rust.vim'
 Plug 'thesis/vim-solidity'
@@ -300,6 +302,10 @@ let g:ale_linters_ignore = {
   \ 'tex': ['lacheck']
 \}
 
+let g:ale_haskell_ormolu_options = '--stdin-input-file .'
+
+let g:ale_python_auto_poetry = 1
+
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
 if fnamemodify(&shell, ':p:t') ==# 'fish'
@@ -364,6 +370,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> [e <plug>(lsp-previous-error)
   nmap <buffer> ]e <plug>(lsp-next-error)
   nmap <buffer> K <plug>(lsp-hover)
+  nmap <buffer> gA <plug>(lsp-code-action-float)
 endfunction
 
 augroup lsp_install
