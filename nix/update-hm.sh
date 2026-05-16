@@ -18,11 +18,6 @@ if ! nix build --print-build-logs --verbose --no-link "$HM"; then
     exit 1
 fi
 
-HMIDX=$(nix profile list | grep home-manager-path | cut -d" " -f1) || true
-if [ -n "$HMIDX" ]; then
-    nix profile remove "$HMIDX"
-fi
-
 HMPATH=$(nix path-info "$HM" 2>/dev/null)
 if [ ! -d "$HMPATH" ]; then
     echo "Failed to locate home-manager path: $HMPATH"
